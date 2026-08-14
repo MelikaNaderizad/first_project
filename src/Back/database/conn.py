@@ -19,7 +19,14 @@ CONNECTION_STRING =(
     f'?driver={DRIVER_URL_ENCODED}&TrustServerCertificate=yes'
 )
 
-engine = create_engine(CONNECTION_STRING)
+engine = create_engine(CONNECTION_STRING, use_insertmanyvalues=False)
+
+
+# it would'nt guess the type itself
+@event.listens_for(engine, "before_cursor_execute") 
+def _fix_unicode_batch_insert(conn, cursor, statement, params, context, executemany):
+    if executemany:
+        cursor.setinputsizes([])
 
 SessionLocal = sessionmaker(bind=engine)
 
@@ -31,7 +38,7 @@ def get_session():
         # it is a generator
         yield db 
     finally:
-        db.cose()
+        db.close()
     
  
  
@@ -51,8 +58,4 @@ if __name__ == "__main__":
             print(f"error : {e}")
 
 
-@event.listens_for(engine, "connect")
-def set_encoding(dbapi_connection, connection_record):
-    dbapi_connection.setdecoding(pyodbc.SQL_CHAR, encoding='utf-8')
-    dbapi_connection.setdecoding(pyodbc.SQL_WCHAR, encoding='utf-8')
-    dbapi_connection.setencoding(encoding='utf-8')
+
