@@ -1,7 +1,6 @@
 from pathlib import Path
 
 CURRENT_FILE = Path(__file__).resolve()
-print(CURRENT_FILE)
 
 PROJECT_ROOT = CURRENT_FILE.parent.parent.parent 
 

@@ -1,6 +1,7 @@
+# src/Back/database/conn.py
 from sqlalchemy import create_engine, text, event
 from sqlalchemy.orm import sessionmaker, declarative_base
-import os 
+import os
 from dotenv import load_dotenv
 import pyodbc
 
@@ -14,48 +15,44 @@ DRIVER = os.getenv("DB_DRIVER")
 
 DRIVER_URL_ENCODED = DRIVER.replace(" ", "+") if DRIVER else ""
 
-CONNECTION_STRING =(
+CONNECTION_STRING = (
     f'mssql+pyodbc://{USERNAME}:{PASSWORD}@{SERVER}/{DATABASE}'
     f'?driver={DRIVER_URL_ENCODED}&TrustServerCertificate=yes'
 )
 
-engine = create_engine(CONNECTION_STRING, use_insertmanyvalues=False)
+engine = create_engine(
+    CONNECTION_STRING,
+    use_insertmanyvalues=False,   # خاموش کردن insertmanyvalues تا fast_executemany جاش رو بگیره
+    fast_executemany=True,        # فعال‌سازی batch واقعی pyodbc
+)
 
-
-# it would'nt guess the type itself
-@event.listens_for(engine, "before_cursor_execute") 
+@event.listens_for(engine, "before_cursor_execute")
 def _fix_unicode_batch_insert(conn, cursor, statement, params, context, executemany):
     if executemany:
+        cursor.fast_executemany = True  # تضمینی، مستقل از اینکه create_engine چطور رفتار کرده
+        print(">>> executemany batch | cursor.fast_executemany =", cursor.fast_executemany)
         cursor.setinputsizes([])
 
 SessionLocal = sessionmaker(bind=engine)
-
-Base = declarative_base() #python knows this would be a table in sql
+Base = declarative_base()
 
 def get_session():
     db = SessionLocal()
     try:
-        # it is a generator
-        yield db 
+        yield db
     finally:
         db.close()
-    
- 
- 
+
+
 if __name__ == "__main__":
-    # making sure variables are valid
     if not all([SERVER, DATABASE, USERNAME, PASSWORD, DRIVER]):
         print("one of the arguments is null")
     else:
         try:
             with engine.connect() as connection:
                 connection.execute(text("SELECT 1"))
- 
             print("connected succesfully")
- 
+            print("fast_executemany:", engine.dialect.fast_executemany)
         except Exception as e:
             print("No connection")
             print(f"error : {e}")
-
-
-
