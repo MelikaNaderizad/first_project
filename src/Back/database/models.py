@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, Float, Boolean, NVARCHAR
+from sqlalchemy import Column, Integer, Float, Boolean, NVARCHAR, BigInteger
 from database.conn import Base
 class Comments(Base):
     __tablename__ = "comments"
@@ -27,7 +27,7 @@ class Products(Base):
     category1 = Column(NVARCHAR)
     category2 = Column(NVARCHAR)
     brand = Column(NVARCHAR)
-    price = Column(Integer)
+    price = Column(BigInteger)
     seller = Column(NVARCHAR)
     is_fake = Column(Boolean)
     min_price_last_month = Column(Integer)

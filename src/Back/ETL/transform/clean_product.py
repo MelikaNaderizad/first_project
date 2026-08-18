@@ -1,20 +1,23 @@
 import pandas as pd
 
-def transform_product (chunk: pd.DataFrame) -> pd.DataFrame:
+NUMERIC_COLUMNS = ["rate", "rate_cnt", "price", "min_price_last_month"]
+TEXT_DEFAULTS = {
+    "category1": "",
+    "category2": "",
+    "brand": "",
+    "seller": "",
+    "sub_category": "",
+}
 
-    chunk = chunk.dropna(subset=["id", "title_fa"])
-    chunk = chunk.drop_duplicates(subset="id")
 
-    for col in ["rate", "rate_cnt", "price", "min_price_last_month"]:
+def transform_product(chunk: pd.DataFrame) -> pd.DataFrame:
+    chunk = chunk.dropna(subset=["id", "title_fa", "price"])
+
+    for col in NUMERIC_COLUMNS:
         chunk[col] = pd.to_numeric(chunk[col], errors="coerce")
-        chunk[col] = chunk[col].astype(object).where(chunk[col].notna(), None)
 
-    chunk = chunk.fillna({
-        "category1": "",
-        "category2": "",
-        "brand": "",
-        "seller": "",
-        "sub_category": "",
-    })
-    
+    chunk["is_fake"] = chunk["is_fake"].astype("boolean")
+
+    chunk = chunk.fillna(TEXT_DEFAULTS)
+
     return chunk

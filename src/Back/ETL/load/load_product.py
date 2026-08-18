@@ -1,26 +1,155 @@
 import sys
+import time
+import logging
 from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 
 import pandas as pd
+from sqlalchemy import insert
+from sqlalchemy.exc import SQLAlchemyError
+
 from database.models import Products
-from database.conn import SessionLocal
-from sqlalchemy.exc import IntegrityError
+from database.conn import engine
 
-def load_products(df: pd.DataFrame):
-    records = df.to_dict("records")
-    session = SessionLocal()
+logger = logging.getLogger(__name__)
 
+
+def _clean_value(v):
+    # pd.isna هم NaN هم None هم pd.NA/<NA> رو می‌گیره (برخلاف
+    # isinstance(v, float) and math.isnan(v) که فقط NaN خالص رو می‌دید).
+    if pd.isna(v):
+        return None
+    return v
+
+
+def _clean_record(record: dict) -> dict:
+    return {k: _clean_value(v) for k, v in record.items()}
+
+
+def _null_count(record: dict) -> int:
+    return sum(1 for v in record.values() if v is None or v == "")
+
+
+def build_seen_from_db(session) -> dict:
+    seen = {}
+    cols = [
+        Products.id, Products.title_fa, Products.rate, Products.rate_cnt,
+        Products.category1, Products.category2, Products.brand, Products.price,
+        Products.seller, Products.is_fake, Products.min_price_last_month,
+        Products.sub_category,
+    ]
+    col_names = [c.key for c in cols]
+    for row in session.query(*cols).yield_per(5000):
+        record = dict(zip(col_names, row))
+        null_count = _null_count(record)
+        seen[record["id"]] = (null_count, "committed", None)
+    return seen
+
+
+def _insert_batch(records):
+    """
+    درج با یک کانکشن مستقل از engine (نه session اصلی). نکته‌ی مهم:
+    اگه SQL Server خودش تراکنش رو abort کرده باشه، اون کانکشن فیزیکی
+    برای همیشه خرابه -- نه فقط برای همون query. اگه فقط close() کنیم،
+    connection pool همون کانکشن خراب رو دوباره recycle و به عملیات
+    بعدی می‌ده و باعث می‌شه حتی رکوردهای کاملاً سالم هم fail بشن
+    (دقیقاً همون چیزی که توی لاگ می‌بینیم: ده‌ها id مختلف پشت سر هم
+    با یک خطای یکسان رد می‌شن). به همین خاطر با conn.invalidate()
+    صراحتاً کانکشن رو از pool حذف می‌کنیم تا دفعه‌ی بعد یک کانکشن
+    فیزیکی کاملاً تازه از SQL Server گرفته بشه.
+    """
+    conn = engine.connect()
     try:
-        session.bulk_insert_mappings(Products, records)
-        session.commit()
-    except IntegrityError:
-        session.rollback()
-        for record in records:
-            try:
-                session.bulk_insert_mappings(Products, [record])
-                session.commit()
-            except IntegrityError:
-                session.rollback()                  
+        with conn.begin():
+            conn.execute(insert(Products), records)
+    except SQLAlchemyError:
+        conn.invalidate()
+        raise
     finally:
-            session.close()    
+        conn.close()
+
+
+def _safe_bulk_insert(records, batch_size=500):
+    """
+    به‌جای یک executemany روی کل to_insert (که می‌تونه چند هزار ردیف
+    باشه)، به batchهای ۵۰۰تایی می‌شکنیم تا احتمال باگ fast_executemany
+    خیلی کم بشه. اگه batch بازم fail کرد، تک‌تک درج می‌کنیم تا فقط
+    رکورد(های) واقعاً خراب رد بشن.
+    """
+    inserted = 0
+    failed_ids = set()
+
+    for i in range(0, len(records), batch_size):
+        batch = records[i:i + batch_size]
+        try:
+            _insert_batch(batch)
+            inserted += len(batch)
+        except SQLAlchemyError:
+            for r in batch:
+                try:
+                    _insert_batch([r])
+                    inserted += 1
+                except SQLAlchemyError as e:
+                    failed_ids.add(r.get("id"))
+                    logger.warning(
+                        f"رکورد رد شد (id={r.get('id')}): "
+                        f"{e.__class__.__name__}: {e}"
+                    )
+
+    return inserted, failed_ids
+
+
+def load_products(df: pd.DataFrame, session, seen: dict):
+    t0 = time.time()
+    records = [_clean_record(r) for r in df.to_dict("records")]
+    t_clean_records = time.time()
+
+    to_insert = []
+    to_update = {}
+    for record in records:
+        rid = record["id"]
+        null_count = _null_count(record)
+        if rid not in seen:
+            idx = len(to_insert)
+            to_insert.append(record)
+            seen[rid] = (null_count, "pending", idx)
+            continue
+        existing_null, status, ref = seen[rid]
+        if null_count < existing_null:
+            if status == "pending":
+                to_insert[ref] = record
+                seen[rid] = (null_count, "pending", ref)
+            else:
+                to_update[rid] = record
+                seen[rid] = (null_count, "committed", None)
+    t_loop = time.time()
+
+    inserted_count, failed_ids = _safe_bulk_insert(to_insert)
+    t_insert = time.time()
+
+    if to_update:
+        session.bulk_update_mappings(Products, list(to_update.values()))
+    t_update = time.time()
+
+    session.commit()
+    t_commit = time.time()
+
+    for record in to_insert:
+        rid = record["id"]
+
+        if rid in failed_ids:
+            seen.pop(rid, None)
+            continue
+
+        null_count, status, ref = seen[rid]
+        if status == "pending":
+            seen[rid] = (null_count, "committed", None)
+
+    logger.info(
+        f"  -> to_dict/clean: {t_clean_records - t0:.2f}s | "
+        f"loop({len(records)}): {t_loop - t_clean_records:.2f}s | "
+        f"insert({inserted_count} ok, {len(failed_ids)} failed): "
+        f"{t_insert - t_loop:.2f}s | "
+        f"update({len(to_update)}): {t_update - t_insert:.2f}s | "
+        f"commit: {t_commit - t_update:.2f}s"
+    )
