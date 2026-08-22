@@ -1,0 +1,1022 @@
+2026-08-19 13:24:51,724 | INFO | در حال بارگذاری رکوردهای موجود Products از دیتابیس...
+2026-08-19 13:24:51,740 | INFO | 0 رکورد موجود در دیتابیس در 0.0 ثانیه بارگذاری شد.
+2026-08-19 13:24:51,741 | INFO | شروع پردازش Products...
+2026-08-19 13:24:53,794 | INFO |   -> to_dict/clean: 0.23s | loop(10000): 0.02s | insert(9723 ok, 0 failed): 1.69s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:24:53,797 | INFO | چانک 1 | input: 10000 | dropped: 0 | invalid_rate: 6275 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9723 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.94s
+2026-08-19 13:24:56,222 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.02s | insert(9490 ok, 0 failed): 2.16s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:24:56,225 | INFO | چانک 2 | input: 10000 | dropped: 0 | invalid_rate: 6718 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9490 | updated: 0 | failed: 0 | clean: 0.01s | load: 2.37s
+2026-08-19 13:24:58,570 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.03s | insert(9230 ok, 0 failed): 2.06s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:24:58,573 | INFO | چانک 3 | input: 10000 | dropped: 0 | invalid_rate: 6570 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9230 | updated: 0 | failed: 0 | clean: 0.00s | load: 2.29s
+2026-08-19 13:25:00,685 | INFO |   -> to_dict/clean: 0.25s | loop(10000): 0.01s | insert(8771 ok, 0 failed): 1.76s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:00,734 | INFO | چانک 4 | input: 10000 | dropped: 0 | invalid_rate: 5522 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8771 | updated: 0 | failed: 0 | clean: 0.01s | load: 2.08s
+2026-08-19 13:25:02,568 | INFO |   -> to_dict/clean: 0.23s | loop(10000): 0.05s | insert(8560 ok, 0 failed): 1.43s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:02,571 | INFO | چانک 5 | input: 10000 | dropped: 0 | invalid_rate: 6015 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8560 | updated: 0 | failed: 0 | clean: 0.02s | load: 1.72s
+2026-08-19 13:25:04,191 | INFO |   -> to_dict/clean: 0.23s | loop(10000): 0.02s | insert(8229 ok, 0 failed): 1.25s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:04,195 | INFO | چانک 6 | input: 10000 | dropped: 0 | invalid_rate: 5285 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8229 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.50s
+2026-08-19 13:25:05,841 | INFO |   -> to_dict/clean: 0.17s | loop(10000): 0.02s | insert(9523 ok, 0 failed): 1.34s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:05,846 | INFO | چانک 7 | input: 10000 | dropped: 0 | invalid_rate: 3520 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9523 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.54s
+2026-08-19 13:25:06,267 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.01s | insert(1334 ok, 0 failed): 0.16s | update(1): 0.01s | commit: 0.00s
+2026-08-19 13:25:06,271 | INFO | چانک 8 | input: 10000 | dropped: 0 | invalid_rate: 5527 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 1334 | updated: 1 | failed: 0 | clean: 0.01s | load: 0.33s
+2026-08-19 13:25:07,743 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(6309 ok, 0 failed): 1.26s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:07,774 | INFO | چانک 9 | input: 10000 | dropped: 0 | invalid_rate: 4142 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 6309 | updated: 0 | failed: 0 | clean: 0.00s | load: 1.42s
+2026-08-19 13:25:08,929 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.01s | insert(6390 ok, 0 failed): 0.81s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:08,933 | INFO | چانک 10 | input: 10000 | dropped: 0 | invalid_rate: 4130 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 6390 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.03s
+2026-08-19 13:25:10,081 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.01s | insert(6002 ok, 0 failed): 0.86s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:10,085 | INFO | چانک 11 | input: 10000 | dropped: 0 | invalid_rate: 3913 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 6002 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.06s
+2026-08-19 13:25:10,492 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.01s | insert(1197 ok, 0 failed): 0.18s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:10,496 | INFO | چانک 12 | input: 10000 | dropped: 0 | invalid_rate: 4621 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 1197 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.33s
+2026-08-19 13:25:10,892 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.02s | insert(273 ok, 0 failed): 0.08s | update(2): 0.00s | commit: 0.01s
+2026-08-19 13:25:10,895 | INFO | چانک 13 | input: 10000 | dropped: 0 | invalid_rate: 4156 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 273 | updated: 2 | failed: 0 | clean: 0.01s | load: 0.31s
+2026-08-19 13:25:11,295 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.03s | insert(1010 ok, 0 failed): 0.12s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:11,298 | INFO | چانک 14 | input: 10000 | dropped: 0 | invalid_rate: 3538 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 1010 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.35s
+2026-08-19 13:25:13,083 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.02s | insert(9598 ok, 0 failed): 1.52s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:13,087 | INFO | چانک 15 | input: 10000 | dropped: 0 | invalid_rate: 4412 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9598 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.71s
+2026-08-19 13:25:14,624 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.01s | insert(9126 ok, 0 failed): 1.28s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:14,628 | INFO | چانک 16 | input: 10000 | dropped: 0 | invalid_rate: 2894 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9126 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.45s
+2026-08-19 13:25:16,292 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.02s | insert(9187 ok, 0 failed): 1.36s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:16,294 | INFO | چانک 17 | input: 10000 | dropped: 0 | invalid_rate: 2604 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9187 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.58s
+2026-08-19 13:25:17,758 | INFO |   -> to_dict/clean: 0.17s | loop(10000): 0.03s | insert(8301 ok, 0 failed): 1.21s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:17,762 | INFO | چانک 18 | input: 10000 | dropped: 0 | invalid_rate: 2931 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8301 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.42s
+2026-08-19 13:25:19,155 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(8873 ok, 0 failed): 1.14s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:19,159 | INFO | چانک 19 | input: 10000 | dropped: 0 | invalid_rate: 2053 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8873 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.31s
+2026-08-19 13:25:20,588 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.01s | insert(8653 ok, 0 failed): 1.14s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:20,592 | INFO | چانک 20 | input: 10000 | dropped: 0 | invalid_rate: 2087 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8653 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.35s
+2026-08-19 13:25:22,246 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.02s | insert(9132 ok, 0 failed): 1.35s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:22,251 | INFO | چانک 21 | input: 10000 | dropped: 0 | invalid_rate: 2415 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9132 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.58s
+2026-08-19 13:25:23,484 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(7995 ok, 0 failed): 1.01s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:23,488 | INFO | چانک 22 | input: 10000 | dropped: 0 | invalid_rate: 3796 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7995 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.16s
+2026-08-19 13:25:24,751 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.02s | insert(6583 ok, 0 failed): 0.97s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:24,755 | INFO | چانک 23 | input: 10000 | dropped: 0 | invalid_rate: 2880 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 6583 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.19s
+2026-08-19 13:25:25,932 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.02s | insert(6410 ok, 0 failed): 0.91s | update(1): 0.00s | commit: 0.00s
+2026-08-19 13:25:25,937 | INFO | چانک 24 | input: 10000 | dropped: 0 | invalid_rate: 2829 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 6410 | updated: 1 | failed: 0 | clean: 0.01s | load: 1.10s
+2026-08-19 13:25:27,237 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.02s | insert(7285 ok, 0 failed): 0.95s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:27,241 | INFO | چانک 25 | input: 10000 | dropped: 0 | invalid_rate: 4952 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7285 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.18s
+2026-08-19 13:25:28,540 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.02s | insert(6119 ok, 0 failed): 1.03s | update(2): 0.01s | commit: 0.01s
+2026-08-19 13:25:28,545 | INFO | چانک 26 | input: 10000 | dropped: 0 | invalid_rate: 2672 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 6119 | updated: 2 | failed: 0 | clean: 0.01s | load: 1.21s
+2026-08-19 13:25:29,219 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.02s | insert(2704 ok, 0 failed): 0.37s | update(1): 0.00s | commit: 0.00s
+2026-08-19 13:25:29,223 | INFO | چانک 27 | input: 10000 | dropped: 0 | invalid_rate: 2833 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 2704 | updated: 1 | failed: 0 | clean: 0.02s | load: 0.60s
+2026-08-19 13:25:30,313 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.02s | insert(5396 ok, 0 failed): 0.78s | update(1): 0.00s | commit: 0.00s
+2026-08-19 13:25:30,318 | INFO | چانک 28 | input: 10000 | dropped: 0 | invalid_rate: 3219 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 5396 | updated: 1 | failed: 0 | clean: 0.01s | load: 1.01s
+2026-08-19 13:25:31,385 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(6235 ok, 0 failed): 0.86s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:31,390 | INFO | چانک 29 | input: 10000 | dropped: 0 | invalid_rate: 2736 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 6235 | updated: 0 | failed: 0 | clean: 0.00s | load: 1.00s
+2026-08-19 13:25:31,867 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.02s | insert(1884 ok, 0 failed): 0.22s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:31,870 | INFO | چانک 30 | input: 10000 | dropped: 0 | invalid_rate: 1970 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 1884 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.39s
+2026-08-19 13:25:32,802 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.03s | insert(5452 ok, 0 failed): 0.68s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:32,806 | INFO | چانک 31 | input: 10000 | dropped: 0 | invalid_rate: 3659 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 5452 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.86s
+2026-08-19 13:25:34,703 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.02s | insert(9670 ok, 0 failed): 1.62s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:34,706 | INFO | چانک 32 | input: 10000 | dropped: 0 | invalid_rate: 2167 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9670 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.81s
+2026-08-19 13:25:37,691 | WARNING | رکورد رد شد (id=7336696): DataError: (psycopg2.errors.NumericValueOutOfRange) integer out of range
+
+[SQL: INSERT INTO products (id, title_fa, rate, rate_cnt, category1, category2, brand, price, seller, is_fake, min_price_last_month, sub_category) VALUES (%(id)s, %(title_fa)s, %(rate)s, %(rate_cnt)s, %(category1)s, %(category2)s, %(brand)s, %(price)s, %(seller)s, %(is_fake)s, %(min_price_last_month)s, %(sub_category)s)]
+[parameters: {'id': 7336696, 'title_fa': 'ساعت مچی عقربه\u200cای مردانه تگ هویر مدل CAL5111.FC6299', 'rate': None, 'rate_cnt': 2, 'category1': 'اکسسوری مردانه', 'category2': 'ساعت مردانه', 'brand': 'تگ هویر', 'price': 7645500000, 'seller': 'آس کالا کمپانی', 'is_fake': False, 'min_price_last_month': 7645500000, 'sub_category': 'clothe'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2026-08-19 13:25:39,569 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.02s | insert(5561 ok, 1 failed): 4.54s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:39,573 | INFO | چانک 33 | input: 10000 | dropped: 0 | invalid_rate: 3264 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 5561 | updated: 0 | failed: 1 | clean: 0.01s | load: 4.77s
+2026-08-19 13:25:41,299 | INFO |   -> to_dict/clean: 0.26s | loop(10000): 0.02s | insert(7616 ok, 0 failed): 1.32s | update(10): 0.02s | commit: 0.00s
+2026-08-19 13:25:41,303 | INFO | چانک 34 | input: 10000 | dropped: 0 | invalid_rate: 3205 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7616 | updated: 10 | failed: 0 | clean: 0.01s | load: 1.64s
+2026-08-19 13:25:42,298 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.02s | insert(3709 ok, 0 failed): 0.68s | update(5): 0.01s | commit: 0.01s
+2026-08-19 13:25:42,302 | INFO | چانک 35 | input: 10000 | dropped: 0 | invalid_rate: 2781 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 3709 | updated: 5 | failed: 0 | clean: 0.01s | load: 0.92s
+2026-08-19 13:25:46,039 | WARNING | رکورد رد شد (id=7336696): DataError: (psycopg2.errors.NumericValueOutOfRange) integer out of range
+
+[SQL: INSERT INTO products (id, title_fa, rate, rate_cnt, category1, category2, brand, price, seller, is_fake, min_price_last_month, sub_category) VALUES (%(id)s, %(title_fa)s, %(rate)s, %(rate_cnt)s, %(category1)s, %(category2)s, %(brand)s, %(price)s, %(seller)s, %(is_fake)s, %(min_price_last_month)s, %(sub_category)s)]
+[parameters: {'id': 7336696, 'title_fa': 'ساعت مچی عقربه\u200cای مردانه تگ هویر مدل CAL5111.FC6299', 'rate': None, 'rate_cnt': 2, 'category1': 'اکسسوری مردانه', 'category2': 'ساعت مردانه', 'brand': 'تگ هویر', 'price': 7645500000, 'seller': 'آس کالا کمپانی', 'is_fake': False, 'min_price_last_month': 7645500000, 'sub_category': 'clothe'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2026-08-19 13:25:47,407 | INFO |   -> to_dict/clean: 0.24s | loop(10000): 0.04s | insert(6437 ok, 1 failed): 4.73s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:47,411 | INFO | چانک 36 | input: 10000 | dropped: 0 | invalid_rate: 3546 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 6437 | updated: 0 | failed: 1 | clean: 0.01s | load: 5.02s
+2026-08-19 13:25:49,080 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(7987 ok, 0 failed): 1.42s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:49,083 | INFO | چانک 37 | input: 10000 | dropped: 0 | invalid_rate: 3611 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7987 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.58s
+2026-08-19 13:25:51,033 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.02s | insert(6954 ok, 0 failed): 1.65s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:51,035 | INFO | چانک 38 | input: 10000 | dropped: 0 | invalid_rate: 2783 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 6954 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.88s
+2026-08-19 13:25:52,586 | INFO |   -> to_dict/clean: 0.22s | loop(10000): 0.03s | insert(5712 ok, 0 failed): 1.21s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:52,592 | INFO | چانک 39 | input: 10000 | dropped: 0 | invalid_rate: 5777 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 5712 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.48s
+2026-08-19 13:25:54,283 | INFO |   -> to_dict/clean: 0.29s | loop(10000): 0.04s | insert(5956 ok, 0 failed): 1.23s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:54,286 | INFO | چانک 40 | input: 10000 | dropped: 0 | invalid_rate: 6341 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 5956 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.57s
+2026-08-19 13:25:56,083 | INFO |   -> to_dict/clean: 0.23s | loop(10000): 0.05s | insert(8300 ok, 0 failed): 1.45s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:56,087 | INFO | چانک 41 | input: 10000 | dropped: 0 | invalid_rate: 4642 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8300 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.74s
+2026-08-19 13:25:57,462 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(5716 ok, 0 failed): 1.15s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:57,466 | INFO | چانک 42 | input: 10000 | dropped: 0 | invalid_rate: 7196 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 5716 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.30s
+2026-08-19 13:25:58,741 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.02s | insert(7476 ok, 0 failed): 0.99s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:25:58,748 | INFO | چانک 43 | input: 10000 | dropped: 0 | invalid_rate: 3547 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7476 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.21s
+2026-08-19 13:26:00,084 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.02s | insert(7691 ok, 0 failed): 1.10s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:00,088 | INFO | چانک 44 | input: 10000 | dropped: 0 | invalid_rate: 3290 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7691 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.28s
+2026-08-19 13:26:01,623 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.02s | insert(8687 ok, 0 failed): 1.24s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:01,626 | INFO | چانک 45 | input: 10000 | dropped: 0 | invalid_rate: 2123 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8687 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.45s
+2026-08-19 13:26:03,251 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.02s | insert(6257 ok, 0 failed): 1.33s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:03,254 | INFO | چانک 46 | input: 10000 | dropped: 0 | invalid_rate: 680 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 6257 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.54s
+2026-08-19 13:26:04,872 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.02s | insert(9756 ok, 0 failed): 1.38s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:04,876 | INFO | چانک 47 | input: 10000 | dropped: 0 | invalid_rate: 5486 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9756 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.53s
+2026-08-19 13:26:06,249 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.02s | insert(8179 ok, 0 failed): 1.13s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:06,252 | INFO | چانک 48 | input: 10000 | dropped: 0 | invalid_rate: 2739 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8179 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.29s
+2026-08-19 13:26:07,739 | INFO |   -> to_dict/clean: 0.17s | loop(10000): 0.02s | insert(8660 ok, 0 failed): 1.20s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:07,742 | INFO | چانک 49 | input: 10000 | dropped: 0 | invalid_rate: 2829 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8660 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.40s
+2026-08-19 13:26:09,319 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(9191 ok, 0 failed): 1.35s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:09,323 | INFO | چانک 50 | input: 10000 | dropped: 0 | invalid_rate: 2385 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9191 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.50s
+2026-08-19 13:26:11,014 | INFO |   -> to_dict/clean: 0.27s | loop(10000): 0.10s | insert(8153 ok, 0 failed): 1.23s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:11,018 | INFO | چانک 51 | input: 10000 | dropped: 0 | invalid_rate: 3121 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8153 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.61s
+2026-08-19 13:26:12,477 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.02s | insert(7433 ok, 0 failed): 1.14s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:12,481 | INFO | چانک 52 | input: 10000 | dropped: 0 | invalid_rate: 3185 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7433 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.36s
+2026-08-19 13:26:14,556 | INFO |   -> to_dict/clean: 0.21s | loop(10000): 0.02s | insert(9106 ok, 0 failed): 1.75s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:14,561 | INFO | چانک 53 | input: 10000 | dropped: 0 | invalid_rate: 1720 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9106 | updated: 0 | failed: 0 | clean: 0.01s | load: 2.00s
+2026-08-19 13:26:16,736 | INFO |   -> to_dict/clean: 0.44s | loop(10000): 0.04s | insert(8472 ok, 0 failed): 1.57s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:16,741 | INFO | چانک 54 | input: 10000 | dropped: 0 | invalid_rate: 1581 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8472 | updated: 0 | failed: 0 | clean: 0.01s | load: 2.06s
+2026-08-19 13:26:18,842 | INFO |   -> to_dict/clean: 0.32s | loop(10000): 0.04s | insert(8905 ok, 0 failed): 1.62s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:18,846 | INFO | چانک 55 | input: 10000 | dropped: 0 | invalid_rate: 2976 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8905 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.99s
+2026-08-19 13:26:20,858 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(8202 ok, 0 failed): 1.54s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:20,863 | INFO | چانک 56 | input: 10000 | dropped: 0 | invalid_rate: 3420 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8202 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.90s
+2026-08-19 13:26:22,795 | INFO |   -> to_dict/clean: 0.34s | loop(10000): 0.04s | insert(7413 ok, 0 failed): 1.33s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:22,800 | INFO | چانک 57 | input: 10000 | dropped: 0 | invalid_rate: 1995 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7413 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.72s
+2026-08-19 13:26:24,558 | INFO |   -> to_dict/clean: 0.32s | loop(10000): 0.04s | insert(7222 ok, 0 failed): 1.28s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:24,565 | INFO | چانک 58 | input: 10000 | dropped: 0 | invalid_rate: 2805 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7222 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.65s
+2026-08-19 13:26:26,089 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(5586 ok, 0 failed): 1.06s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:26,094 | INFO | چانک 59 | input: 10000 | dropped: 0 | invalid_rate: 2889 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 5586 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.42s
+2026-08-19 13:26:27,907 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(6950 ok, 0 failed): 1.34s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:27,913 | INFO | چانک 60 | input: 10000 | dropped: 0 | invalid_rate: 1444 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 6950 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.71s
+2026-08-19 13:26:29,832 | INFO |   -> to_dict/clean: 0.39s | loop(10000): 0.06s | insert(7641 ok, 0 failed): 1.31s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:29,837 | INFO | چانک 61 | input: 10000 | dropped: 0 | invalid_rate: 731 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7641 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.77s
+2026-08-19 13:26:31,770 | INFO |   -> to_dict/clean: 0.43s | loop(10000): 0.04s | insert(7760 ok, 0 failed): 1.34s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:31,774 | INFO | چانک 62 | input: 10000 | dropped: 0 | invalid_rate: 1183 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7760 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.83s
+2026-08-19 13:26:33,629 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(8253 ok, 0 failed): 1.39s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:33,634 | INFO | چانک 63 | input: 10000 | dropped: 0 | invalid_rate: 1188 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8253 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.75s
+2026-08-19 13:26:35,406 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(8340 ok, 0 failed): 1.30s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:35,411 | INFO | چانک 64 | input: 10000 | dropped: 0 | invalid_rate: 781 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8340 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.67s
+2026-08-19 13:26:37,215 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(9318 ok, 0 failed): 1.33s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:37,219 | INFO | چانک 65 | input: 10000 | dropped: 0 | invalid_rate: 4418 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9318 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.69s
+2026-08-19 13:26:39,146 | INFO |   -> to_dict/clean: 0.30s | loop(10000): 0.04s | insert(7962 ok, 0 failed): 1.36s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:39,150 | INFO | چانک 66 | input: 10000 | dropped: 0 | invalid_rate: 7041 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7962 | updated: 0 | failed: 0 | clean: 0.05s | load: 1.71s
+2026-08-19 13:26:40,179 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(3130 ok, 0 failed): 0.54s | update(2): 0.01s | commit: 0.00s
+2026-08-19 13:26:40,184 | INFO | چانک 67 | input: 10000 | dropped: 0 | invalid_rate: 7761 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 3130 | updated: 2 | failed: 0 | clean: 0.01s | load: 0.91s
+2026-08-19 13:26:41,803 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(7160 ok, 0 failed): 1.15s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:41,807 | INFO | چانک 68 | input: 10000 | dropped: 0 | invalid_rate: 6392 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7160 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.51s
+2026-08-19 13:26:43,997 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(9853 ok, 0 failed): 1.71s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:44,001 | INFO | چانک 69 | input: 10000 | dropped: 0 | invalid_rate: 5434 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9853 | updated: 0 | failed: 0 | clean: 0.01s | load: 2.07s
+2026-08-19 13:26:45,880 | INFO |   -> to_dict/clean: 0.30s | loop(10000): 0.04s | insert(9415 ok, 0 failed): 1.42s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:45,884 | INFO | چانک 70 | input: 10000 | dropped: 0 | invalid_rate: 2470 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9415 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.78s
+2026-08-19 13:26:47,829 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(9107 ok, 0 failed): 1.47s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:47,834 | INFO | چانک 71 | input: 10000 | dropped: 0 | invalid_rate: 4363 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9107 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.84s
+2026-08-19 13:26:49,882 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(9076 ok, 0 failed): 1.57s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:49,886 | INFO | چانک 72 | input: 10000 | dropped: 0 | invalid_rate: 3523 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9076 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.94s
+2026-08-19 13:26:51,980 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(9502 ok, 0 failed): 1.62s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:51,984 | INFO | چانک 73 | input: 10000 | dropped: 0 | invalid_rate: 3217 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9502 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.98s
+2026-08-19 13:26:53,910 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(9681 ok, 0 failed): 1.45s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:53,914 | INFO | چانک 74 | input: 10000 | dropped: 0 | invalid_rate: 2616 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9681 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.82s
+2026-08-19 13:26:55,917 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(9166 ok, 0 failed): 1.53s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:55,922 | INFO | چانک 75 | input: 10000 | dropped: 0 | invalid_rate: 2116 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9166 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.90s
+2026-08-19 13:26:57,231 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(5400 ok, 0 failed): 0.85s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:26:57,236 | INFO | چانک 76 | input: 10000 | dropped: 0 | invalid_rate: 2599 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 5400 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.21s
+2026-08-19 13:26:59,029 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(8438 ok, 0 failed): 1.32s | update(2): 0.01s | commit: 0.00s
+2026-08-19 13:26:59,034 | INFO | چانک 77 | input: 10000 | dropped: 0 | invalid_rate: 3423 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8438 | updated: 2 | failed: 0 | clean: 0.01s | load: 1.69s
+2026-08-19 13:27:00,616 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(7495 ok, 0 failed): 1.12s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:00,621 | INFO | چانک 78 | input: 10000 | dropped: 0 | invalid_rate: 2286 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7495 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.48s
+2026-08-19 13:27:02,220 | INFO |   -> to_dict/clean: 0.32s | loop(10000): 0.04s | insert(7000 ok, 0 failed): 1.13s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:02,225 | INFO | چانک 79 | input: 10000 | dropped: 0 | invalid_rate: 1349 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7000 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.50s
+2026-08-19 13:27:04,066 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(9002 ok, 0 failed): 1.36s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:04,071 | INFO | چانک 80 | input: 10000 | dropped: 0 | invalid_rate: 5443 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9002 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.73s
+2026-08-19 13:27:05,954 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(9406 ok, 0 failed): 1.41s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:05,959 | INFO | چانک 81 | input: 10000 | dropped: 0 | invalid_rate: 2231 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9406 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.78s
+2026-08-19 13:27:08,162 | INFO |   -> to_dict/clean: 0.61s | loop(10000): 0.08s | insert(8898 ok, 0 failed): 1.38s | update(1): 0.00s | commit: 0.00s
+2026-08-19 13:27:08,166 | INFO | چانک 82 | input: 10000 | dropped: 0 | invalid_rate: 3635 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8898 | updated: 1 | failed: 0 | clean: 0.01s | load: 2.10s
+2026-08-19 13:27:09,448 | INFO |   -> to_dict/clean: 0.25s | loop(10000): 0.02s | insert(7092 ok, 0 failed): 0.87s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:09,452 | INFO | چانک 83 | input: 10000 | dropped: 0 | invalid_rate: 3239 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7092 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.15s
+2026-08-19 13:27:10,717 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(8095 ok, 0 failed): 1.00s | update(2): 0.01s | commit: 0.01s
+2026-08-19 13:27:10,721 | INFO | چانک 84 | input: 10000 | dropped: 0 | invalid_rate: 2697 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8095 | updated: 2 | failed: 0 | clean: 0.01s | load: 1.19s
+2026-08-19 13:27:12,024 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.02s | insert(8218 ok, 0 failed): 1.00s | update(2): 0.01s | commit: 0.01s
+2026-08-19 13:27:12,029 | INFO | چانک 85 | input: 10000 | dropped: 0 | invalid_rate: 3409 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8218 | updated: 2 | failed: 0 | clean: 0.01s | load: 1.24s
+2026-08-19 13:27:13,153 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(7405 ok, 0 failed): 0.91s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:13,157 | INFO | چانک 86 | input: 10000 | dropped: 0 | invalid_rate: 4511 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7405 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.06s
+2026-08-19 13:27:14,354 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(7055 ok, 0 failed): 0.95s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:14,358 | INFO | چانک 87 | input: 10000 | dropped: 0 | invalid_rate: 5110 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7055 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.12s
+2026-08-19 13:27:15,533 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.02s | insert(7702 ok, 0 failed): 0.87s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:15,537 | INFO | چانک 88 | input: 10000 | dropped: 0 | invalid_rate: 7585 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7702 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.10s
+2026-08-19 13:27:17,015 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(8753 ok, 0 failed): 1.24s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:17,019 | INFO | چانک 89 | input: 10000 | dropped: 0 | invalid_rate: 1681 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8753 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.39s
+2026-08-19 13:27:18,545 | INFO |   -> to_dict/clean: 0.24s | loop(10000): 0.03s | insert(9241 ok, 0 failed): 1.16s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:18,549 | INFO | چانک 90 | input: 10000 | dropped: 0 | invalid_rate: 3592 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9241 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.44s
+2026-08-19 13:27:20,231 | INFO |   -> to_dict/clean: 0.23s | loop(10000): 0.02s | insert(10000 ok, 0 failed): 1.34s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:20,234 | INFO | چانک 91 | input: 10000 | dropped: 0 | invalid_rate: 4119 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 10000 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.61s
+2026-08-19 13:27:21,602 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(9900 ok, 0 failed): 1.15s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:21,605 | INFO | چانک 92 | input: 10000 | dropped: 0 | invalid_rate: 4174 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9900 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.30s
+2026-08-19 13:27:22,804 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.02s | insert(7798 ok, 0 failed): 0.90s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:22,808 | INFO | چانک 93 | input: 10000 | dropped: 0 | invalid_rate: 939 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7798 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.12s
+2026-08-19 13:27:24,069 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.04s | insert(7181 ok, 0 failed): 1.02s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:24,104 | INFO | چانک 94 | input: 10000 | dropped: 0 | invalid_rate: 929 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7181 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.22s
+2026-08-19 13:27:25,094 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.02s | insert(5771 ok, 0 failed): 0.74s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:25,097 | INFO | چانک 95 | input: 10000 | dropped: 0 | invalid_rate: 1304 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 5771 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.92s
+2026-08-19 13:27:26,055 | INFO |   -> to_dict/clean: 0.17s | loop(10000): 0.02s | insert(6207 ok, 0 failed): 0.72s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:26,059 | INFO | چانک 96 | input: 10000 | dropped: 0 | invalid_rate: 2388 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 6207 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.92s
+2026-08-19 13:27:27,325 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(6622 ok, 0 failed): 1.06s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:27,328 | INFO | چانک 97 | input: 10000 | dropped: 0 | invalid_rate: 2608 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 6622 | updated: 0 | failed: 0 | clean: 0.00s | load: 1.20s
+2026-08-19 13:27:28,657 | INFO |   -> to_dict/clean: 0.23s | loop(10000): 0.02s | insert(7251 ok, 0 failed): 1.02s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:28,660 | INFO | چانک 98 | input: 10000 | dropped: 0 | invalid_rate: 2998 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7251 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.28s
+2026-08-19 13:27:30,074 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.02s | insert(7980 ok, 0 failed): 1.11s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:30,077 | INFO | چانک 99 | input: 10000 | dropped: 0 | invalid_rate: 6793 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7980 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.34s
+2026-08-19 13:27:30,925 | INFO |   -> to_dict/clean: 0.22s | loop(10000): 0.04s | insert(3155 ok, 0 failed): 0.49s | update(3): 0.00s | commit: 0.00s
+2026-08-19 13:27:30,928 | INFO | چانک 100 | input: 10000 | dropped: 0 | invalid_rate: 7814 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 3155 | updated: 3 | failed: 0 | clean: 0.01s | load: 0.77s
+2026-08-19 13:27:31,336 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.02s | insert(632 ok, 0 failed): 0.10s | update(18): 0.03s | commit: 0.00s
+2026-08-19 13:27:31,339 | INFO | چانک 101 | input: 10000 | dropped: 0 | invalid_rate: 7700 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 632 | updated: 18 | failed: 0 | clean: 0.01s | load: 0.33s
+2026-08-19 13:27:32,614 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(6629 ok, 0 failed): 1.00s | update(1): 0.01s | commit: 0.01s
+2026-08-19 13:27:32,618 | INFO | چانک 102 | input: 10000 | dropped: 0 | invalid_rate: 3909 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 6629 | updated: 1 | failed: 0 | clean: 0.01s | load: 1.18s
+2026-08-19 13:27:33,859 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.02s | insert(6363 ok, 0 failed): 0.95s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:33,864 | INFO | چانک 103 | input: 10000 | dropped: 0 | invalid_rate: 1833 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 6363 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.16s
+2026-08-19 13:27:35,214 | INFO |   -> to_dict/clean: 0.22s | loop(10000): 0.02s | insert(7138 ok, 0 failed): 1.01s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:35,219 | INFO | چانک 104 | input: 10000 | dropped: 0 | invalid_rate: 3428 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7138 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.26s
+2026-08-19 13:27:36,059 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.03s | insert(4107 ok, 0 failed): 0.56s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:36,064 | INFO | چانک 105 | input: 10000 | dropped: 0 | invalid_rate: 2933 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 4107 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.78s
+2026-08-19 13:27:36,641 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(3999 ok, 0 failed): 0.38s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:36,644 | INFO | چانک 106 | input: 10000 | dropped: 0 | invalid_rate: 4044 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 3999 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.51s
+2026-08-19 13:27:38,056 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(8669 ok, 0 failed): 1.23s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:38,061 | INFO | چانک 107 | input: 10000 | dropped: 0 | invalid_rate: 2629 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8669 | updated: 0 | failed: 0 | clean: 0.00s | load: 1.37s
+2026-08-19 13:27:39,225 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(8374 ok, 0 failed): 0.95s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:39,229 | INFO | چانک 108 | input: 10000 | dropped: 0 | invalid_rate: 3460 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8374 | updated: 0 | failed: 0 | clean: 0.00s | load: 1.10s
+2026-08-19 13:27:42,642 | INFO | در حال بارگذاری رکوردهای موجود Products از دیتابیس...
+2026-08-19 13:27:53,482 | INFO | 784771 رکورد موجود در دیتابیس در 10.8 ثانیه بارگذاری شد.
+2026-08-19 13:27:53,483 | INFO | شروع پردازش Products...
+2026-08-19 13:27:53,762 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:53,765 | INFO | چانک 1 | input: 10000 | dropped: 0 | invalid_rate: 6275 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.21s
+2026-08-19 13:27:54,051 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:54,054 | INFO | چانک 2 | input: 10000 | dropped: 0 | invalid_rate: 6718 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.21s
+2026-08-19 13:27:54,310 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:54,313 | INFO | چانک 3 | input: 10000 | dropped: 0 | invalid_rate: 6570 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.21s
+2026-08-19 13:27:54,593 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:54,595 | INFO | چانک 4 | input: 10000 | dropped: 0 | invalid_rate: 5522 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.19s
+2026-08-19 13:27:54,899 | INFO |   -> to_dict/clean: 0.24s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:54,901 | INFO | چانک 5 | input: 10000 | dropped: 0 | invalid_rate: 6015 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.26s
+2026-08-19 13:27:55,164 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:55,167 | INFO | چانک 6 | input: 10000 | dropped: 0 | invalid_rate: 5285 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.22s
+2026-08-19 13:27:55,444 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:55,446 | INFO | چانک 7 | input: 10000 | dropped: 0 | invalid_rate: 3520 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.20s
+2026-08-19 13:27:55,647 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:55,649 | INFO | چانک 8 | input: 10000 | dropped: 0 | invalid_rate: 5527 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.13s
+2026-08-19 13:27:55,828 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:55,830 | INFO | چانک 9 | input: 10000 | dropped: 0 | invalid_rate: 4142 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.14s
+2026-08-19 13:27:56,076 | INFO |   -> to_dict/clean: 0.17s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:56,079 | INFO | چانک 10 | input: 10000 | dropped: 0 | invalid_rate: 4130 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.18s
+2026-08-19 13:27:56,250 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:56,252 | INFO | چانک 11 | input: 10000 | dropped: 0 | invalid_rate: 3913 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:27:56,452 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:56,456 | INFO | چانک 12 | input: 10000 | dropped: 0 | invalid_rate: 4621 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.15s
+2026-08-19 13:27:56,753 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:56,756 | INFO | چانک 13 | input: 10000 | dropped: 0 | invalid_rate: 4156 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.21s
+2026-08-19 13:27:56,995 | INFO |   -> to_dict/clean: 0.17s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:56,998 | INFO | چانک 14 | input: 10000 | dropped: 0 | invalid_rate: 3538 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.19s
+2026-08-19 13:27:57,267 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:57,269 | INFO | چانک 15 | input: 10000 | dropped: 0 | invalid_rate: 4412 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.20s
+2026-08-19 13:27:57,575 | INFO |   -> to_dict/clean: 0.21s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:57,578 | INFO | چانک 16 | input: 10000 | dropped: 0 | invalid_rate: 2894 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.23s
+2026-08-19 13:27:57,774 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:57,776 | INFO | چانک 17 | input: 10000 | dropped: 0 | invalid_rate: 2604 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.13s
+2026-08-19 13:27:57,944 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:57,946 | INFO | چانک 18 | input: 10000 | dropped: 0 | invalid_rate: 2931 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:27:58,141 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:58,144 | INFO | چانک 19 | input: 10000 | dropped: 0 | invalid_rate: 2053 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.13s
+2026-08-19 13:27:58,323 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:58,325 | INFO | چانک 20 | input: 10000 | dropped: 0 | invalid_rate: 2087 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.14s
+2026-08-19 13:27:58,541 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:58,547 | INFO | چانک 21 | input: 10000 | dropped: 0 | invalid_rate: 2415 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.16s
+2026-08-19 13:27:58,823 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:58,826 | INFO | چانک 22 | input: 10000 | dropped: 0 | invalid_rate: 3796 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.21s
+2026-08-19 13:27:59,137 | INFO |   -> to_dict/clean: 0.21s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:59,139 | INFO | چانک 23 | input: 10000 | dropped: 0 | invalid_rate: 2880 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.22s
+2026-08-19 13:27:59,334 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:59,336 | INFO | چانک 24 | input: 10000 | dropped: 0 | invalid_rate: 2829 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.13s
+2026-08-19 13:27:59,528 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:59,532 | INFO | چانک 25 | input: 10000 | dropped: 0 | invalid_rate: 4952 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.15s
+2026-08-19 13:27:59,735 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:59,737 | INFO | چانک 26 | input: 10000 | dropped: 0 | invalid_rate: 2672 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.13s
+2026-08-19 13:27:59,911 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:27:59,914 | INFO | چانک 27 | input: 10000 | dropped: 0 | invalid_rate: 2833 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:28:00,104 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:00,107 | INFO | چانک 28 | input: 10000 | dropped: 0 | invalid_rate: 3219 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.15s
+2026-08-19 13:28:00,308 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:00,310 | INFO | چانک 29 | input: 10000 | dropped: 0 | invalid_rate: 2736 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.13s
+2026-08-19 13:28:00,504 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:00,507 | INFO | چانک 30 | input: 10000 | dropped: 0 | invalid_rate: 1970 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.15s
+2026-08-19 13:28:00,693 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:00,695 | INFO | چانک 31 | input: 10000 | dropped: 0 | invalid_rate: 3659 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:28:00,889 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:00,891 | INFO | چانک 32 | input: 10000 | dropped: 0 | invalid_rate: 2167 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.14s
+2026-08-19 13:28:01,117 | WARNING | رکورد رد شد (id=7336696): DataError: (psycopg2.errors.NumericValueOutOfRange) integer out of range
+
+[SQL: INSERT INTO products (id, title_fa, rate, rate_cnt, category1, category2, brand, price, seller, is_fake, min_price_last_month, sub_category) VALUES (%(id)s, %(title_fa)s, %(rate)s, %(rate_cnt)s, %(category1)s, %(category2)s, %(brand)s, %(price)s, %(seller)s, %(is_fake)s, %(min_price_last_month)s, %(sub_category)s)]
+[parameters: {'id': 7336696, 'title_fa': 'ساعت مچی عقربه\u200cای مردانه تگ هویر مدل CAL5111.FC6299', 'rate': None, 'rate_cnt': 2, 'category1': 'اکسسوری مردانه', 'category2': 'ساعت مردانه', 'brand': 'تگ هویر', 'price': 7645500000, 'seller': 'آس کالا کمپانی', 'is_fake': False, 'min_price_last_month': 7645500000, 'sub_category': 'clothe'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2026-08-19 13:28:01,119 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 1 failed): 0.05s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:01,119 | INFO | چانک 33 | input: 10000 | dropped: 0 | invalid_rate: 3264 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 1 | clean: 0.00s | load: 0.18s
+2026-08-19 13:28:01,334 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:01,337 | INFO | چانک 34 | input: 10000 | dropped: 0 | invalid_rate: 3205 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.16s
+2026-08-19 13:28:01,621 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:01,624 | INFO | چانک 35 | input: 10000 | dropped: 0 | invalid_rate: 2781 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.18s
+2026-08-19 13:28:01,922 | WARNING | رکورد رد شد (id=7336696): DataError: (psycopg2.errors.NumericValueOutOfRange) integer out of range
+
+[SQL: INSERT INTO products (id, title_fa, rate, rate_cnt, category1, category2, brand, price, seller, is_fake, min_price_last_month, sub_category) VALUES (%(id)s, %(title_fa)s, %(rate)s, %(rate_cnt)s, %(category1)s, %(category2)s, %(brand)s, %(price)s, %(seller)s, %(is_fake)s, %(min_price_last_month)s, %(sub_category)s)]
+[parameters: {'id': 7336696, 'title_fa': 'ساعت مچی عقربه\u200cای مردانه تگ هویر مدل CAL5111.FC6299', 'rate': None, 'rate_cnt': 2, 'category1': 'اکسسوری مردانه', 'category2': 'ساعت مردانه', 'brand': 'تگ هویر', 'price': 7645500000, 'seller': 'آس کالا کمپانی', 'is_fake': False, 'min_price_last_month': 7645500000, 'sub_category': 'clothe'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2026-08-19 13:28:01,923 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(0 ok, 1 failed): 0.10s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:01,924 | INFO | چانک 36 | input: 10000 | dropped: 0 | invalid_rate: 3546 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 1 | clean: 0.01s | load: 0.23s
+2026-08-19 13:28:02,164 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:02,167 | INFO | چانک 37 | input: 10000 | dropped: 0 | invalid_rate: 3611 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.16s
+2026-08-19 13:28:02,362 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:02,365 | INFO | چانک 38 | input: 10000 | dropped: 0 | invalid_rate: 2783 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.14s
+2026-08-19 13:28:02,618 | INFO |   -> to_dict/clean: 0.17s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:02,620 | INFO | چانک 39 | input: 10000 | dropped: 0 | invalid_rate: 5777 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.19s
+2026-08-19 13:28:02,791 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:02,793 | INFO | چانک 40 | input: 10000 | dropped: 0 | invalid_rate: 6341 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:28:02,966 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:02,968 | INFO | چانک 41 | input: 10000 | dropped: 0 | invalid_rate: 4642 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:28:03,165 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:03,167 | INFO | چانک 42 | input: 10000 | dropped: 0 | invalid_rate: 7196 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.16s
+2026-08-19 13:28:03,346 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:03,349 | INFO | چانک 43 | input: 10000 | dropped: 0 | invalid_rate: 3547 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.14s
+2026-08-19 13:28:03,555 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:03,557 | INFO | چانک 44 | input: 10000 | dropped: 0 | invalid_rate: 3290 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.15s
+2026-08-19 13:28:03,780 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:03,782 | INFO | چانک 45 | input: 10000 | dropped: 0 | invalid_rate: 2123 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.16s
+2026-08-19 13:28:03,974 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:03,976 | INFO | چانک 46 | input: 10000 | dropped: 0 | invalid_rate: 680 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.14s
+2026-08-19 13:28:04,158 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:04,161 | INFO | چانک 47 | input: 10000 | dropped: 0 | invalid_rate: 5486 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.14s
+2026-08-19 13:28:04,368 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:04,371 | INFO | چانک 48 | input: 10000 | dropped: 0 | invalid_rate: 2739 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.14s
+2026-08-19 13:28:04,582 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:04,584 | INFO | چانک 49 | input: 10000 | dropped: 0 | invalid_rate: 2829 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.16s
+2026-08-19 13:28:04,793 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:04,796 | INFO | چانک 50 | input: 10000 | dropped: 0 | invalid_rate: 2385 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.15s
+2026-08-19 13:28:04,994 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:04,997 | INFO | چانک 51 | input: 10000 | dropped: 0 | invalid_rate: 3121 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.14s
+2026-08-19 13:28:05,221 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:05,224 | INFO | چانک 52 | input: 10000 | dropped: 0 | invalid_rate: 3185 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.16s
+2026-08-19 13:28:05,403 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:05,406 | INFO | چانک 53 | input: 10000 | dropped: 0 | invalid_rate: 1720 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:28:05,629 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:05,631 | INFO | چانک 54 | input: 10000 | dropped: 0 | invalid_rate: 1581 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.18s
+2026-08-19 13:28:05,823 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:05,825 | INFO | چانک 55 | input: 10000 | dropped: 0 | invalid_rate: 2976 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.13s
+2026-08-19 13:28:05,997 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:05,999 | INFO | چانک 56 | input: 10000 | dropped: 0 | invalid_rate: 3420 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:28:06,171 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:06,174 | INFO | چانک 57 | input: 10000 | dropped: 0 | invalid_rate: 1995 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:28:06,346 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:06,348 | INFO | چانک 58 | input: 10000 | dropped: 0 | invalid_rate: 2805 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:28:06,596 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:06,598 | INFO | چانک 59 | input: 10000 | dropped: 0 | invalid_rate: 2889 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.21s
+2026-08-19 13:28:06,803 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:06,805 | INFO | چانک 60 | input: 10000 | dropped: 0 | invalid_rate: 1444 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.13s
+2026-08-19 13:28:07,006 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:07,008 | INFO | چانک 61 | input: 10000 | dropped: 0 | invalid_rate: 731 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.13s
+2026-08-19 13:28:07,207 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:07,209 | INFO | چانک 62 | input: 10000 | dropped: 0 | invalid_rate: 1183 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.16s
+2026-08-19 13:28:07,414 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:07,416 | INFO | چانک 63 | input: 10000 | dropped: 0 | invalid_rate: 1188 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.13s
+2026-08-19 13:28:07,652 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:07,654 | INFO | چانک 64 | input: 10000 | dropped: 0 | invalid_rate: 781 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.17s
+2026-08-19 13:28:07,852 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:07,853 | INFO | چانک 65 | input: 10000 | dropped: 0 | invalid_rate: 4418 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.13s
+2026-08-19 13:28:08,030 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:08,032 | INFO | چانک 66 | input: 10000 | dropped: 0 | invalid_rate: 7041 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:28:08,297 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:08,300 | INFO | چانک 67 | input: 10000 | dropped: 0 | invalid_rate: 7761 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.22s
+2026-08-19 13:28:08,508 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:08,513 | INFO | چانک 68 | input: 10000 | dropped: 0 | invalid_rate: 6392 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.15s
+2026-08-19 13:28:08,781 | INFO |   -> to_dict/clean: 0.17s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:08,784 | INFO | چانک 69 | input: 10000 | dropped: 0 | invalid_rate: 5434 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.19s
+2026-08-19 13:28:09,022 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:09,024 | INFO | چانک 70 | input: 10000 | dropped: 0 | invalid_rate: 2470 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.18s
+2026-08-19 13:28:09,219 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:09,221 | INFO | چانک 71 | input: 10000 | dropped: 0 | invalid_rate: 4363 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.15s
+2026-08-19 13:28:09,419 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:09,421 | INFO | چانک 72 | input: 10000 | dropped: 0 | invalid_rate: 3523 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.15s
+2026-08-19 13:28:09,605 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:09,607 | INFO | چانک 73 | input: 10000 | dropped: 0 | invalid_rate: 3217 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.14s
+2026-08-19 13:28:09,786 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:09,788 | INFO | چانک 74 | input: 10000 | dropped: 0 | invalid_rate: 2616 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.14s
+2026-08-19 13:28:09,961 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:09,963 | INFO | چانک 75 | input: 10000 | dropped: 0 | invalid_rate: 2116 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:28:10,137 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:10,139 | INFO | چانک 76 | input: 10000 | dropped: 0 | invalid_rate: 2599 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:28:10,341 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:10,344 | INFO | چانک 77 | input: 10000 | dropped: 0 | invalid_rate: 3423 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.16s
+2026-08-19 13:28:10,543 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:10,548 | INFO | چانک 78 | input: 10000 | dropped: 0 | invalid_rate: 2286 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.16s
+2026-08-19 13:28:10,799 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:10,802 | INFO | چانک 79 | input: 10000 | dropped: 0 | invalid_rate: 1349 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.21s
+2026-08-19 13:28:11,021 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:11,023 | INFO | چانک 80 | input: 10000 | dropped: 0 | invalid_rate: 5443 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.15s
+2026-08-19 13:28:11,198 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:11,201 | INFO | چانک 81 | input: 10000 | dropped: 0 | invalid_rate: 2231 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:28:11,428 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:11,430 | INFO | چانک 82 | input: 10000 | dropped: 0 | invalid_rate: 3635 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.16s
+2026-08-19 13:28:11,631 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:11,633 | INFO | چانک 83 | input: 10000 | dropped: 0 | invalid_rate: 3239 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.15s
+2026-08-19 13:28:11,851 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:11,853 | INFO | چانک 84 | input: 10000 | dropped: 0 | invalid_rate: 2697 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.16s
+2026-08-19 13:28:12,052 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:12,055 | INFO | چانک 85 | input: 10000 | dropped: 0 | invalid_rate: 3409 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.14s
+2026-08-19 13:28:12,249 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:12,252 | INFO | چانک 86 | input: 10000 | dropped: 0 | invalid_rate: 4511 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.13s
+2026-08-19 13:28:12,451 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:12,452 | INFO | چانک 87 | input: 10000 | dropped: 0 | invalid_rate: 5110 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.14s
+2026-08-19 13:28:12,684 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:12,686 | INFO | چانک 88 | input: 10000 | dropped: 0 | invalid_rate: 7585 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.18s
+2026-08-19 13:28:12,914 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:12,916 | INFO | چانک 89 | input: 10000 | dropped: 0 | invalid_rate: 1681 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.15s
+2026-08-19 13:28:13,193 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:13,196 | INFO | چانک 90 | input: 10000 | dropped: 0 | invalid_rate: 3592 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.22s
+2026-08-19 13:28:13,386 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:13,388 | INFO | چانک 91 | input: 10000 | dropped: 0 | invalid_rate: 4119 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.14s
+2026-08-19 13:28:13,570 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:13,572 | INFO | چانک 92 | input: 10000 | dropped: 0 | invalid_rate: 4174 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.14s
+2026-08-19 13:28:13,786 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:13,788 | INFO | چانک 93 | input: 10000 | dropped: 0 | invalid_rate: 939 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.16s
+2026-08-19 13:28:13,964 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:13,966 | INFO | چانک 94 | input: 10000 | dropped: 0 | invalid_rate: 929 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:28:14,141 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:14,143 | INFO | چانک 95 | input: 10000 | dropped: 0 | invalid_rate: 1304 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:28:14,375 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:14,378 | INFO | چانک 96 | input: 10000 | dropped: 0 | invalid_rate: 2388 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.18s
+2026-08-19 13:28:14,616 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:14,618 | INFO | چانک 97 | input: 10000 | dropped: 0 | invalid_rate: 2608 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.16s
+2026-08-19 13:28:14,807 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:14,809 | INFO | چانک 98 | input: 10000 | dropped: 0 | invalid_rate: 2998 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.14s
+2026-08-19 13:28:15,071 | INFO |   -> to_dict/clean: 0.17s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:15,073 | INFO | چانک 99 | input: 10000 | dropped: 0 | invalid_rate: 6793 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.19s
+2026-08-19 13:28:15,287 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:15,290 | INFO | چانک 100 | input: 10000 | dropped: 0 | invalid_rate: 7814 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.17s
+2026-08-19 13:28:15,567 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:15,569 | INFO | چانک 101 | input: 10000 | dropped: 0 | invalid_rate: 7700 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.20s
+2026-08-19 13:28:15,847 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:15,849 | INFO | چانک 102 | input: 10000 | dropped: 0 | invalid_rate: 3909 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.21s
+2026-08-19 13:28:16,017 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:16,019 | INFO | چانک 103 | input: 10000 | dropped: 0 | invalid_rate: 1833 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:28:16,191 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:16,194 | INFO | چانک 104 | input: 10000 | dropped: 0 | invalid_rate: 3428 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:28:16,402 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:16,405 | INFO | چانک 105 | input: 10000 | dropped: 0 | invalid_rate: 2933 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.17s
+2026-08-19 13:28:16,586 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:16,588 | INFO | چانک 106 | input: 10000 | dropped: 0 | invalid_rate: 4044 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.14s
+2026-08-19 13:28:16,759 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:16,761 | INFO | چانک 107 | input: 10000 | dropped: 0 | invalid_rate: 2629 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:28:16,953 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:16,955 | INFO | چانک 108 | input: 10000 | dropped: 0 | invalid_rate: 3460 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.14s
+2026-08-19 13:28:18,164 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.03s | insert(7691 ok, 0 failed): 1.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:18,168 | INFO | چانک 109 | input: 10000 | dropped: 0 | invalid_rate: 6780 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7691 | updated: 0 | failed: 0 | clean: 0.00s | load: 1.17s
+2026-08-19 13:28:19,415 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(9089 ok, 0 failed): 1.02s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:19,419 | INFO | چانک 110 | input: 10000 | dropped: 0 | invalid_rate: 5753 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9089 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.17s
+2026-08-19 13:28:20,630 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(8333 ok, 0 failed): 1.01s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:20,635 | INFO | چانک 111 | input: 10000 | dropped: 0 | invalid_rate: 1546 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8333 | updated: 0 | failed: 0 | clean: 0.00s | load: 1.14s
+2026-08-19 13:28:21,912 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(8372 ok, 0 failed): 1.03s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:21,916 | INFO | چانک 112 | input: 10000 | dropped: 0 | invalid_rate: 1063 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8372 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.20s
+2026-08-19 13:28:23,048 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(7132 ok, 0 failed): 0.92s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:23,050 | INFO | چانک 113 | input: 10000 | dropped: 0 | invalid_rate: 1132 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7132 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.06s
+2026-08-19 13:28:24,305 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.02s | insert(8478 ok, 0 failed): 1.01s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:24,309 | INFO | چانک 114 | input: 10000 | dropped: 0 | invalid_rate: 1564 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8478 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.19s
+2026-08-19 13:28:25,663 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(8735 ok, 0 failed): 1.10s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:25,668 | INFO | چانک 115 | input: 10000 | dropped: 0 | invalid_rate: 5789 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8735 | updated: 0 | failed: 0 | clean: 0.00s | load: 1.27s
+2026-08-19 13:28:27,047 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(8806 ok, 0 failed): 1.14s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:27,051 | INFO | چانک 116 | input: 10000 | dropped: 0 | invalid_rate: 6691 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8806 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.29s
+2026-08-19 13:28:28,386 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(8727 ok, 0 failed): 1.07s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:28,391 | INFO | چانک 117 | input: 10000 | dropped: 0 | invalid_rate: 6762 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8727 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.23s
+2026-08-19 13:28:29,793 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.03s | insert(8694 ok, 0 failed): 1.10s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:29,797 | INFO | چانک 118 | input: 10000 | dropped: 0 | invalid_rate: 6858 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8694 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.33s
+2026-08-19 13:28:31,085 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(8489 ok, 0 failed): 1.06s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:31,089 | INFO | چانک 119 | input: 10000 | dropped: 0 | invalid_rate: 5780 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8489 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.20s
+2026-08-19 13:28:32,365 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(8877 ok, 0 failed): 1.04s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:32,369 | INFO | چانک 120 | input: 10000 | dropped: 0 | invalid_rate: 7654 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8877 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.21s
+2026-08-19 13:28:33,621 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(9022 ok, 0 failed): 1.02s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:33,625 | INFO | چانک 121 | input: 10000 | dropped: 0 | invalid_rate: 7232 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9022 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.17s
+2026-08-19 13:28:34,837 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(8249 ok, 0 failed): 0.99s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:34,841 | INFO | چانک 122 | input: 10000 | dropped: 0 | invalid_rate: 7026 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 8249 | updated: 0 | failed: 0 | clean: 0.00s | load: 1.14s
+2026-08-19 13:28:36,229 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.05s | insert(9207 ok, 0 failed): 1.13s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:36,232 | INFO | چانک 123 | input: 10000 | dropped: 0 | invalid_rate: 5373 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 9207 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.33s
+2026-08-19 13:28:37,232 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.02s | insert(7217 ok, 0 failed): 0.69s | update(3): 0.01s | commit: 0.00s
+2026-08-19 13:28:37,236 | INFO | چانک 124 | input: 10000 | dropped: 0 | invalid_rate: 3994 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7217 | updated: 3 | failed: 0 | clean: 0.01s | load: 0.93s
+2026-08-19 13:28:37,947 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(4218 ok, 0 failed): 0.49s | update(1): 0.01s | commit: 0.00s
+2026-08-19 13:28:37,951 | INFO | چانک 125 | input: 10000 | dropped: 0 | invalid_rate: 5240 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 4218 | updated: 1 | failed: 0 | clean: 0.01s | load: 0.65s
+2026-08-19 13:28:38,904 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(7110 ok, 0 failed): 0.74s | update(1): 0.00s | commit: 0.00s
+2026-08-19 13:28:38,908 | INFO | چانک 126 | input: 10000 | dropped: 0 | invalid_rate: 4236 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7110 | updated: 1 | failed: 0 | clean: 0.00s | load: 0.89s
+2026-08-19 13:28:39,911 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.02s | insert(7495 ok, 0 failed): 0.74s | update(3): 0.01s | commit: 0.00s
+2026-08-19 13:28:39,915 | INFO | چانک 127 | input: 10000 | dropped: 0 | invalid_rate: 4604 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7495 | updated: 3 | failed: 0 | clean: 0.01s | load: 0.93s
+2026-08-19 13:28:41,034 | INFO |   -> to_dict/clean: 0.17s | loop(10000): 0.02s | insert(7309 ok, 0 failed): 0.85s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:41,038 | INFO | چانک 128 | input: 10000 | dropped: 0 | invalid_rate: 3567 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 7309 | updated: 0 | failed: 0 | clean: 0.01s | load: 1.05s
+2026-08-19 13:28:41,457 | INFO |   -> to_dict/clean: 0.08s | loop(3496): 0.01s | insert(2330 ok, 0 failed): 0.29s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:28:41,458 | INFO | چانک 129 | input: 3496 | dropped: 0 | invalid_rate: 1237 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 3496 | inserted: 2330 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.38s
+2026-08-19 13:28:41,460 | INFO | ============================================================
+2026-08-19 13:28:41,460 | INFO | گزارش نهایی وضعیت پردازش Products
+2026-08-19 13:28:41,461 | INFO | ============================================================
+2026-08-19 13:28:41,461 | INFO | کل رکوردهای خام خوانده‌شده: 1283496
+2026-08-19 13:28:41,461 | INFO | حذف‌شده به دلیل id یا title_fa خالی: 0
+2026-08-19 13:28:41,462 | INFO | rate نامعتبر: 484309
+2026-08-19 13:28:41,462 | INFO | rate_cnt نامعتبر: 0
+2026-08-19 13:28:41,463 | INFO | price نامعتبر: 0
+2026-08-19 13:28:41,464 | INFO | min_price_last_month نامعتبر: 0
+2026-08-19 13:28:41,464 | INFO | رکوردهای باقی‌مانده بعد از Cleaning: 1283496
+2026-08-19 13:28:41,465 | INFO | رکوردهای Insert شده: 163580
+2026-08-19 13:28:41,465 | INFO | رکوردهای Update شده: 8
+2026-08-19 13:28:41,465 | INFO | رکوردهای ناموفق در Insert: 2
+2026-08-19 13:28:41,466 | INFO | ============================================================
+2026-08-19 13:28:41,466 | INFO | پردازش Products به پایان رسید.
+2026-08-19 13:34:06,679 | INFO | در حال بارگذاری رکوردهای موجود Products از دیتابیس...
+2026-08-19 13:34:20,607 | INFO | 948351 رکورد موجود در دیتابیس در 13.9 ثانیه بارگذاری شد.
+2026-08-19 13:34:20,607 | INFO | شروع پردازش Products...
+2026-08-19 13:34:25,961 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(6105): 5.14s | commit: 0.00s
+2026-08-19 13:34:25,965 | INFO | چانک 1 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 6105 | failed: 0 | clean: 0.00s | load: 5.29s
+2026-08-19 13:34:32,412 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(6376): 6.24s | commit: 0.01s
+2026-08-19 13:34:32,416 | INFO | چانک 2 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 6376 | failed: 0 | clean: 0.00s | load: 6.38s
+2026-08-19 13:34:37,421 | INFO |   -> to_dict/clean: 0.17s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(6099): 4.71s | commit: 0.00s
+2026-08-19 13:34:37,425 | INFO | چانک 3 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 6099 | failed: 0 | clean: 0.01s | load: 4.91s
+2026-08-19 13:34:42,262 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(5077): 4.63s | commit: 0.01s
+2026-08-19 13:34:42,265 | INFO | چانک 4 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 5077 | failed: 0 | clean: 0.00s | load: 4.79s
+2026-08-19 13:34:47,176 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(5267): 4.62s | commit: 0.00s
+2026-08-19 13:34:47,180 | INFO | چانک 5 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 5267 | failed: 0 | clean: 0.01s | load: 4.84s
+2026-08-19 13:34:52,920 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(4389): 5.50s | commit: 0.00s
+2026-08-19 13:34:52,923 | INFO | چانک 6 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 4389 | failed: 0 | clean: 0.01s | load: 5.66s
+2026-08-19 13:34:57,312 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(3292): 4.12s | commit: 0.00s
+2026-08-19 13:34:57,316 | INFO | چانک 7 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3292 | failed: 0 | clean: 0.01s | load: 4.29s
+2026-08-19 13:34:58,349 | INFO |   -> to_dict/clean: 0.17s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(545): 0.76s | commit: 0.01s
+2026-08-19 13:34:58,352 | INFO | چانک 8 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 545 | failed: 0 | clean: 0.01s | load: 0.95s
+2026-08-19 13:35:01,016 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(2659): 2.41s | commit: 0.00s
+2026-08-19 13:35:01,020 | INFO | چانک 9 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2659 | failed: 0 | clean: 0.01s | load: 2.58s
+2026-08-19 13:35:03,647 | INFO |   -> to_dict/clean: 0.24s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(2890): 2.29s | commit: 0.01s
+2026-08-19 13:35:03,652 | INFO | چانک 10 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2890 | failed: 0 | clean: 0.00s | load: 2.55s
+2026-08-19 13:35:06,022 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(2207): 2.12s | commit: 0.01s
+2026-08-19 13:35:06,024 | INFO | چانک 11 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2207 | failed: 0 | clean: 0.01s | load: 2.27s
+2026-08-19 13:35:06,755 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(280): 0.48s | commit: 0.01s
+2026-08-19 13:35:06,757 | INFO | چانک 12 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 280 | failed: 0 | clean: 0.01s | load: 0.66s
+2026-08-19 13:35:07,072 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(34): 0.06s | commit: 0.00s
+2026-08-19 13:35:07,075 | INFO | چانک 13 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 34 | failed: 0 | clean: 0.01s | load: 0.24s
+2026-08-19 13:35:08,428 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(798): 1.09s | commit: 0.00s
+2026-08-19 13:35:08,430 | INFO | چانک 14 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 798 | failed: 0 | clean: 0.01s | load: 1.27s
+2026-08-19 13:35:13,299 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(4240): 4.66s | commit: 0.00s
+2026-08-19 13:35:13,302 | INFO | چانک 15 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 4240 | failed: 0 | clean: 0.01s | load: 4.80s
+2026-08-19 13:35:16,236 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(2696): 2.69s | commit: 0.01s
+2026-08-19 13:35:16,239 | INFO | چانک 16 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2696 | failed: 0 | clean: 0.00s | load: 2.88s
+2026-08-19 13:35:18,571 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(2367): 2.07s | commit: 0.01s
+2026-08-19 13:35:18,575 | INFO | چانک 17 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2367 | failed: 0 | clean: 0.01s | load: 2.25s
+2026-08-19 13:35:20,981 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(2389): 2.16s | commit: 0.02s
+2026-08-19 13:35:20,986 | INFO | چانک 18 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2389 | failed: 0 | clean: 0.00s | load: 2.36s
+2026-08-19 13:35:22,792 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(1751): 1.56s | commit: 0.00s
+2026-08-19 13:35:22,794 | INFO | چانک 19 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1751 | failed: 0 | clean: 0.01s | load: 1.72s
+2026-08-19 13:35:24,685 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(1890): 1.68s | commit: 0.01s
+2026-08-19 13:35:24,688 | INFO | چانک 20 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1890 | failed: 0 | clean: 0.01s | load: 1.82s
+2026-08-19 13:35:27,515 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(2147): 2.54s | commit: 0.00s
+2026-08-19 13:35:27,519 | INFO | چانک 21 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2147 | failed: 0 | clean: 0.01s | load: 2.74s
+2026-08-19 13:35:30,644 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(3058): 2.87s | commit: 0.00s
+2026-08-19 13:35:30,647 | INFO | چانک 22 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3058 | failed: 0 | clean: 0.01s | load: 3.04s
+2026-08-19 13:35:32,431 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(1566): 1.55s | commit: 0.01s
+2026-08-19 13:35:32,434 | INFO | چانک 23 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1566 | failed: 0 | clean: 0.01s | load: 1.71s
+2026-08-19 13:35:34,330 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(1727): 1.61s | commit: 0.01s
+2026-08-19 13:35:34,332 | INFO | چانک 24 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1727 | failed: 0 | clean: 0.01s | load: 1.82s
+2026-08-19 13:35:39,662 | INFO |   -> to_dict/clean: 0.24s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(3764): 4.96s | commit: 0.02s
+2026-08-19 13:35:39,666 | INFO | چانک 25 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3764 | failed: 0 | clean: 0.01s | load: 5.25s
+2026-08-19 13:35:41,425 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(1314): 1.51s | commit: 0.01s
+2026-08-19 13:35:41,427 | INFO | چانک 26 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1314 | failed: 0 | clean: 0.01s | load: 1.67s
+2026-08-19 13:35:42,280 | INFO |   -> to_dict/clean: 0.22s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(557): 0.52s | commit: 0.01s
+2026-08-19 13:35:42,283 | INFO | چانک 27 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 557 | failed: 0 | clean: 0.01s | load: 0.77s
+2026-08-19 13:35:43,974 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(1570): 1.46s | commit: 0.01s
+2026-08-19 13:35:43,977 | INFO | چانک 28 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1570 | failed: 0 | clean: 0.01s | load: 1.61s
+2026-08-19 13:35:46,283 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(2003): 1.97s | commit: 0.01s
+2026-08-19 13:35:46,286 | INFO | چانک 29 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2003 | failed: 0 | clean: 0.01s | load: 2.18s
+2026-08-19 13:35:46,906 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(338): 0.38s | commit: 0.01s
+2026-08-19 13:35:46,909 | INFO | چانک 30 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 338 | failed: 0 | clean: 0.01s | load: 0.54s
+2026-08-19 13:35:48,918 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(2202): 1.75s | commit: 0.01s
+2026-08-19 13:35:48,921 | INFO | چانک 31 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2202 | failed: 0 | clean: 0.01s | load: 1.93s
+2026-08-19 13:35:51,644 | INFO |   -> to_dict/clean: 0.22s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(2157): 2.34s | commit: 0.01s
+2026-08-19 13:35:51,647 | INFO | چانک 32 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2157 | failed: 0 | clean: 0.01s | load: 2.60s
+2026-08-19 13:35:51,977 | WARNING | رکورد رد شد (id=7336696): DataError: (psycopg2.errors.NumericValueOutOfRange) integer out of range
+
+[SQL: INSERT INTO products (id, title_fa, rate, rate_cnt, category1, category2, brand, price, seller, is_fake, min_price_last_month, sub_category) VALUES (%(id)s, %(title_fa)s, %(rate)s, %(rate_cnt)s, %(category1)s, %(category2)s, %(brand)s, %(price)s, %(seller)s, %(is_fake)s, %(min_price_last_month)s, %(sub_category)s)]
+[parameters: {'id': 7336696, 'title_fa': 'ساعت مچی عقربه\u200cای مردانه تگ هویر مدل CAL5111.FC6299', 'rate': 100.0, 'rate_cnt': 2, 'category1': 'اکسسوری مردانه', 'category2': 'ساعت مردانه', 'brand': 'تگ هویر', 'price': 7645500000, 'seller': 'آس کالا کمپانی', 'is_fake': False, 'min_price_last_month': 7645500000, 'sub_category': 'clothe'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2026-08-19 13:35:54,082 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.02s | insert(0 ok, 1 failed): 0.05s | update(1646): 2.10s | commit: 0.00s
+2026-08-19 13:35:54,085 | INFO | چانک 33 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1646 | failed: 1 | clean: 0.01s | load: 2.36s
+2026-08-19 13:35:57,017 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(2326): 2.71s | commit: 0.01s
+2026-08-19 13:35:57,022 | INFO | چانک 34 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2326 | failed: 0 | clean: 0.01s | load: 2.87s
+2026-08-19 13:35:58,363 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(657): 1.01s | commit: 0.05s
+2026-08-19 13:35:58,375 | INFO | چانک 35 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 657 | failed: 0 | clean: 0.01s | load: 1.27s
+2026-08-19 13:35:58,746 | WARNING | رکورد رد شد (id=7336696): DataError: (psycopg2.errors.NumericValueOutOfRange) integer out of range
+
+[SQL: INSERT INTO products (id, title_fa, rate, rate_cnt, category1, category2, brand, price, seller, is_fake, min_price_last_month, sub_category) VALUES (%(id)s, %(title_fa)s, %(rate)s, %(rate_cnt)s, %(category1)s, %(category2)s, %(brand)s, %(price)s, %(seller)s, %(is_fake)s, %(min_price_last_month)s, %(sub_category)s)]
+[parameters: {'id': 7336696, 'title_fa': 'ساعت مچی عقربه\u200cای مردانه تگ هویر مدل CAL5111.FC6299', 'rate': 100.0, 'rate_cnt': 2, 'category1': 'اکسسوری مردانه', 'category2': 'ساعت مردانه', 'brand': 'تگ هویر', 'price': 7645500000, 'seller': 'آس کالا کمپانی', 'is_fake': False, 'min_price_last_month': 7645500000, 'sub_category': 'clothe'}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2026-08-19 13:36:02,601 | INFO |   -> to_dict/clean: 0.22s | loop(10000): 0.03s | insert(0 ok, 1 failed): 0.04s | update(3056): 3.85s | commit: 0.01s
+2026-08-19 13:36:02,603 | INFO | چانک 36 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3056 | failed: 1 | clean: 0.01s | load: 4.15s
+2026-08-19 13:36:06,455 | INFO |   -> to_dict/clean: 0.29s | loop(10000): 0.05s | insert(0 ok, 0 failed): 0.00s | update(3375): 3.41s | commit: 0.01s
+2026-08-19 13:36:06,457 | INFO | چانک 37 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3375 | failed: 0 | clean: 0.01s | load: 3.75s
+2026-08-19 13:36:08,999 | INFO |   -> to_dict/clean: 0.21s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(2542): 2.20s | commit: 0.01s
+2026-08-19 13:36:09,004 | INFO | چانک 38 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2542 | failed: 0 | clean: 0.01s | load: 2.44s
+2026-08-19 13:36:12,224 | INFO |   -> to_dict/clean: 0.21s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(3667): 2.90s | commit: 0.01s
+2026-08-19 13:36:12,227 | INFO | چانک 39 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3667 | failed: 0 | clean: 0.01s | load: 3.15s
+2026-08-19 13:36:16,963 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(3307): 4.45s | commit: 0.00s
+2026-08-19 13:36:16,967 | INFO | چانک 40 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3307 | failed: 0 | clean: 0.00s | load: 4.67s
+2026-08-19 13:36:22,606 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(3995): 5.39s | commit: 0.02s
+2026-08-19 13:36:22,610 | INFO | چانک 41 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3995 | failed: 0 | clean: 0.01s | load: 5.55s
+2026-08-19 13:36:26,068 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(3847): 3.19s | commit: 0.01s
+2026-08-19 13:36:26,071 | INFO | چانک 42 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3847 | failed: 0 | clean: 0.01s | load: 3.37s
+2026-08-19 13:36:28,988 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(2673): 2.69s | commit: 0.02s
+2026-08-19 13:36:28,995 | INFO | چانک 43 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2673 | failed: 0 | clean: 0.01s | load: 2.85s
+2026-08-19 13:36:31,599 | INFO |   -> to_dict/clean: 0.21s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(2646): 2.28s | commit: 0.01s
+2026-08-19 13:36:31,603 | INFO | چانک 44 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2646 | failed: 0 | clean: 0.01s | load: 2.53s
+2026-08-19 13:36:33,309 | INFO |   -> to_dict/clean: 0.23s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(1820): 1.36s | commit: 0.01s
+2026-08-19 13:36:33,312 | INFO | چانک 45 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1820 | failed: 0 | clean: 0.01s | load: 1.62s
+2026-08-19 13:36:34,211 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(437): 0.70s | commit: 0.01s
+2026-08-19 13:36:34,214 | INFO | چانک 46 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 437 | failed: 0 | clean: 0.00s | load: 0.85s
+2026-08-19 13:36:38,793 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(5380): 4.37s | commit: 0.01s
+2026-08-19 13:36:38,797 | INFO | چانک 47 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 5380 | failed: 0 | clean: 0.01s | load: 4.51s
+2026-08-19 13:36:41,756 | INFO |   -> to_dict/clean: 0.24s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(2393): 2.58s | commit: 0.01s
+2026-08-19 13:36:41,759 | INFO | چانک 48 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2393 | failed: 0 | clean: 0.01s | load: 2.87s
+2026-08-19 13:36:44,942 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(2469): 2.96s | commit: 0.00s
+2026-08-19 13:36:44,945 | INFO | چانک 49 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2469 | failed: 0 | clean: 0.00s | load: 3.14s
+2026-08-19 13:36:46,990 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(2275): 1.79s | commit: 0.01s
+2026-08-19 13:36:46,993 | INFO | چانک 50 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2275 | failed: 0 | clean: 0.01s | load: 1.97s
+2026-08-19 13:36:50,197 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(2631): 2.95s | commit: 0.00s
+2026-08-19 13:36:50,201 | INFO | چانک 51 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2631 | failed: 0 | clean: 0.01s | load: 3.13s
+2026-08-19 13:36:53,338 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(2216): 2.84s | commit: 0.01s
+2026-08-19 13:36:53,342 | INFO | چانک 52 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2216 | failed: 0 | clean: 0.01s | load: 3.05s
+2026-08-19 13:36:55,479 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(1589): 1.88s | commit: 0.00s
+2026-08-19 13:36:55,484 | INFO | چانک 53 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1589 | failed: 0 | clean: 0.01s | load: 2.04s
+2026-08-19 13:36:57,293 | INFO |   -> to_dict/clean: 0.25s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(1464): 1.47s | commit: 0.00s
+2026-08-19 13:36:57,296 | INFO | چانک 54 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1464 | failed: 0 | clean: 0.01s | load: 1.73s
+2026-08-19 13:37:00,822 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(2599): 3.30s | commit: 0.01s
+2026-08-19 13:37:00,827 | INFO | چانک 55 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2599 | failed: 0 | clean: 0.01s | load: 3.45s
+2026-08-19 13:37:05,878 | INFO |   -> to_dict/clean: 0.36s | loop(10000): 0.07s | insert(0 ok, 0 failed): 0.00s | update(3065): 4.50s | commit: 0.01s
+2026-08-19 13:37:05,883 | INFO | چانک 56 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3065 | failed: 0 | clean: 0.01s | load: 4.93s
+2026-08-19 13:37:08,040 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(1612): 1.69s | commit: 0.00s
+2026-08-19 13:37:08,045 | INFO | چانک 57 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1612 | failed: 0 | clean: 0.01s | load: 2.05s
+2026-08-19 13:37:10,979 | INFO |   -> to_dict/clean: 0.32s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(2197): 2.47s | commit: 0.01s
+2026-08-19 13:37:10,984 | INFO | چانک 58 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2197 | failed: 0 | clean: 0.01s | load: 2.83s
+2026-08-19 13:37:13,317 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(1814): 1.87s | commit: 0.00s
+2026-08-19 13:37:13,323 | INFO | چانک 59 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1814 | failed: 0 | clean: 0.01s | load: 2.22s
+2026-08-19 13:37:15,406 | INFO |   -> to_dict/clean: 0.42s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(1067): 1.51s | commit: 0.01s
+2026-08-19 13:37:15,410 | INFO | چانک 60 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1067 | failed: 0 | clean: 0.01s | load: 1.98s
+2026-08-19 13:37:16,935 | INFO |   -> to_dict/clean: 0.34s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(636): 1.04s | commit: 0.00s
+2026-08-19 13:37:16,940 | INFO | چانک 61 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 636 | failed: 0 | clean: 0.01s | load: 1.42s
+2026-08-19 13:37:18,602 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(1006): 1.21s | commit: 0.00s
+2026-08-19 13:37:18,606 | INFO | چانک 62 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1006 | failed: 0 | clean: 0.01s | load: 1.56s
+2026-08-19 13:37:20,138 | INFO |   -> to_dict/clean: 0.32s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(1088): 1.07s | commit: 0.01s
+2026-08-19 13:37:20,143 | INFO | چانک 63 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1088 | failed: 0 | clean: 0.01s | load: 1.43s
+2026-08-19 13:37:21,619 | INFO |   -> to_dict/clean: 0.32s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(768): 1.00s | commit: 0.01s
+2026-08-19 13:37:21,623 | INFO | چانک 64 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 768 | failed: 0 | clean: 0.01s | load: 1.37s
+2026-08-19 13:37:26,629 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(4262): 4.54s | commit: 0.01s
+2026-08-19 13:37:26,635 | INFO | چانک 65 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 4262 | failed: 0 | clean: 0.01s | load: 4.90s
+2026-08-19 13:37:32,902 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(5496): 5.79s | commit: 0.00s
+2026-08-19 13:37:32,907 | INFO | چانک 66 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 5496 | failed: 0 | clean: 0.01s | load: 6.16s
+2026-08-19 13:37:36,510 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(2472): 3.13s | commit: 0.00s
+2026-08-19 13:37:36,515 | INFO | چانک 67 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2472 | failed: 0 | clean: 0.01s | load: 3.49s
+2026-08-19 13:37:41,226 | INFO |   -> to_dict/clean: 0.30s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(4447): 4.25s | commit: 0.01s
+2026-08-19 13:37:41,232 | INFO | چانک 68 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 4447 | failed: 0 | clean: 0.01s | load: 4.60s
+2026-08-19 13:37:47,672 | INFO |   -> to_dict/clean: 0.42s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(5395): 5.84s | commit: 0.00s
+2026-08-19 13:37:47,677 | INFO | چانک 69 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 5395 | failed: 0 | clean: 0.01s | load: 6.31s
+2026-08-19 13:37:50,871 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(2432): 2.74s | commit: 0.00s
+2026-08-19 13:37:50,876 | INFO | چانک 70 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2432 | failed: 0 | clean: 0.01s | load: 3.09s
+2026-08-19 13:37:55,318 | INFO |   -> to_dict/clean: 0.32s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(4134): 3.97s | commit: 0.01s
+2026-08-19 13:37:55,324 | INFO | چانک 71 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 4134 | failed: 0 | clean: 0.01s | load: 4.34s
+2026-08-19 13:37:59,655 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(3366): 3.87s | commit: 0.00s
+2026-08-19 13:37:59,660 | INFO | چانک 72 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3366 | failed: 0 | clean: 0.01s | load: 4.23s
+2026-08-19 13:38:03,654 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(3157): 3.52s | commit: 0.01s
+2026-08-19 13:38:03,659 | INFO | چانک 73 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3157 | failed: 0 | clean: 0.01s | load: 3.89s
+2026-08-19 13:38:07,095 | INFO |   -> to_dict/clean: 0.32s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(2586): 2.97s | commit: 0.00s
+2026-08-19 13:38:07,100 | INFO | چانک 74 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2586 | failed: 0 | clean: 0.01s | load: 3.33s
+2026-08-19 13:38:09,590 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(1814): 2.03s | commit: 0.00s
+2026-08-19 13:38:09,595 | INFO | چانک 75 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1814 | failed: 0 | clean: 0.01s | load: 2.39s
+2026-08-19 13:38:11,601 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(1416): 1.55s | commit: 0.01s
+2026-08-19 13:38:11,606 | INFO | چانک 76 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1416 | failed: 0 | clean: 0.01s | load: 1.90s
+2026-08-19 13:38:15,768 | INFO |   -> to_dict/clean: 0.41s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(2933): 3.61s | commit: 0.00s
+2026-08-19 13:38:15,774 | INFO | چانک 77 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2933 | failed: 0 | clean: 0.01s | load: 4.06s
+2026-08-19 13:38:18,168 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(1921): 1.94s | commit: 0.01s
+2026-08-19 13:38:18,173 | INFO | چانک 78 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1921 | failed: 0 | clean: 0.01s | load: 2.30s
+2026-08-19 13:38:20,092 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(1043): 1.45s | commit: 0.01s
+2026-08-19 13:38:20,096 | INFO | چانک 79 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1043 | failed: 0 | clean: 0.01s | load: 1.81s
+2026-08-19 13:38:26,024 | INFO |   -> to_dict/clean: 0.32s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(4950): 5.46s | commit: 0.00s
+2026-08-19 13:38:26,030 | INFO | چانک 80 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 4950 | failed: 0 | clean: 0.01s | load: 5.83s
+2026-08-19 13:38:28,918 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(2187): 2.43s | commit: 0.00s
+2026-08-19 13:38:28,924 | INFO | چانک 81 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2187 | failed: 0 | clean: 0.01s | load: 2.78s
+2026-08-19 13:38:32,460 | INFO |   -> to_dict/clean: 0.34s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(3157): 3.06s | commit: 0.00s
+2026-08-19 13:38:32,465 | INFO | چانک 82 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3157 | failed: 0 | clean: 0.01s | load: 3.44s
+2026-08-19 13:38:35,359 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(2235): 2.43s | commit: 0.01s
+2026-08-19 13:38:35,364 | INFO | چانک 83 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2235 | failed: 0 | clean: 0.01s | load: 2.79s
+2026-08-19 13:38:38,116 | INFO |   -> to_dict/clean: 0.32s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(2223): 2.29s | commit: 0.00s
+2026-08-19 13:38:38,122 | INFO | چانک 84 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2223 | failed: 0 | clean: 0.01s | load: 2.65s
+2026-08-19 13:38:41,360 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(2723): 2.78s | commit: 0.00s
+2026-08-19 13:38:41,366 | INFO | چانک 85 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2723 | failed: 0 | clean: 0.01s | load: 3.14s
+2026-08-19 13:38:44,798 | INFO |   -> to_dict/clean: 0.32s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(3242): 2.93s | commit: 0.00s
+2026-08-19 13:38:44,803 | INFO | چانک 86 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3242 | failed: 0 | clean: 0.01s | load: 3.30s
+2026-08-19 13:38:49,390 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(3772): 4.11s | commit: 0.01s
+2026-08-19 13:38:49,394 | INFO | چانک 87 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3772 | failed: 0 | clean: 0.01s | load: 4.48s
+2026-08-19 13:38:56,588 | INFO |   -> to_dict/clean: 0.33s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(5651): 6.71s | commit: 0.00s
+2026-08-19 13:38:56,594 | INFO | چانک 88 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 5651 | failed: 0 | clean: 0.01s | load: 7.09s
+2026-08-19 13:38:58,635 | INFO |   -> to_dict/clean: 0.30s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(1542): 1.57s | commit: 0.00s
+2026-08-19 13:38:58,640 | INFO | چانک 89 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1542 | failed: 0 | clean: 0.01s | load: 1.92s
+2026-08-19 13:39:02,643 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(3451): 3.54s | commit: 0.00s
+2026-08-19 13:39:02,647 | INFO | چانک 90 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3451 | failed: 0 | clean: 0.01s | load: 3.89s
+2026-08-19 13:39:07,330 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(4119): 4.23s | commit: 0.00s
+2026-08-19 13:39:07,335 | INFO | چانک 91 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 4119 | failed: 0 | clean: 0.01s | load: 4.58s
+2026-08-19 13:39:12,154 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(4148): 4.35s | commit: 0.02s
+2026-08-19 13:39:12,159 | INFO | چانک 92 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 4148 | failed: 0 | clean: 0.01s | load: 4.72s
+2026-08-19 13:39:13,934 | INFO |   -> to_dict/clean: 0.42s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(839): 1.21s | commit: 0.01s
+2026-08-19 13:39:13,939 | INFO | چانک 93 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 839 | failed: 0 | clean: 0.01s | load: 1.68s
+2026-08-19 13:39:15,330 | INFO |   -> to_dict/clean: 0.34s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(795): 0.90s | commit: 0.01s
+2026-08-19 13:39:15,335 | INFO | چانک 94 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 795 | failed: 0 | clean: 0.01s | load: 1.29s
+2026-08-19 13:39:17,066 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(891): 1.26s | commit: 0.02s
+2026-08-19 13:39:17,070 | INFO | چانک 95 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 891 | failed: 0 | clean: 0.01s | load: 1.63s
+2026-08-19 13:39:19,415 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(1458): 1.87s | commit: 0.02s
+2026-08-19 13:39:19,420 | INFO | چانک 96 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1458 | failed: 0 | clean: 0.01s | load: 2.25s
+2026-08-19 13:39:22,046 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(1817): 2.16s | commit: 0.01s
+2026-08-19 13:39:22,051 | INFO | چانک 97 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1817 | failed: 0 | clean: 0.01s | load: 2.52s
+2026-08-19 13:39:25,016 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(2120): 2.50s | commit: 0.00s
+2026-08-19 13:39:25,021 | INFO | چانک 98 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2120 | failed: 0 | clean: 0.01s | load: 2.86s
+2026-08-19 13:39:30,926 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(5534): 5.43s | commit: 0.01s
+2026-08-19 13:39:30,931 | INFO | چانک 99 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 5534 | failed: 0 | clean: 0.01s | load: 5.80s
+2026-08-19 13:39:34,376 | INFO |   -> to_dict/clean: 0.42s | loop(10000): 0.05s | insert(0 ok, 0 failed): 0.00s | update(2361): 2.85s | commit: 0.01s
+2026-08-19 13:39:34,381 | INFO | چانک 100 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2361 | failed: 0 | clean: 0.01s | load: 3.33s
+2026-08-19 13:39:35,795 | INFO |   -> to_dict/clean: 0.33s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(516): 0.91s | commit: 0.01s
+2026-08-19 13:39:35,800 | INFO | چانک 101 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 516 | failed: 0 | clean: 0.01s | load: 1.29s
+2026-08-19 13:39:39,958 | INFO |   -> to_dict/clean: 0.33s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(2397): 3.63s | commit: 0.01s
+2026-08-19 13:39:39,964 | INFO | چانک 102 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2397 | failed: 0 | clean: 0.01s | load: 4.01s
+2026-08-19 13:39:42,295 | INFO |   -> to_dict/clean: 0.32s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(1220): 1.83s | commit: 0.01s
+2026-08-19 13:39:42,300 | INFO | چانک 103 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1220 | failed: 0 | clean: 0.01s | load: 2.20s
+2026-08-19 13:39:45,575 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(2577): 2.81s | commit: 0.01s
+2026-08-19 13:39:45,579 | INFO | چانک 104 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2577 | failed: 0 | clean: 0.01s | load: 3.18s
+2026-08-19 13:39:47,202 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(1049): 1.16s | commit: 0.01s
+2026-08-19 13:39:47,207 | INFO | چانک 105 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1049 | failed: 0 | clean: 0.01s | load: 1.52s
+2026-08-19 13:39:49,935 | INFO |   -> to_dict/clean: 0.32s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(2146): 2.26s | commit: 0.00s
+2026-08-19 13:39:49,940 | INFO | چانک 106 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2146 | failed: 0 | clean: 0.01s | load: 2.63s
+2026-08-19 13:39:54,381 | INFO |   -> to_dict/clean: 0.56s | loop(10000): 0.05s | insert(0 ok, 0 failed): 0.00s | update(2468): 3.72s | commit: 0.01s
+2026-08-19 13:39:54,386 | INFO | چانک 107 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2468 | failed: 0 | clean: 0.01s | load: 4.34s
+2026-08-19 13:39:59,303 | INFO |   -> to_dict/clean: 0.33s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(3112): 4.43s | commit: 0.02s
+2026-08-19 13:39:59,314 | INFO | چانک 108 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3112 | failed: 0 | clean: 0.01s | load: 4.83s
+2026-08-19 13:40:15,617 | INFO |   -> to_dict/clean: 0.50s | loop(10000): 0.08s | insert(0 ok, 0 failed): 0.00s | update(5644): 15.57s | commit: 0.01s
+2026-08-19 13:40:15,622 | INFO | چانک 109 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 5644 | failed: 0 | clean: 0.02s | load: 16.16s
+2026-08-19 13:40:24,882 | INFO | در حال بارگذاری رکوردهای موجود Products از دیتابیس...
+2026-08-19 13:40:39,672 | INFO | 948351 رکورد موجود در دیتابیس در 14.8 ثانیه بارگذاری شد.
+2026-08-19 13:40:39,673 | INFO | شروع پردازش Products...
+2026-08-19 13:40:39,925 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:39,928 | INFO | چانک 1 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.18s
+2026-08-19 13:40:40,118 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:40,121 | INFO | چانک 2 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:40:40,313 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:40,315 | INFO | چانک 3 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:40:40,486 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:40,488 | INFO | چانک 4 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:40:40,682 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:40,684 | INFO | چانک 5 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.15s
+2026-08-19 13:40:40,858 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:40,861 | INFO | چانک 6 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:40:41,112 | INFO |   -> to_dict/clean: 0.17s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:41,115 | INFO | چانک 7 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.19s
+2026-08-19 13:40:41,286 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:41,288 | INFO | چانک 8 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:40:41,491 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:41,493 | INFO | چانک 9 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.16s
+2026-08-19 13:40:41,777 | INFO |   -> to_dict/clean: 0.17s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:41,779 | INFO | چانک 10 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.19s
+2026-08-19 13:40:42,065 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:42,067 | INFO | چانک 11 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.20s
+2026-08-19 13:40:42,294 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:42,297 | INFO | چانک 12 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.19s
+2026-08-19 13:40:42,485 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:42,487 | INFO | چانک 13 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:40:42,689 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:42,691 | INFO | چانک 14 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.16s
+2026-08-19 13:40:42,892 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:42,894 | INFO | چانک 15 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.13s
+2026-08-19 13:40:43,070 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:43,073 | INFO | چانک 16 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:40:43,244 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:43,246 | INFO | چانک 17 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.13s
+2026-08-19 13:40:43,474 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:43,501 | INFO | چانک 18 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.19s
+2026-08-19 13:40:43,872 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:43,875 | INFO | چانک 19 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.23s
+2026-08-19 13:40:44,070 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:44,072 | INFO | چانک 20 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:40:44,243 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:44,244 | INFO | چانک 21 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:40:44,434 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:44,436 | INFO | چانک 22 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:40:44,715 | INFO |   -> to_dict/clean: 0.21s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:44,717 | INFO | چانک 23 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.23s
+2026-08-19 13:40:44,902 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:44,904 | INFO | چانک 24 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:40:45,094 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:45,096 | INFO | چانک 25 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.15s
+2026-08-19 13:40:45,472 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:45,475 | INFO | چانک 26 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.33s
+2026-08-19 13:40:45,735 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:45,737 | INFO | چانک 27 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.20s
+2026-08-19 13:40:45,973 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:45,975 | INFO | چانک 28 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.15s
+2026-08-19 13:40:46,319 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:46,321 | INFO | چانک 29 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.02s | load: 0.22s
+2026-08-19 13:40:46,551 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:46,554 | INFO | چانک 30 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.16s
+2026-08-19 13:40:46,757 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:46,760 | INFO | چانک 31 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.15s
+2026-08-19 13:40:47,108 | INFO |   -> to_dict/clean: 0.23s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:47,111 | INFO | چانک 32 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.26s
+2026-08-19 13:40:47,336 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(1 ok, 0 failed): 0.01s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:47,339 | INFO | چانک 33 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 1 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.14s
+2026-08-19 13:40:47,541 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:47,543 | INFO | چانک 34 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.14s
+2026-08-19 13:40:47,782 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:47,785 | INFO | چانک 35 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.18s
+2026-08-19 13:40:48,006 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:48,008 | INFO | چانک 36 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.15s
+2026-08-19 13:40:48,196 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:48,199 | INFO | چانک 37 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.13s
+2026-08-19 13:40:48,448 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:48,451 | INFO | چانک 38 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.18s
+2026-08-19 13:40:48,932 | INFO |   -> to_dict/clean: 0.36s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:48,935 | INFO | چانک 39 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.39s
+2026-08-19 13:40:49,332 | INFO |   -> to_dict/clean: 0.29s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:49,336 | INFO | چانک 40 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.31s
+2026-08-19 13:40:49,854 | INFO |   -> to_dict/clean: 0.38s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:49,857 | INFO | چانک 41 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.41s
+2026-08-19 13:40:50,094 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:50,096 | INFO | چانک 42 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.16s
+2026-08-19 13:40:50,316 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:50,319 | INFO | چانک 43 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.16s
+2026-08-19 13:40:50,493 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:50,496 | INFO | چانک 44 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:40:50,697 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:50,699 | INFO | چانک 45 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.16s
+2026-08-19 13:40:50,881 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:50,883 | INFO | چانک 46 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.14s
+2026-08-19 13:40:51,069 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:51,071 | INFO | چانک 47 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:40:51,367 | INFO |   -> to_dict/clean: 0.24s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:51,378 | INFO | چانک 48 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.27s
+2026-08-19 13:40:51,711 | INFO |   -> to_dict/clean: 0.17s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:51,714 | INFO | چانک 49 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.04s | load: 0.20s
+2026-08-19 13:40:52,082 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:52,085 | INFO | چانک 50 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.23s
+2026-08-19 13:40:52,405 | INFO |   -> to_dict/clean: 0.22s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:52,408 | INFO | چانک 51 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.25s
+2026-08-19 13:40:52,628 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:52,630 | INFO | چانک 52 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.13s
+2026-08-19 13:40:52,832 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:52,834 | INFO | چانک 53 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.13s
+2026-08-19 13:40:53,050 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:53,052 | INFO | چانک 54 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.18s
+2026-08-19 13:40:53,309 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:53,312 | INFO | چانک 55 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.18s
+2026-08-19 13:40:53,537 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:53,541 | INFO | چانک 56 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.17s
+2026-08-19 13:40:53,743 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:53,747 | INFO | چانک 57 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.15s
+2026-08-19 13:40:53,926 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:53,928 | INFO | چانک 58 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.14s
+2026-08-19 13:40:54,117 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:54,120 | INFO | چانک 59 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.15s
+2026-08-19 13:40:54,375 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:54,378 | INFO | چانک 60 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.21s
+2026-08-19 13:40:54,720 | INFO |   -> to_dict/clean: 0.22s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:54,723 | INFO | چانک 61 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.26s
+2026-08-19 13:40:54,988 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:54,990 | INFO | چانک 62 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.19s
+2026-08-19 13:40:55,365 | INFO |   -> to_dict/clean: 0.24s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:55,368 | INFO | چانک 63 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.27s
+2026-08-19 13:40:55,737 | INFO |   -> to_dict/clean: 0.26s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:55,740 | INFO | چانک 64 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.28s
+2026-08-19 13:40:55,975 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:55,977 | INFO | چانک 65 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.16s
+2026-08-19 13:40:56,306 | INFO |   -> to_dict/clean: 0.21s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:56,309 | INFO | چانک 66 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.24s
+2026-08-19 13:40:56,530 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:56,534 | INFO | چانک 67 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.14s
+2026-08-19 13:40:56,740 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:56,742 | INFO | چانک 68 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.14s
+2026-08-19 13:40:56,924 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:56,927 | INFO | چانک 69 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:40:57,196 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:57,199 | INFO | چانک 70 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.22s
+2026-08-19 13:40:57,436 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:57,438 | INFO | چانک 71 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.18s
+2026-08-19 13:40:57,612 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:57,616 | INFO | چانک 72 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.14s
+2026-08-19 13:40:57,794 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:57,796 | INFO | چانک 73 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.14s
+2026-08-19 13:40:57,990 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:57,992 | INFO | چانک 74 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.13s
+2026-08-19 13:40:58,166 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:58,168 | INFO | چانک 75 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:40:58,440 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:58,444 | INFO | چانک 76 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.23s
+2026-08-19 13:40:58,663 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:58,668 | INFO | چانک 77 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.15s
+2026-08-19 13:40:59,104 | INFO |   -> to_dict/clean: 0.29s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:59,107 | INFO | چانک 78 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.02s | load: 0.32s
+2026-08-19 13:40:59,459 | INFO |   -> to_dict/clean: 0.25s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:59,462 | INFO | چانک 79 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.28s
+2026-08-19 13:40:59,877 | INFO |   -> to_dict/clean: 0.23s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:40:59,883 | INFO | چانک 80 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.26s
+2026-08-19 13:41:00,198 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:00,200 | INFO | چانک 81 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.21s
+2026-08-19 13:41:00,471 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:00,473 | INFO | چانک 82 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.19s
+2026-08-19 13:41:00,806 | INFO |   -> to_dict/clean: 0.25s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:00,808 | INFO | چانک 83 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.02s | load: 0.27s
+2026-08-19 13:41:01,159 | INFO |   -> to_dict/clean: 0.22s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:01,162 | INFO | چانک 84 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.25s
+2026-08-19 13:41:01,574 | INFO |   -> to_dict/clean: 0.31s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:01,576 | INFO | چانک 85 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.33s
+2026-08-19 13:41:01,888 | INFO |   -> to_dict/clean: 0.22s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:01,890 | INFO | چانک 86 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.25s
+2026-08-19 13:41:02,298 | INFO |   -> to_dict/clean: 0.24s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:02,301 | INFO | چانک 87 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.26s
+2026-08-19 13:41:02,566 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:02,568 | INFO | چانک 88 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.21s
+2026-08-19 13:41:02,802 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:02,804 | INFO | چانک 89 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.18s
+2026-08-19 13:41:03,071 | INFO |   -> to_dict/clean: 0.17s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:03,074 | INFO | چانک 90 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.22s
+2026-08-19 13:41:03,483 | INFO |   -> to_dict/clean: 0.27s | loop(10000): 0.05s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:03,485 | INFO | چانک 91 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.33s
+2026-08-19 13:41:03,900 | INFO |   -> to_dict/clean: 0.28s | loop(10000): 0.04s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:03,904 | INFO | چانک 92 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.33s
+2026-08-19 13:41:04,259 | INFO |   -> to_dict/clean: 0.25s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:04,261 | INFO | چانک 93 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.02s | load: 0.27s
+2026-08-19 13:41:04,486 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:04,489 | INFO | چانک 94 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.17s
+2026-08-19 13:41:04,821 | INFO |   -> to_dict/clean: 0.22s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:04,824 | INFO | چانک 95 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.25s
+2026-08-19 13:41:05,156 | INFO |   -> to_dict/clean: 0.23s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:05,158 | INFO | چانک 96 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.24s
+2026-08-19 13:41:05,404 | INFO |   -> to_dict/clean: 0.16s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:05,406 | INFO | چانک 97 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.18s
+2026-08-19 13:41:05,782 | INFO |   -> to_dict/clean: 0.24s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:05,786 | INFO | چانک 98 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.28s
+2026-08-19 13:41:06,067 | INFO |   -> to_dict/clean: 0.18s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:06,070 | INFO | چانک 99 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.20s
+2026-08-19 13:41:06,407 | INFO |   -> to_dict/clean: 0.23s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:06,415 | INFO | چانک 100 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.26s
+2026-08-19 13:41:06,686 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:06,688 | INFO | چانک 101 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.16s
+2026-08-19 13:41:07,010 | INFO |   -> to_dict/clean: 0.22s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:07,012 | INFO | چانک 102 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.24s
+2026-08-19 13:41:07,353 | INFO |   -> to_dict/clean: 0.23s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:07,355 | INFO | چانک 103 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.25s
+2026-08-19 13:41:07,690 | INFO |   -> to_dict/clean: 0.23s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:07,692 | INFO | چانک 104 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.02s | load: 0.26s
+2026-08-19 13:41:07,993 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:07,995 | INFO | چانک 105 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.21s
+2026-08-19 13:41:08,335 | INFO |   -> to_dict/clean: 0.19s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:08,337 | INFO | چانک 106 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.21s
+2026-08-19 13:41:08,636 | INFO |   -> to_dict/clean: 0.22s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:08,638 | INFO | چانک 107 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.23s
+2026-08-19 13:41:08,803 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:08,805 | INFO | چانک 108 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.00s | load: 0.13s
+2026-08-19 13:41:08,996 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(0): 0.00s | commit: 0.00s
+2026-08-19 13:41:08,999 | INFO | چانک 109 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 0 | failed: 0 | clean: 0.01s | load: 0.14s
+2026-08-19 13:41:15,756 | INFO |   -> to_dict/clean: 0.25s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(5229): 6.38s | commit: 0.02s
+2026-08-19 13:41:15,759 | INFO | چانک 110 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 5229 | failed: 0 | clean: 0.02s | load: 6.68s
+2026-08-19 13:41:17,362 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(1444): 1.39s | commit: 0.01s
+2026-08-19 13:41:17,366 | INFO | چانک 111 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1444 | failed: 0 | clean: 0.01s | load: 1.55s
+2026-08-19 13:41:18,405 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(984): 0.80s | commit: 0.00s
+2026-08-19 13:41:18,408 | INFO | چانک 112 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 984 | failed: 0 | clean: 0.01s | load: 0.97s
+2026-08-19 13:41:19,226 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.01s | insert(0 ok, 0 failed): 0.00s | update(878): 0.62s | commit: 0.01s
+2026-08-19 13:41:19,228 | INFO | چانک 113 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 878 | failed: 0 | clean: 0.00s | load: 0.75s
+2026-08-19 13:41:20,710 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(1433): 1.22s | commit: 0.00s
+2026-08-19 13:41:20,714 | INFO | چانک 114 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 1433 | failed: 0 | clean: 0.01s | load: 1.40s
+2026-08-19 13:41:25,662 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(5185): 4.74s | commit: 0.00s
+2026-08-19 13:41:25,667 | INFO | چانک 115 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 5185 | failed: 0 | clean: 0.00s | load: 4.87s
+2026-08-19 13:41:31,202 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(6003): 5.32s | commit: 0.00s
+2026-08-19 13:41:31,205 | INFO | چانک 116 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 6003 | failed: 0 | clean: 0.00s | load: 5.45s
+2026-08-19 13:41:36,123 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(6005): 4.70s | commit: 0.00s
+2026-08-19 13:41:36,127 | INFO | چانک 117 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 6005 | failed: 0 | clean: 0.00s | load: 4.86s
+2026-08-19 13:41:44,262 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(6053): 7.90s | commit: 0.01s
+2026-08-19 13:41:44,267 | INFO | چانک 118 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 6053 | failed: 0 | clean: 0.01s | load: 8.05s
+2026-08-19 13:41:49,777 | INFO |   -> to_dict/clean: 0.15s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(4954): 5.25s | commit: 0.01s
+2026-08-19 13:41:49,782 | INFO | چانک 119 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 4954 | failed: 0 | clean: 0.00s | load: 5.43s
+2026-08-19 13:41:57,984 | INFO |   -> to_dict/clean: 0.20s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(6859): 7.86s | commit: 0.01s
+2026-08-19 13:41:57,988 | INFO | چانک 120 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 6859 | failed: 0 | clean: 0.02s | load: 8.10s
+2026-08-19 13:42:05,270 | INFO |   -> to_dict/clean: 0.13s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(6570): 7.01s | commit: 0.01s
+2026-08-19 13:42:05,274 | INFO | چانک 121 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 6570 | failed: 0 | clean: 0.01s | load: 7.18s
+2026-08-19 13:42:10,541 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(5937): 5.05s | commit: 0.01s
+2026-08-19 13:42:10,545 | INFO | چانک 122 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 5937 | failed: 0 | clean: 0.00s | load: 5.19s
+2026-08-19 13:42:15,774 | INFO |   -> to_dict/clean: 0.24s | loop(10000): 0.03s | insert(0 ok, 0 failed): 0.00s | update(5012): 4.86s | commit: 0.01s
+2026-08-19 13:42:15,778 | INFO | چانک 123 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 5012 | failed: 0 | clean: 0.01s | load: 5.14s
+2026-08-19 13:42:18,221 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(2805): 2.24s | commit: 0.00s
+2026-08-19 13:42:18,224 | INFO | چانک 124 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2805 | failed: 0 | clean: 0.01s | load: 2.38s
+2026-08-19 13:42:20,781 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(2281): 2.35s | commit: 0.01s
+2026-08-19 13:42:20,784 | INFO | چانک 125 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2281 | failed: 0 | clean: 0.01s | load: 2.49s
+2026-08-19 13:42:23,831 | INFO |   -> to_dict/clean: 0.14s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(3045): 2.83s | commit: 0.00s
+2026-08-19 13:42:23,835 | INFO | چانک 126 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3045 | failed: 0 | clean: 0.00s | load: 2.99s
+2026-08-19 13:42:26,697 | INFO |   -> to_dict/clean: 0.12s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(3681): 2.65s | commit: 0.01s
+2026-08-19 13:42:26,701 | INFO | چانک 127 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 3681 | failed: 0 | clean: 0.01s | load: 2.79s
+2026-08-19 13:42:28,702 | INFO |   -> to_dict/clean: 0.11s | loop(10000): 0.02s | insert(0 ok, 0 failed): 0.00s | update(2299): 1.81s | commit: 0.01s
+2026-08-19 13:42:28,704 | INFO | چانک 128 | input: 10000 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 10000 | inserted: 0 | updated: 2299 | failed: 0 | clean: 0.00s | load: 1.95s
+2026-08-19 13:42:29,784 | INFO |   -> to_dict/clean: 0.11s | loop(3496): 0.01s | insert(0 ok, 0 failed): 0.00s | update(966): 0.92s | commit: 0.00s
+2026-08-19 13:42:29,786 | INFO | چانک 129 | input: 3496 | dropped: 0 | invalid_rate: 0 | invalid_rate_cnt: 0 | invalid_price: 0 | invalid_min_price: 0 | output: 3496 | inserted: 0 | updated: 966 | failed: 0 | clean: 0.01s | load: 1.05s
+2026-08-19 13:42:29,786 | INFO | ============================================================
+2026-08-19 13:42:29,787 | INFO | گزارش نهایی وضعیت پردازش Products
+2026-08-19 13:42:29,787 | INFO | ============================================================
+2026-08-19 13:42:29,787 | INFO | کل رکوردهای خام خوانده‌شده: 1283496
+2026-08-19 13:42:29,787 | INFO | حذف‌شده به دلیل id یا title_fa خالی: 0
+2026-08-19 13:42:29,787 | INFO | rate نامعتبر: 0
+2026-08-19 13:42:29,787 | INFO | rate_cnt نامعتبر: 0
+2026-08-19 13:42:29,788 | INFO | price نامعتبر: 0
+2026-08-19 13:42:29,788 | INFO | min_price_last_month نامعتبر: 0
+2026-08-19 13:42:29,788 | INFO | رکوردهای باقی‌مانده بعد از Cleaning: 1283496
+2026-08-19 13:42:29,788 | INFO | رکوردهای Insert شده: 1
+2026-08-19 13:42:29,788 | INFO | رکوردهای Update شده: 77623
+2026-08-19 13:42:29,788 | INFO | رکوردهای ناموفق در Insert: 0
+2026-08-19 13:42:29,788 | INFO | ============================================================
+2026-08-19 13:42:29,789 | INFO | پردازش Products به پایان رسید.

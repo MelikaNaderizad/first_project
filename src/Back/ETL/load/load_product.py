@@ -15,8 +15,6 @@ logger = logging.getLogger(__name__)
 
 
 def _clean_value(v):
-    # pd.isna هم NaN هم None هم pd.NA/<NA> رو می‌گیره (برخلاف
-    # isinstance(v, float) and math.isnan(v) که فقط NaN خالص رو می‌دید).
     if pd.isna(v):
         return None
     return v
@@ -47,17 +45,6 @@ def build_seen_from_db(session) -> dict:
 
 
 def _insert_batch(records):
-    """
-    درج با یک کانکشن مستقل از engine (نه session اصلی). نکته‌ی مهم:
-    اگه SQL Server خودش تراکنش رو abort کرده باشه، اون کانکشن فیزیکی
-    برای همیشه خرابه -- نه فقط برای همون query. اگه فقط close() کنیم،
-    connection pool همون کانکشن خراب رو دوباره recycle و به عملیات
-    بعدی می‌ده و باعث می‌شه حتی رکوردهای کاملاً سالم هم fail بشن
-    (دقیقاً همون چیزی که توی لاگ می‌بینیم: ده‌ها id مختلف پشت سر هم
-    با یک خطای یکسان رد می‌شن). به همین خاطر با conn.invalidate()
-    صراحتاً کانکشن رو از pool حذف می‌کنیم تا دفعه‌ی بعد یک کانکشن
-    فیزیکی کاملاً تازه از SQL Server گرفته بشه.
-    """
     conn = engine.connect()
     try:
         with conn.begin():
@@ -70,12 +57,6 @@ def _insert_batch(records):
 
 
 def _safe_bulk_insert(records, batch_size=500):
-    """
-    به‌جای یک executemany روی کل to_insert (که می‌تونه چند هزار ردیف
-    باشه)، به batchهای ۵۰۰تایی می‌شکنیم تا احتمال باگ fast_executemany
-    خیلی کم بشه. اگه batch بازم fail کرد، تک‌تک درج می‌کنیم تا فقط
-    رکورد(های) واقعاً خراب رد بشن.
-    """
     inserted = 0
     failed_ids = set()
 
@@ -153,3 +134,8 @@ def load_products(df: pd.DataFrame, session, seen: dict):
         f"update({len(to_update)}): {t_update - t_insert:.2f}s | "
         f"commit: {t_commit - t_update:.2f}s"
     )
+    return {
+    "inserted": inserted_count,
+    "updated": len(to_update),
+    "failed": len(failed_ids),
+}

@@ -37,6 +37,7 @@ def parse_persian_date(date_str):
         return 0
 
 
+# NAN to NONE
 def _clean_value(v):
     if isinstance(v, float) and math.isnan(v):
         return None
@@ -212,3 +213,9 @@ def load_comments(
         f"{t_commit - t_update:.2f}s | "
         f"commit: {t_commit - t_update:.2f}s"
     )
+
+    return {
+    "inserted": len(to_insert),
+    "updated": len(to_update),
+    "duplicate_discarded": duplicate_discarded,
+}
