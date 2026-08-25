@@ -2,7 +2,7 @@ from typing import Optional
 
 from fastapi import APIRouter, Query
 
-from services.product_service import get_products
+from services.products_services import get_products
 
 
 router = APIRouter(

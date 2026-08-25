@@ -1,8 +1,7 @@
 from fastapi import APIRouter, Query
 
-from services.comment_service import (
+from services.comments_services import (
     get_comments,
-    get_comments_summary
 )
 
 
@@ -18,8 +17,3 @@ def comments(
     page_size: int = Query(21, ge=1, le=100),
 ):
     return get_comments(page, page_size)
-
-
-@router.get("/comments-summary")
-def comments_summary():
-    return get_comments_summary()

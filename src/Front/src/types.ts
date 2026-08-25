@@ -1,116 +1,168 @@
-export type ProductStatus = 'successful' | 'unsuccessful' | 'neutral' | 'insufficient_data';
-export type SellerStatus = 'successful' | 'unsuccessful' | 'neutral' | 'insufficient_data';
-export type CommentSentiment = 'positive' | 'negative' | 'neutral';
+export type NavSection = 'dashboard' | 'comments' | 'sellers' | 'products' | 'chatbot';
+
+export type RecommendationStatus = 'recommended' | 'not_recommended' | 'no_idea';
 
 export interface CommentItem {
   id: string;
-  product_id: string;
-  product_title: string;
-  seller_title: string;
-  user_name: string;
-  rating: number; // 1 to 5
-  sentiment: CommentSentiment;
-  sentiment_score: number; // 0 to 100
   title: string;
-  comment_text: string;
+  body: string;
   created_at: string;
+  rate: number;
+  recommendation_status: RecommendationStatus;
   is_buyer: boolean;
-  recommendation_status: 'recommended' | 'not_recommended' | 'no_idea';
-  likes_count: number;
-  dislikes_count: number;
-  category: string;
-  pros: string[];
-  cons: string[];
+  product_id: string;
+  product_title_fa?: string;
+  advantages: string[];
+  disadvantages: string[];
+  likes: number;
+  dislikes: number;
+  seller_title: string;
+  seller_code: string;
+  true_to_size_rate?: number;
+  category?: string;
 }
 
-export interface ProductItem {
-  product_id: string;
-  title_fa: string;
-  category_fa: string;
-  seller_title: string;
-  raw_product_rate: number; // 1.0 - 5.0
-  rate_cnt: number;
-  positive_comments: number;
-  negative_comments: number;
-  neutral_comments: number;
-  bayesian_product_score: number; // 0 - 100
-  sentiment_score: number; // 0 - 100
-  product_health_score: number; // 0 - 100
-  product_status: ProductStatus;
-  price_toman: number;
-  monthly_sales_cnt: number;
-  radar_metrics: {
-    attribute: string;
-    score: number;
-    fullMark: number;
-  }[];
-  top_pros: string[];
-  top_cons: string[];
-  recommendation: string;
-}
+export type SellerStatus = 'successful' | 'unsuccessful' | 'neutral' | 'insufficient_data';
 
 export interface SellerItem {
   seller_code: string;
   seller_title: string;
-  grade: 'A+' | 'A' | 'B' | 'C' | 'D';
-  city: string;
   sold_products: number;
   total_comments: number;
   positive_comments: number;
   negative_comments: number;
-  customer_satisfaction_score: number; // 0 - 100
-  fake_product_percent: number; // 0 - 100 %
-  low_rated_product_percent: number; // 0 - 100 %
-  seller_health_score: number; // 0 - 100
+  customer_satisfaction_score: number;
+  fake_product_percent: number;
+  low_rated_product_percent: number;
+  seller_health_score: number;
   seller_status: SellerStatus;
-  timely_shipping_rate: number; // 0 - 100 %
-  return_rate: number; // 0 - 100 %
-  commitment_score: number; // 0 - 100
-  radar_metrics: {
-    attribute: string;
-    score: number;
-    fullMark: number;
-  }[];
-  risk_level: 'low' | 'medium' | 'high' | 'critical';
-  recommendation: string;
+  category?: string;
 }
 
-export interface KPISummary {
-  total_sellers: number;
-  total_comments: number;
-  total_products: number;
-  successful_sellers: number;
-  positive_comments: number;
-  successful_products: number;
-  unsuccessful_sellers: number;
-  negative_comments: number;
-  unsuccessful_products: number;
-  neutral_comments: number;
-  neutral_products: number;
-  insufficient_products: number;
-  neutral_sellers: number;
-  insufficient_sellers: number;
-  avg_health_score: number;
-  overall_sentiment: number;
-}
+export type ProductStatus = 'successful' | 'unsuccessful' | 'neutral' | 'insufficient_data';
 
-export type TabType = 'overview' | 'comments' | 'products' | 'sellers' | 'agent';
-
-export interface AgentChatMessage {
+export interface ProductItem {
   id: string;
-  sender: 'user' | 'agent';
-  text: string;
-  timestamp: string;
-  attachments?: {
-    type: 'metric' | 'alert' | 'recommendation';
-    title: string;
-    data: string;
-  }[];
+  title_fa: string;
+  rate: number;
+  rate_cnt: number;
+  category1: string;
+  category2?: string;
+  brand: string;
+  price: number;
+  seller: string;
+  seller_code?: string;
+  is_fake: boolean;
+  min_price_last_month: number;
+  sub_category?: string;
+  raw_product_rate?: number;
+  positive_comments?: number;
+  negative_comments?: number;
+  bayesian_product_score?: number;
+  sentiment_score?: number;
+  product_health_score?: number;
+  product_status?: ProductStatus;
+  image?: string;
 }
 
-export interface AgentLog {
-  id: string;
-  timestamp: string;
-  level: 'info' | 'warn' | 'success' | 'process';
-  message: string;
+export interface OverviewData {
+  kpis: {
+    total_comments: number;
+    positive_comments: number;
+    negative_comments: number;
+    positive_percentage: number;
+    negative_percentage: number;
+    neutral_percentage: number;
+    average_rating: number;
+    total_sellers: number;
+    successful_sellers: number;
+    unsuccessful_sellers: number;
+    seller_success_rate: number;
+    total_products: number;
+    successful_products: number;
+    unsuccessful_products: number;
+    product_success_rate: number;
+  };
+  sentimentTimeline: Array<{
+    month: string;
+    positive: number;
+    negative: number;
+    neutral?: number;
+    total: number;
+  }>;
+  categoryDistribution: Array<{
+    category: string;
+    total: number;
+    positive: number;
+    negative: number;
+    positivePercentage: number;
+    negativePercentage: number;
+  }>;
+  topSeller: SellerItem;
+  weakestSeller: SellerItem;
+  topProduct: ProductItem;
+  weakestProduct: ProductItem;
+  recentComments: CommentItem[];
 }
+
+export interface CommentsResponse {
+  metrics: {
+    total_comments: number;
+    positive_comments: number;
+    negative_comments: number;
+    positive_rate: number;
+    negative_rate: number;
+    average_rating: number;
+    avg_comments_per_product: number;
+    change_rate: string;
+  };
+  ratingDistribution: Array<{
+    stars: string;
+    count: number;
+    percentage: number;
+    color: string;
+  }>;
+  comments: CommentItem[];
+  totalCount: number;
+  page: number;
+  limit: number;
+}
+
+export interface SellersResponse {
+  metrics: {
+    total_sellers: number;
+    successful_sellers: number;
+    unsuccessful_sellers: number;
+    avg_seller_rating: number;
+    avg_satisfaction_score: number;
+    topSeller: SellerItem;
+    weakestSeller: SellerItem;
+  };
+  performanceComparison: Array<{
+    metric: string;
+    successful: number;
+    unsuccessful: number;
+    unit: string;
+  }>;
+  sellers: SellerItem[];
+}
+
+export interface ProductsResponse {
+  metrics: {
+    total_products: number;
+    successful_products: number;
+    unsuccessful_products: number;
+    avg_rating: number;
+    fake_products_count: number;
+    topProduct: ProductItem;
+    weakestProduct: ProductItem;
+  };
+  categoryBreakdown: Array<{
+    name: string;
+    successful: number;
+    unsuccessful: number;
+    total: number;
+  }>;
+  products: ProductItem[];
+}
+

@@ -1,6 +1,6 @@
 {
-  "name": "داشبورد تحلیلی دیجی‌کالا",
-  "description": "سامانه جامع تحلیل داده و ارزیابی هوشمند محصولات و فروشندگان دیجی‌کالا با تم Black Icy Cherry",
+  "name": "داشبورد تحلیلی تجارت الکترونیک (Persian E-Commerce Analytics)",
+  "description": "پلتفرم پیشرفته تحلیل داده و بازخورد مشتریان، عملکرد فروشندگان و محصولات در تجارت الکترونیک",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

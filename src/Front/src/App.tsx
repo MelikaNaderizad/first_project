@@ -1,180 +1,208 @@
-import React, { useState, useEffect } from "react";
-import { TabType, KPISummary, ProductItem, SellerItem } from "./types";
-import { Sidebar } from "./components/Sidebar";
-import { Header } from "./components/Header";
-import { TopBar } from "./components/TopBar";
-import { OverviewView } from "./components/OverviewView";
-import { CommentsView } from "./components/CommentsView";
-import { ProductsView } from "./components/ProductsView";
-import { SellersView } from "./components/SellersView";
-import { AgentView } from "./components/AgentView";
-import { Footer } from "./components/Footer";
-import { mockKPISummary, mockProducts, mockSellers } from "./data/mockData";
-import {
-  fetchOverviewApi,
-  fetchProductsApi,
-  fetchSellersApi,
-} from "./services/api";
+import React, { useState, useEffect, useCallback } from 'react';
+import { NavSection, OverviewData, CommentsResponse, SellersResponse, ProductsResponse } from './types';
+import { apiClient } from './api/client';
+import { Sidebar } from './components/layout/Sidebar';
+import { Navbar } from './components/layout/Navbar';
+import { OverviewView } from './components/dashboard/OverviewView';
+import { CommentsView } from './components/comments/CommentsView';
+import { SellersView } from './components/sellers/SellersView';
+import { ProductsView } from './components/products/ProductsView';
+import { ChatbotComingSoonView } from './components/chatbot/ChatbotComingSoonView';
+import { AlertCircle, RefreshCw } from 'lucide-react';
 
 export default function App() {
-  const [currentTab, setCurrentTab] = useState<TabType>("overview");
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [currentSection, setCurrentSection] = useState<NavSection>('dashboard');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isRefreshing, setIsRefreshing] = useState(false);
-  const [kpiData, setKpiData] = useState<KPISummary>(mockKPISummary);
-  const [products, setProducts] = useState<ProductItem[]>(mockProducts);
-  const [sellers, setSellers] = useState<SellerItem[]>(mockSellers);
-  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
-  const showToast = (msg: string) => {
-    setToastMessage(msg);
-    setTimeout(() => setToastMessage(null), 3500);
-  };
+  // Data states
+  const [overviewData, setOverviewData] = useState<OverviewData | null>(null);
+  const [commentsData, setCommentsData] = useState<CommentsResponse | null>(null);
+  const [sellersData, setSellersData] = useState<SellersResponse | null>(null);
+  const [productsData, setProductsData] = useState<ProductsResponse | null>(null);
 
-  // Initial fetch from REST API: overview KPIs, products, sellers
-  useEffect(() => {
-    const loadInitialData = async () => {
-      try {
-        const [overview, productList, sellerList] = await Promise.all([
-          fetchOverviewApi(),
-          fetchProductsApi(),
-          fetchSellersApi(),
-        ]);
-        setKpiData(overview);
-        setProducts(productList);
-        setSellers(sellerList);
-      } catch (err) {
-        console.error("API ERROR:", err);
-      }
-    };
-    loadInitialData();
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Fetch initial data
+  const fetchData = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      setError(null);
+
+      const [overviewRes, commentsRes, sellersRes, productsRes] = await Promise.all([
+        apiClient.getOverview(),
+        apiClient.getComments(),
+        apiClient.getSellers(),
+        apiClient.getProducts(),
+      ]);
+
+      setOverviewData(overviewRes);
+      setCommentsData(commentsRes);
+      setSellersData(sellersRes);
+      setProductsData(productsRes);
+    } catch (err: any) {
+      console.error('Data fetch error:', err);
+      setError(err.message || 'خطا در برقراری ارتباط با سرور تحلیل داده‌ها');
+    } finally {
+      setIsLoading(false);
+    }
   }, []);
 
-  const handleRefreshData = async () => {
-    setIsRefreshing(true);
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  // Handler for comments filters
+  const handleCommentsFilter = async (filters: {
+    sentiment?: string;
+    rating?: string;
+    category?: string;
+    search?: string;
+  }) => {
     try {
-      const [overview, productList, sellerList] = await Promise.all([
-        fetchOverviewApi(),
-        fetchProductsApi(),
-        fetchSellersApi(),
-      ]);
-      setKpiData(overview);
-      setProducts(productList);
-      setSellers(sellerList);
-      showToast("داده‌های زنده دیجی‌کالا با موفقیت از API همگام‌سازی شدند.");
-    } catch (err) {
-      // Fallback slight jitter for real-time visual feel
-      setKpiData((prev) => ({
-        ...prev,
-        total_comments:
-          prev.total_comments + Math.floor(Math.random() * 140 + 20),
-        positive_comments:
-          prev.positive_comments + Math.floor(Math.random() * 110 + 15),
-        negative_comments:
-          prev.negative_comments + Math.floor(Math.random() * 18 + 2),
-      }));
-      showToast("داده‌های زنده دیجی‌کالا با موفقیت به‌روزرسانی شدند.");
+      setIsLoading(true);
+      const res = await apiClient.getComments(filters);
+      setCommentsData(res);
+    } catch (err: any) {
+      console.error('Comments filter error:', err);
     } finally {
-      setIsRefreshing(false);
+      setIsLoading(false);
+    }
+  };
+
+  // Handler for sellers filters
+  const handleSellersFilter = async (filters: {
+    status?: string;
+    category?: string;
+    search?: string;
+    sort?: string;
+  }) => {
+    try {
+      setIsLoading(true);
+      const res = await apiClient.getSellers(filters);
+      setSellersData(res);
+    } catch (err: any) {
+      console.error('Sellers filter error:', err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Handler for products filters
+  const handleProductsFilter = async (filters: {
+    status?: string;
+    category?: string;
+    search?: string;
+    sort?: string;
+  }) => {
+    try {
+      setIsLoading(true);
+      const res = await apiClient.getProducts(filters);
+      setProductsData(res);
+    } catch (err: any) {
+      console.error('Products filter error:', err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const getSectionTitle = () => {
+    switch (currentSection) {
+      case 'dashboard':
+        return 'نمای کلی داشبورد تحلیلی';
+      case 'comments':
+        return 'تحلیل عمیق نظرات و بازخوردها';
+      case 'sellers':
+        return 'پایش عملکرد و کیفیت فروشندگان';
+      case 'products':
+        return 'تحلیل کاتالوگ و رضایت محصولات';
+      case 'chatbot':
+        return 'دستیار هوشمند AI (به‌زودی)';
+      default:
+        return 'داشبورد';
     }
   };
 
   return (
-    <div className="min-h-screen bg-[#050305] text-[#F8EEF2] relative overflow-x-hidden selection:bg-[#800020] selection:text-[#FFB7D1]">
-      {/* Deep atmospheric Dark Cherry & Icy Pink ambient glows */}
-      <div className="fixed top-0 right-10 w-[600px] h-[600px] ambient-glow-cherry -z-10 opacity-75" />
-      <div className="fixed bottom-0 left-5 w-[650px] h-[650px] ambient-glow-cherry -z-10 opacity-60" />
-      <div className="fixed top-1/4 left-1/3 w-[450px] h-[450px] ambient-glow-ice -z-10 opacity-60" />
-      <div className="fixed top-2/3 right-1/4 w-[350px] h-[350px] ambient-glow-dark -z-10 opacity-85" />
+    <div className="min-h-screen bg-[#F1E7E7] text-[#2D2327] flex flex-col font-sans antialiased selection:bg-[#E69DB8] selection:text-white">
+      {/* Sidebar Navigation */}
+      <Sidebar
+        currentSection={currentSection}
+        onSelectSection={(section) => setCurrentSection(section)}
+        isOpen={isMobileMenuOpen}
+        onCloseMobile={() => setIsMobileMenuOpen(false)}
+      />
 
-      {/* Toast Notification */}
-      {toastMessage && (
-        <div className="fixed bottom-6 left-6 z-50 p-4 rounded-2xl bg-[#10060d]/95 border border-[#FFB7D1]/35 shadow-[0_12px_40px_rgba(201,42,75,0.45),inset_0_1px_1px_rgba(255,255,255,0.2)] backdrop-blur-2xl text-xs font-medium text-[#F8EEF2] flex items-center gap-2.5 animate-in slide-in-from-bottom-5">
-          <span className="w-2 h-2 rounded-full bg-[#3ECF8E] shadow-[0_0_8px_#3ECF8E] animate-pulse" />
-          <span>{toastMessage}</span>
-        </div>
-      )}
-
-      {/* Mobile Sidebar Overlay */}
-      {isMobileMenuOpen && (
-        <div
-          className="fixed inset-0 z-30 bg-black/70 backdrop-blur-sm md:hidden"
-          onClick={() => setIsMobileMenuOpen(false)}
+      {/* Main Content Area (offset by sidebar width on desktop) */}
+      <div className="flex-1 flex flex-col lg:mr-64 transition-all duration-300 min-w-0">
+        {/* Top Navbar */}
+        <Navbar
+          activeSectionTitle={getSectionTitle()}
+          onToggleMobileMenu={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          onRefresh={fetchData}
+          isLoading={isLoading}
         />
-      )}
 
-      {/* Fixed RTL Right Sidebar */}
-      <div
-        className={`fixed top-0 right-0 h-full z-40 transition-transform duration-300 ${
-          isMobileMenuOpen
-            ? "translate-x-0"
-            : "translate-x-full md:translate-x-0"
-        }`}
-      >
-        <Sidebar
-          currentTab={currentTab}
-          onSelectTab={(tab) => {
-            setCurrentTab(tab);
-            setIsMobileMenuOpen(false);
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-          isCollapsed={isSidebarCollapsed}
-          onToggleCollapse={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
-        />
-      </div>
-
-      {/* Main Content Container with dynamic right padding based on sidebar */}
-      <div
-        className={`min-h-screen transition-all duration-300 flex flex-col justify-between ${
-          isSidebarCollapsed ? "md:mr-20" : "md:mr-72"
-        }`}
-      >
-        <main className="p-4 md:p-8 max-w-7xl mx-auto w-full">
-          {/* Header Card: Welcome Header only on Overview tab, TopBar on other tabs */}
-          {currentTab === "overview" ? (
-            <Header
-              onRefresh={handleRefreshData}
-              isRefreshing={isRefreshing}
-              onMobileMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            />
+        {/* View Content */}
+        <main className="flex-1 p-4 lg:p-8 max-w-7xl w-full mx-auto">
+          {error ? (
+            <div className="bg-white rounded-3xl border border-rose-100 p-8 text-center max-w-lg mx-auto mt-12 shadow-sm">
+              <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mx-auto mb-4">
+                <AlertCircle size={24} />
+              </div>
+              <h3 className="text-base font-bold text-slate-800 mb-1">خطا در بارگذاری داده‌ها</h3>
+              <p className="text-xs text-slate-500 mb-6">{error}</p>
+              <button
+                onClick={fetchData}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 transition-all cursor-pointer"
+              >
+                <RefreshCw size={14} />
+                <span>تلاش مجدد</span>
+              </button>
+            </div>
+          ) : isLoading && !overviewData ? (
+            <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-4">
+              <div className="w-10 h-10 border-3 border-indigo-600 border-t-transparent rounded-full animate-spin" />
+              <p className="text-xs font-bold text-slate-500">در حال دریافت و تحلیل شاخص‌های کسب‌وکار...</p>
+            </div>
           ) : (
-            <TopBar
-              currentTab={currentTab}
-              onRefresh={handleRefreshData}
-              isRefreshing={isRefreshing}
-              onMobileMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            />
+            <>
+              {currentSection === 'dashboard' && overviewData && (
+                <OverviewView
+                  data={overviewData}
+                  onNavigateToComments={() => setCurrentSection('comments')}
+                  onNavigateToSellers={() => setCurrentSection('sellers')}
+                  onNavigateToProducts={() => setCurrentSection('products')}
+                />
+              )}
+
+              {currentSection === 'comments' && commentsData && (
+                <CommentsView
+                  data={commentsData}
+                  onFilterChange={handleCommentsFilter}
+                  isLoading={isLoading}
+                />
+              )}
+
+              {currentSection === 'sellers' && sellersData && (
+                <SellersView
+                  data={sellersData}
+                  onFilterChange={handleSellersFilter}
+                  isLoading={isLoading}
+                />
+              )}
+
+              {currentSection === 'products' && productsData && (
+                <ProductsView
+                  data={productsData}
+                  onFilterChange={handleProductsFilter}
+                  isLoading={isLoading}
+                />
+              )}
+
+              {currentSection === 'chatbot' && <ChatbotComingSoonView />}
+            </>
           )}
-
-          {/* Active Tab View */}
-          {currentTab === "overview" && (
-            <OverviewView
-              kpi={kpiData}
-              onNavigateToComments={() => {
-                setCurrentTab("comments");
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-              onNavigateToProducts={() => {
-                setCurrentTab("products");
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-              onNavigateToSellers={() => {
-                setCurrentTab("sellers");
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-            />
-          )}
-
-          {currentTab === "comments" && <CommentsView />}
-
-          {currentTab === "products" && <ProductsView products={products} />}
-
-          {currentTab === "sellers" && <SellersView sellers={sellers} />}
-
-          {currentTab === "agent" && <AgentView />}
-
-          {/* Footer */}
-          <Footer />
         </main>
       </div>
     </div>
