@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Sparkles,
   Bot,
@@ -9,19 +9,100 @@ import {
   Clock,
   CheckCircle2,
   Send,
-  Zap,
-  Shield,
-  Layers,
+  Loader2,
 } from 'lucide-react';
+import { apiClient } from '../../api/client';
+
+interface ChatMessage {
+  id: string;
+  sender: 'user' | 'assistant';
+  text: string;
+  timestamp: string;
+}
 
 export const ChatbotComingSoonView: React.FC = () => {
   const [emailNotification, setEmailNotification] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [inputMessage, setInputMessage] = useState('');
+  const [isSending, setIsSending] = useState(false);
+  const [botStatus, setBotStatus] = useState<string>('آنلاین');
+  const chatBottomRef = useRef<HTMLDivElement | null>(null);
+
+  const [messages, setMessages] = useState<ChatMessage[]>([
+    {
+      id: 'msg-1',
+      sender: 'user',
+      text: 'علت اصلی منفی بودن نظرات درباره «جاروبرقی شارژی Turbo-X» چیست و چه پیشنهادی دارید؟',
+      timestamp: '۱۰:۱۵',
+    },
+    {
+      id: 'msg-2',
+      sender: 'assistant',
+      text: 'بر اساس تحلیل ۴۸۰ نظر ثبت‌شده برای این محصول:\n• ۶۴٪ کاربران از دوام کم باتری شکایت کرده‌اند.\n• ۲۲٪ به ضعف در مکش اشاره نموده‌اند.\n• ۱۴٪ عدم پاسخگویی گارانتی را گزارش داده‌اند.\n\nاقدام پیشنهادی: توقف موقت فروش کالا تا زمان تست نمونه‌های جدید یا اصلاح مشخصات توان باتری در صفحه محصول.',
+      timestamp: '۱۰:۱۶',
+    },
+  ]);
+
+  useEffect(() => {
+    apiClient
+      .getChatbotStatus()
+      .then((res) => {
+        if (res.status === 'online' || res.ready) {
+          setBotStatus('فعال و متصل به پایگاه داده');
+        }
+      })
+      .catch(() => {
+        setBotStatus('آنلاین');
+      });
+  }, []);
+
+  useEffect(() => {
+    chatBottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, isSending]);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (emailNotification.trim()) {
       setIsSubscribed(true);
+    }
+  };
+
+  const handleSendMessage = async (textToSend?: string) => {
+    const text = (textToSend || inputMessage).trim();
+    if (!text || isSending) return;
+
+    const userMsg: ChatMessage = {
+      id: `user-${Date.now()}`,
+      sender: 'user',
+      text,
+      timestamp: new Date().toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit' }),
+    };
+
+    setMessages((prev) => [...prev, userMsg]);
+    setInputMessage('');
+    setIsSending(true);
+
+    try {
+      const res = await apiClient.sendChatbotMessage(text);
+      const reply = res.reply || res.message || res.response || res.answer || 'پاسخ دریافت شد.';
+
+      const botMsg: ChatMessage = {
+        id: `bot-${Date.now()}`,
+        sender: 'assistant',
+        text: reply,
+        timestamp: new Date().toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit' }),
+      };
+      setMessages((prev) => [...prev, botMsg]);
+    } catch (err: any) {
+      const errorMsg: ChatMessage = {
+        id: `err-${Date.now()}`,
+        sender: 'assistant',
+        text: err.message || 'خطا در ارتباط با سرویس هوشمند چت‌بات.',
+        timestamp: new Date().toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit' }),
+      };
+      setMessages((prev) => [...prev, errorMsg]);
+    } finally {
+      setIsSending(false);
     }
   };
 
@@ -46,11 +127,11 @@ export const ChatbotComingSoonView: React.FC = () => {
             <Sparkles size={14} className="text-[#FFFECE]" />
             <span>دستیار هوشمند تحلیلی</span>
             <span className="w-1.5 h-1.5 rounded-full bg-[#FFFECE]" />
-            <span>به‌زودی (Coming Soon)</span>
+            <span>{botStatus}</span>
           </div>
 
           <h1 className="text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
-            دستیار هوشمند تحلیل نظرات به‌زودی فعال می‌شود
+            دستیار هوشمند تحلیل نظرات و بازارگاه
           </h1>
 
           <p className="text-white/90 text-xs lg:text-sm font-normal leading-relaxed">
@@ -62,14 +143,14 @@ export const ChatbotComingSoonView: React.FC = () => {
             {isSubscribed ? (
               <div className="flex items-center justify-center gap-2 bg-white/20 border border-white/30 text-white px-4 py-3 rounded-2xl text-xs font-bold backdrop-blur-md">
                 <CheckCircle2 size={16} className="text-[#FFFECE] shrink-0" />
-                <span>ایمیل شما ثبت شد. به محض راه‌اندازی نسخه آزمایشی مطلع خواهید شد.</span>
+                <span>ایمیل شما ثبت شد. آخرین گزارش‌های تحلیلی برای شما ارسال خواهد شد.</span>
               </div>
             ) : (
               <form onSubmit={handleSubscribe} className="flex gap-2">
                 <input
                   type="email"
                   required
-                  placeholder="ایمیل خود را جهت دریافت دسترسی زودهنگام وارد کنید..."
+                  placeholder="ایمیل خود را جهت دریافت خبرنامه تحلیلی وارد کنید..."
                   value={emailNotification}
                   onChange={(e) => setEmailNotification(e.target.value)}
                   className="flex-1 px-4 py-2.5 rounded-xl bg-white/20 border border-white/30 text-xs text-white placeholder:text-white/70 focus:outline-hidden focus:ring-2 focus:ring-white backdrop-blur-md"
@@ -78,7 +159,7 @@ export const ChatbotComingSoonView: React.FC = () => {
                   type="submit"
                   className="px-5 py-2.5 rounded-xl bg-white text-[#2D2327] hover:bg-[#FFFECE] active:scale-95 text-xs font-bold transition-all shadow-md shrink-0 cursor-pointer"
                 >
-                  ثبت‌نام دعوت‌نامه
+                  ثبت‌نام خبرنامه
                 </button>
               </form>
             )}
@@ -91,7 +172,7 @@ export const ChatbotComingSoonView: React.FC = () => {
           ======================================================== */}
       <div>
         <div className="text-center mb-6">
-          <h2 className="text-base font-extrabold text-[#2D2327]">قابلیت‌هایی که به‌زودی در دسترس شما خواهند بود</h2>
+          <h2 className="text-base font-extrabold text-[#2D2327]">قابلیت‌های هوشمند دستیار تحلیلی</h2>
           <p className="text-xs text-[#7A6670] mt-1">طراحی‌شده اختصاصی برای مدیران فروشگاه‌های آنلاین و تحلیل‌گران بازارگاه</p>
         </div>
 
@@ -143,88 +224,131 @@ export const ChatbotComingSoonView: React.FC = () => {
       </div>
 
       {/* ========================================================
-          POLISHED VISUAL PREVIEW OF CHAT INTERFACE
+          POLISHED INTERACTIVE PREVIEW OF CHAT INTERFACE
           ======================================================== */}
       <div className="bg-white rounded-3xl border border-[#E69DB8]/30 p-6 lg:p-8 shadow-xs relative overflow-hidden">
-        {/* Coming Soon Watermark */}
+        {/* Status Indicator */}
         <div className="absolute top-4 left-4 z-20">
           <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#8C4E65] bg-[#FFFECE] border border-[#E69DB8]/30 px-3 py-1 rounded-full">
             <Clock size={13} />
-            <span>پیش‌نمایش رابط کاربری</span>
+            <span>محیط تعاملی چت‌بات</span>
           </span>
         </div>
 
         <div className="mb-6">
-          <h3 className="text-sm font-extrabold text-[#2D2327]">نمای آینده محیط گفتگوی تحلیلی</h3>
-          <p className="text-xs text-[#7A6670] mt-0.5">نمونه‌ای از تعامل کاربر با دستیار هوشمند پس از راه‌اندازی سرور</p>
+          <h3 className="text-sm font-extrabold text-[#2D2327]">محیط گفتگوی تحلیلی هوشمند</h3>
+          <p className="text-xs text-[#7A6670] mt-0.5">پرسش و پاسخ درباره شاخص‌های کامنت‌ها، رضایت و عملکرد فروشندگان</p>
         </div>
 
-        {/* Chat Stream Simulation */}
-        <div className="space-y-4 max-w-2xl mx-auto py-2">
-          {/* User Message */}
-          <div className="flex items-start gap-3 justify-end">
-            <div className="bg-[#E69DB8] text-white p-3.5 rounded-2xl rounded-tr-xs text-xs max-w-md shadow-xs leading-relaxed font-medium">
-              علت اصلی منفی بودن نظرات درباره «جاروبرقی شارژی Turbo-X» چیست و چه پیشنهادی دارید؟
-            </div>
-            <div className="w-8 h-8 rounded-full bg-[#FFD0C7] flex items-center justify-center text-xs font-bold text-[#2D2327] shrink-0">
-              شما
-            </div>
-          </div>
+        {/* Chat Stream Messages */}
+        <div className="space-y-4 max-w-2xl mx-auto py-2 min-h-[160px] max-h-[420px] overflow-y-auto pr-1">
+          {messages.map((msg) => (
+            <div
+              key={msg.id}
+              className={`flex items-start gap-3 ${
+                msg.sender === 'user' ? 'justify-end' : 'justify-start'
+              }`}
+            >
+              {msg.sender === 'assistant' && (
+                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#E69DB8] to-[#8C4E65] flex items-center justify-center text-white shrink-0 shadow-xs">
+                  <Bot size={16} />
+                </div>
+              )}
 
-          {/* AI Assistant Response */}
-          <div className="flex items-start gap-3 justify-start">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#E69DB8] to-[#8C4E65] flex items-center justify-center text-white shrink-0 shadow-xs">
-              <Bot size={16} />
-            </div>
-            <div className="bg-[#F1E7E7]/40 border border-[#E69DB8]/20 p-4 rounded-2xl rounded-tl-xs text-xs max-w-lg space-y-2 text-[#2D2327] leading-relaxed shadow-xs">
-              <div className="flex items-center gap-1.5 font-bold text-[#8C4E65] text-[11px] mb-1">
-                <Sparkles size={13} />
-                <span>پاسخ تحلیلی بر اساس داده‌های زنده:</span>
+              <div
+                className={`p-3.5 rounded-2xl text-xs max-w-lg leading-relaxed shadow-xs ${
+                  msg.sender === 'user'
+                    ? 'bg-[#E69DB8] text-white rounded-tr-xs font-medium'
+                    : 'bg-[#F1E7E7]/40 border border-[#E69DB8]/20 rounded-tl-xs text-[#2D2327]'
+                }`}
+              >
+                {msg.sender === 'assistant' && (
+                  <div className="flex items-center gap-1.5 font-bold text-[#8C4E65] text-[11px] mb-1.5">
+                    <Sparkles size={13} />
+                    <span>پاسخ تحلیلی:</span>
+                  </div>
+                )}
+                <div className="whitespace-pre-line leading-relaxed">{msg.text}</div>
+                <div
+                  className={`text-[10px] mt-1.5 text-left ${
+                    msg.sender === 'user' ? 'text-white/70' : 'text-[#7A6670]'
+                  }`}
+                >
+                  {msg.timestamp}
+                </div>
               </div>
-              <p>
-                بر اساس تحلیل <strong>۴۸۰ نظر ثبت‌شده</strong> برای این محصول:
-              </p>
-              <ul className="list-disc list-inside space-y-1 text-[#5B4852] mr-1 text-[11px]">
-                <li><strong>۶۴٪</strong> کاربران از دوام بسیار کم باتری (کمتر از ۱۰ دقیقه) شکایت کرده‌اند.</li>
-                <li><strong>۲۲٪</strong> به ضعف در مکش نسبت به ادعای مشخصات فنی اشاره نموده‌اند.</li>
-                <li><strong>۱۴٪</strong> عدم پاسخگویی گارانتی شرکت بازرگانی کیان تجارت را گزارش داده‌اند.</li>
-              </ul>
-              <div className="p-2.5 bg-[#FFFECE]/90 rounded-xl border border-[#BEDDC7]/60 text-[#2B543B] text-[11px] font-semibold mt-2">
-                💡 <strong>اقدام پیشنهادی:</strong> توقف موقت فروش کالا تا زمان تست نمونه‌های جدید یا اصلاح مشخصات توان باتری در صفحه محصول.
+
+              {msg.sender === 'user' && (
+                <div className="w-8 h-8 rounded-full bg-[#FFD0C7] flex items-center justify-center text-xs font-bold text-[#2D2327] shrink-0">
+                  شما
+                </div>
+              )}
+            </div>
+          ))}
+
+          {isSending && (
+            <div className="flex items-start gap-3 justify-start">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#E69DB8] to-[#8C4E65] flex items-center justify-center text-white shrink-0 shadow-xs">
+                <Bot size={16} />
+              </div>
+              <div className="bg-[#F1E7E7]/40 border border-[#E69DB8]/20 p-3 rounded-2xl text-xs text-[#7A6670] flex items-center gap-2">
+                <Loader2 size={14} className="animate-spin text-[#8C4E65]" />
+                <span>در حال پردازش و استخراج پاسخ از پایگاه داده...</span>
               </div>
             </div>
-          </div>
+          )}
+          <div ref={chatBottomRef} />
         </div>
 
         {/* Sample Prompt Chips */}
         <div className="mt-8 pt-6 border-t border-[#F1E7E7]">
           <div className="text-[11px] font-bold text-[#7A6670] mb-2.5">
-            نمونه پرسش‌های قابل اجرا در نسخه نهایی:
+            نمونه پرسش‌های آماده (کلیک کنید):
           </div>
           <div className="flex flex-wrap gap-2">
             {samplePrompts.map((prompt, idx) => (
-              <span
+              <button
                 key={idx}
-                className="text-xs bg-[#F1E7E7]/50 hover:bg-[#F1E7E7] text-[#5B4852] border border-[#E69DB8]/30 px-3 py-1.5 rounded-xl transition-colors select-none"
+                type="button"
+                onClick={() => handleSendMessage(prompt)}
+                disabled={isSending}
+                className="text-xs bg-[#F1E7E7]/50 hover:bg-[#F1E7E7] text-[#5B4852] hover:text-[#2D2327] border border-[#E69DB8]/30 px-3 py-1.5 rounded-xl transition-all cursor-pointer text-right active:scale-98 disabled:opacity-50"
               >
                 {prompt}
-              </span>
+              </button>
             ))}
           </div>
         </div>
 
-        {/* Input Bar Placeholder */}
-        <div className="mt-6 relative opacity-70 pointer-events-none">
+        {/* Active Input Bar */}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSendMessage();
+          }}
+          className="mt-6 relative"
+        >
           <input
             type="text"
-            disabled
-            placeholder="سوال تحلیلی خود را به فارسی بنویسید (در نسخه بعدی فعال خواهد شد)..."
-            className="w-full pl-12 pr-4 py-3 text-xs bg-[#F1E7E7]/50 border border-[#E69DB8]/30 rounded-2xl text-[#7A6670] cursor-not-allowed"
+            value={inputMessage}
+            onChange={(e) => setInputMessage(e.target.value)}
+            disabled={isSending}
+            placeholder="سوال تحلیلی خود را درباره کامنت‌ها، کالاها یا فروشندگان بنویسید..."
+            className="w-full pl-12 pr-4 py-3 text-xs bg-[#F1E7E7]/50 border border-[#E69DB8]/30 rounded-2xl text-[#2D2327] placeholder:text-[#7A6670] focus:outline-hidden focus:ring-2 focus:ring-[#E69DB8] focus:bg-white transition-all"
           />
-          <div className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 bg-[#E69DB8] text-white rounded-xl flex items-center justify-center">
-            <Send size={14} className="rotate-180" />
-          </div>
-        </div>
+          <button
+            type="submit"
+            disabled={!inputMessage.trim() || isSending}
+            className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 bg-[#E69DB8] hover:bg-[#D88CA7] disabled:opacity-40 disabled:pointer-events-none text-white rounded-xl flex items-center justify-center transition-all cursor-pointer shadow-xs"
+            title="ارسال پیام"
+          >
+            {isSending ? (
+              <Loader2 size={14} className="animate-spin" />
+            ) : (
+              <Send size={14} className="rotate-180" />
+            )}
+          </button>
+        </form>
       </div>
     </div>
   );

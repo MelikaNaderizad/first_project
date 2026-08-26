@@ -1,17 +1,6 @@
-export type NavSection =
-  | "dashboard"
-  | "comments"
-  | "sellers"
-  | "products"
-  | "chatbot";
+export type NavSection = 'dashboard' | 'comments' | 'sellers' | 'products' | 'chatbot';
 
-export type RecommendationStatus =
-  | "recommended"
-  | "not_recommended"
-  | "no_idea"
-  | "positive"
-  | "negative"
-  | string;
+export type RecommendationStatus = 'recommended' | 'not_recommended' | 'no_idea' | 'positive' | 'negative' | string;
 
 export interface CommentItem {
   id: string | number;
@@ -33,11 +22,7 @@ export interface CommentItem {
   category?: string;
 }
 
-export type SellerStatus =
-  | "successful"
-  | "unsuccessful"
-  | "neutral"
-  | "insufficient_data";
+export type SellerStatus = 'successful' | 'unsuccessful' | 'neutral' | 'insufficient_data';
 
 export interface SellerItem {
   seller_code: string;
@@ -54,11 +39,7 @@ export interface SellerItem {
   category?: string;
 }
 
-export type ProductStatus =
-  | "successful"
-  | "unsuccessful"
-  | "neutral"
-  | "insufficient_data";
+export type ProductStatus = 'successful' | 'unsuccessful' | 'neutral' | 'insufficient_data';
 
 export interface ProductItem {
   id: string | number;
@@ -146,6 +127,7 @@ export interface CommentsResponse {
   totalCount: number;
   page: number;
   limit: number;
+  total_pages: number;
 }
 
 export interface SellersResponse {
@@ -165,6 +147,10 @@ export interface SellersResponse {
     unit: string;
   }>;
   sellers: SellerItem[];
+  page: number;
+  page_size: number;
+  totalCount: number;
+  totalPages: number;
 }
 
 export interface ProductsResponse {
@@ -184,8 +170,21 @@ export interface ProductsResponse {
     total: number;
   }>;
   products: ProductItem[];
-  page?: number;
-  pageSize?: number;
-  totalCount?: number;
-  totalPages?: number;
+  page: number;
+  page_size: number;
+  totalCount: number;
+  total_pages: number;
+}
+
+export interface ChatbotStatusResponse {
+  status: string;
+  model?: string;
+  ready?: boolean;
+}
+
+export interface ChatbotMessageResponse {
+  reply?: string;
+  message?: string;
+  response?: string;
+  answer?: string;
 }

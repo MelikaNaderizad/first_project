@@ -19,11 +19,12 @@ import {
 import { SellersResponse, SellerItem } from '../../types';
 import { StatusBadge } from '../common/StatusBadge';
 import { PersianRating } from '../common/PersianRating';
+import { Pagination } from '../common/Pagination';
 import { toPersianDigits, formatPersianNumber, formatPercent } from '../../utils/formatters';
 
 interface SellersViewProps {
   data: SellersResponse;
-  onFilterChange: (filters: { status?: string; category?: string; search?: string; sort?: string }) => void;
+  onFilterChange: (filters: { status?: string; category?: string; search?: string; sort?: string; page?: number }) => void;
   isLoading: boolean;
 }
 
@@ -32,7 +33,7 @@ export const SellersView: React.FC<SellersViewProps> = ({
   onFilterChange,
   isLoading,
 }) => {
-  const { metrics, performanceComparison, sellers } = data;
+  const { metrics, performanceComparison, sellers, totalCount = 0, page = 1, page_size = 20, totalPages = 1 } = data;
 
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedStatus, setSelectedStatus] = useState<string>('all');
@@ -47,6 +48,7 @@ export const SellersView: React.FC<SellersViewProps> = ({
       status: selectedStatus,
       category: selectedCategory,
       sort: selectedSort,
+      page: 1,
     });
   };
 
@@ -57,6 +59,7 @@ export const SellersView: React.FC<SellersViewProps> = ({
       category: selectedCategory,
       search: searchQuery,
       sort: selectedSort,
+      page: 1,
     });
   };
 
@@ -67,6 +70,7 @@ export const SellersView: React.FC<SellersViewProps> = ({
       category,
       search: searchQuery,
       sort: selectedSort,
+      page: 1,
     });
   };
 
@@ -77,6 +81,17 @@ export const SellersView: React.FC<SellersViewProps> = ({
       category: selectedCategory,
       search: searchQuery,
       sort,
+      page: 1,
+    });
+  };
+
+  const handlePageChange = (newPage: number) => {
+    onFilterChange({
+      status: selectedStatus,
+      category: selectedCategory,
+      search: searchQuery,
+      sort: selectedSort,
+      page: newPage,
     });
   };
 
@@ -296,7 +311,7 @@ export const SellersView: React.FC<SellersViewProps> = ({
         <div className="p-6 border-b border-[#F1E7E7] flex items-center justify-between">
           <div>
             <h3 className="text-sm font-extrabold text-[#2D2327]">
-              جدول ارزیابی و ماتریس عملکرد فروشندگان ({toPersianDigits(sellers.length)} مورد)
+              جدول ارزیابی و ماتریس عملکرد فروشندگان ({formatPersianNumber(totalCount || sellers.length)} فروشنده)
             </h3>
             <p className="text-xs text-[#7A6670] mt-0.5">
               رتبه‌بندی دقیق براساس رضایت، نرخ کالای فیک، محصولات کم‌امتیاز و شاخص سلامت ۵۰/۳۰/۲۰
@@ -425,6 +440,19 @@ export const SellersView: React.FC<SellersViewProps> = ({
               ))}
             </tbody>
           </table>
+        </div>
+
+        {/* Server-side Pagination */}
+        <div className="px-6 pb-6">
+          <Pagination
+            currentPage={page}
+            totalPages={totalPages}
+            totalCount={totalCount}
+            pageSize={page_size}
+            onPageChange={handlePageChange}
+            isLoading={isLoading}
+            itemLabel="فروشنده"
+          />
         </div>
       </div>
 

@@ -18,11 +18,12 @@ import {
 import { CommentsResponse, CommentItem } from '../../types';
 import { StatusBadge } from '../common/StatusBadge';
 import { PersianRating } from '../common/PersianRating';
+import { Pagination } from '../common/Pagination';
 import { toPersianDigits, formatPersianNumber, formatPercent } from '../../utils/formatters';
 
 interface CommentsViewProps {
   data: CommentsResponse;
-  onFilterChange: (filters: { sentiment?: string; rating?: string; category?: string; search?: string }) => void;
+  onFilterChange: (filters: { sentiment?: string; rating?: string; category?: string; search?: string; page?: number }) => void;
   isLoading: boolean;
 }
 
@@ -31,7 +32,7 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
   onFilterChange,
   isLoading,
 }) => {
-  const { metrics, ratingDistribution, comments } = data;
+  const { metrics, ratingDistribution, comments, totalCount = 0, page = 1, limit = 21, total_pages = 1 } = data;
 
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedSentiment, setSelectedSentiment] = useState<string>('all');
@@ -46,6 +47,7 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
       sentiment: selectedSentiment,
       rating: selectedRating,
       category: selectedCategory,
+      page: 1,
     });
   };
 
@@ -56,6 +58,7 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
       rating: selectedRating,
       category: selectedCategory,
       search: searchQuery,
+      page: 1,
     });
   };
 
@@ -66,6 +69,7 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
       rating,
       category: selectedCategory,
       search: searchQuery,
+      page: 1,
     });
   };
 
@@ -76,6 +80,17 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
       rating: selectedRating,
       category,
       search: searchQuery,
+      page: 1,
+    });
+  };
+
+  const handlePageChange = (newPage: number) => {
+    onFilterChange({
+      sentiment: selectedSentiment,
+      rating: selectedRating,
+      category: selectedCategory,
+      search: searchQuery,
+      page: newPage,
     });
   };
 
@@ -274,7 +289,7 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
         <div className="p-6 border-b border-[#F1E7E7] flex items-center justify-between">
           <div>
             <h3 className="text-sm font-extrabold text-[#2D2327]">
-              فهرست نظرات و بازخوردهای ثبت‌شده ({toPersianDigits(comments.length)} مورد)
+              فهرست نظرات و بازخوردهای ثبت‌شده ({formatPersianNumber(totalCount || comments.length)} نظر)
             </h3>
             <p className="text-xs text-[#7A6670] mt-0.5">
               نمایش داده‌های واقعی کامنت شامل وضعیت پیشنهاد، امتیاز، مزایا، معایب، فروشنده و واکنش‌ها
@@ -401,6 +416,19 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
               ))}
             </tbody>
           </table>
+        </div>
+
+        {/* Server-side Pagination */}
+        <div className="px-6 pb-6">
+          <Pagination
+            currentPage={page}
+            totalPages={total_pages}
+            totalCount={totalCount}
+            pageSize={limit}
+            onPageChange={handlePageChange}
+            isLoading={isLoading}
+            itemLabel="نظر"
+          />
         </div>
       </div>
 
