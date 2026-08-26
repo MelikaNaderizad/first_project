@@ -109,6 +109,8 @@ export default function App() {
 
   // Handler for products filters
   const handleProductsFilter = async (filters: {
+    page?: number;
+    pageSize?: number;
     status?: string;
     category?: string;
     search?: string;

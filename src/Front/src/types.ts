@@ -1,6 +1,17 @@
-export type NavSection = 'dashboard' | 'comments' | 'sellers' | 'products' | 'chatbot';
+export type NavSection =
+  | "dashboard"
+  | "comments"
+  | "sellers"
+  | "products"
+  | "chatbot";
 
-export type RecommendationStatus = 'recommended' | 'not_recommended' | 'no_idea' | 'positive' | 'negative' | string;
+export type RecommendationStatus =
+  | "recommended"
+  | "not_recommended"
+  | "no_idea"
+  | "positive"
+  | "negative"
+  | string;
 
 export interface CommentItem {
   id: string | number;
@@ -22,7 +33,11 @@ export interface CommentItem {
   category?: string;
 }
 
-export type SellerStatus = 'successful' | 'unsuccessful' | 'neutral' | 'insufficient_data';
+export type SellerStatus =
+  | "successful"
+  | "unsuccessful"
+  | "neutral"
+  | "insufficient_data";
 
 export interface SellerItem {
   seller_code: string;
@@ -39,7 +54,11 @@ export interface SellerItem {
   category?: string;
 }
 
-export type ProductStatus = 'successful' | 'unsuccessful' | 'neutral' | 'insufficient_data';
+export type ProductStatus =
+  | "successful"
+  | "unsuccessful"
+  | "neutral"
+  | "insufficient_data";
 
 export interface ProductItem {
   id: string | number;
@@ -165,6 +184,8 @@ export interface ProductsResponse {
     total: number;
   }>;
   products: ProductItem[];
+  page?: number;
+  pageSize?: number;
+  totalCount?: number;
+  totalPages?: number;
 }
-
-

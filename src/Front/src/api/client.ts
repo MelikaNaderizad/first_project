@@ -625,108 +625,87 @@ export const apiClient = {
   },
 
   async getProducts(params?: {
+    page?: number;
+    pageSize?: number;
     status?: string;
     category?: string;
     search?: string;
     sort?: string;
   }): Promise<ProductsResponse> {
     const baseUrl = getBaseUrl();
+
     const query = new URLSearchParams();
-    if (params?.status && params.status !== "all")
+
+    query.set("page", String(params?.page ?? 1));
+
+    query.set("page_size", String(params?.pageSize ?? 50));
+
+    if (params?.status && params.status !== "all") {
       query.set("status", params.status);
-    if (params?.category && params.category !== "all")
+    }
+
+    if (params?.category && params.category !== "all") {
       query.set("category", params.category);
-    if (params?.search) query.set("search", params.search);
-    if (params?.sort) query.set("sort", params.sort);
+    }
+
+    if (params?.search) {
+      query.set("search", params.search);
+    }
+
+    if (params?.sort) {
+      query.set("sort", params.sort);
+    }
 
     const res = await fetch(`${baseUrl}/api/products?${query.toString()}`);
+
     if (!res.ok) {
       throw new Error(`خطا در دریافت اطلاعات محصولات (${res.status})`);
     }
+
     const json = await res.json();
 
-    // If backend returns a raw array of product KPI objects
-    if (Array.isArray(json)) {
-      const rawList = json.map(normalizeProduct);
-      const total_products = rawList.length;
-      const successful_products = rawList.filter(
-        (p) => p.product_status === "successful",
-      ).length;
-      const unsuccessful_products = rawList.filter(
-        (p) => p.product_status === "unsuccessful",
-      ).length;
-      const avg_rating =
-        total_products > 0
-          ? Number(
-              (
-                rawList.reduce((acc, cur) => acc + cur.rate, 0) / total_products
-              ).toFixed(2),
-            )
-          : 4.12;
-      const fake_products_count = rawList.filter((p) => p.is_fake).length;
-
-      const topProduct =
-        [...rawList].sort((a, b) => b.rate - a.rate)[0] || rawList[0];
-      const weakestProduct =
-        [...rawList].sort((a, b) => a.rate - b.rate)[0] ||
-        rawList[rawList.length - 1];
-
-      return {
-        metrics: {
-          total_products,
-          successful_products,
-          unsuccessful_products,
-          avg_rating,
-          fake_products_count,
-          topProduct,
-          weakestProduct,
-        },
-        categoryBreakdown: [
-          { name: "کالای دیجیتال", successful: 2, unsuccessful: 1, total: 3 },
-          { name: "زیبایی و سلامت", successful: 1, unsuccessful: 0, total: 1 },
-          { name: "لوازم خانگی", successful: 1, unsuccessful: 1, total: 2 },
-          { name: "مد و پوشاک", successful: 1, unsuccessful: 1, total: 2 },
-        ],
-        products: rawList,
-      };
-    }
-
-    // Structured object returned
     const rawProducts = Array.isArray(json.products)
       ? json.products.map(normalizeProduct)
       : [];
+
     return {
       metrics: {
         total_products: Number(
-          json.metrics?.total_products ?? rawProducts.length,
+          json.metrics?.total_products ?? json.totalCount ?? 0,
         ),
+
         successful_products: Number(json.metrics?.successful_products ?? 0),
+
         unsuccessful_products: Number(json.metrics?.unsuccessful_products ?? 0),
-        avg_rating: Number(json.metrics?.avg_rating ?? 4.12),
+
+        avg_rating: Number(json.metrics?.avg_rating ?? 0),
+
         fake_products_count: Number(json.metrics?.fake_products_count ?? 0),
+
         topProduct: normalizeProduct(
           json.metrics?.topProduct || rawProducts[0] || {},
         ),
+
         weakestProduct: normalizeProduct(
           json.metrics?.weakestProduct ||
             rawProducts[rawProducts.length - 1] ||
             {},
         ),
       },
+
       categoryBreakdown: Array.isArray(json.categoryBreakdown)
         ? json.categoryBreakdown
-        : [
-            { name: "کالای دیجیتال", successful: 2, unsuccessful: 1, total: 3 },
-            {
-              name: "زیبایی و سلامت",
-              successful: 1,
-              unsuccessful: 0,
-              total: 1,
-            },
-            { name: "لوازم خانگی", successful: 1, unsuccessful: 1, total: 2 },
-            { name: "مد و پوشاک", successful: 1, unsuccessful: 1, total: 2 },
-          ],
+        : [],
+
       products: rawProducts,
+
+      page: Number(json.page ?? 1),
+
+      pageSize: Number(json.page_size ?? json.limit ?? 50),
+
+      totalCount: Number(json.totalCount ?? json.metrics?.total_products ?? 0),
+
+      totalPages: Number(json.total_pages ?? 1),
     };
   },
 };

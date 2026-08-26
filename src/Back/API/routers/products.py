@@ -13,14 +13,29 @@ router = APIRouter(
 
 @router.get("/products")
 def products(
-    limit: Optional[int] = Query(None, ge=1, le=20000),
+    page: int = Query(
+        1,
+        ge=1
+    ),
+
+    page_size: int = Query(
+        50,
+        ge=1,
+        le=100
+    ),
+
     status: Optional[str] = Query(None),
+
     category: Optional[str] = Query(None),
+
     search: Optional[str] = Query(None),
+
     sort: Optional[str] = Query(None),
 ):
+
     return get_products(
-        limit=limit,
+        page=page,
+        page_size=page_size,
         status=status,
         category=category,
         search=search,
