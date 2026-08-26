@@ -13,10 +13,16 @@ router = APIRouter(
 
 @router.get("/sellers")
 def sellers(
-    limit: Optional[int] = Query(
-        None,
-        ge=1,
-        le=20000
-    )
+    limit: Optional[int] = Query(None, ge=1, le=20000),
+    status: Optional[str] = Query(None),
+    category: Optional[str] = Query(None),
+    search: Optional[str] = Query(None),
+    sort: Optional[str] = Query(None),
 ):
-    return get_sellers(limit)
+    return get_sellers(
+        limit=limit,
+        status=status,
+        category=category,
+        search=search,
+        sort=sort,
+    )
