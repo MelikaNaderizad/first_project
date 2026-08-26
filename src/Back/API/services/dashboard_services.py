@@ -7,7 +7,7 @@ ANALYSIS_DIR = BACK_DIR / "analysis"
 sys.path.append(str(BACK_DIR))
 sys.path.append(str(ANALYSIS_DIR))
 
-from sqlalchemy import func
+from sqlalchemy import func, select, case
 from sqlalchemy.orm import Session
 
 from database.conn import engine
@@ -16,6 +16,24 @@ from database.models import Products, Comments
 from queries.comments_kpi_queries import comment_kpi_query
 from queries.products_kpi_queries import product_kpi_query
 from queries.sellers_kpi_queries import seller_kpi_query
+
+
+def _status_agg(subquery, status_col):
+    return select(
+        func.count().label("total"),
+        func.coalesce(
+            func.sum(case((status_col == "successful", 1), else_=0)), 0
+        ).label("successful"),
+        func.coalesce(
+            func.sum(case((status_col == "unsuccessful", 1), else_=0)), 0
+        ).label("unsuccessful"),
+        func.coalesce(
+            func.sum(case((status_col == "neutral", 1), else_=0)), 0
+        ).label("neutral"),
+        func.coalesce(
+            func.sum(case((status_col == "insufficient_data", 1), else_=0)), 0
+        ).label("insufficient"),
+    ).select_from(subquery)
 
 
 def get_dashboard_overview():
@@ -31,55 +49,44 @@ def get_dashboard_overview():
             total_comments - positive_comments - negative_comments, 0
         )
 
-        # ---------- Products ----------
-        product_rows = session.execute(product_kpi_query).mappings().all()
+        # ---------- Products (aggregated in SQL, not pulled into Python) ----------
+        product_sub = product_kpi_query.subquery()
+
+        product_status_row = session.execute(
+            _status_agg(product_sub, product_sub.c.product_status)
+        ).mappings().first()
+
+        avg_health_products = session.execute(
+            select(func.coalesce(func.avg(product_sub.c.product_health_score), 0))
+        ).scalar() or 0
+
         total_products = session.query(func.count(Products.id)).scalar() or 0
+        successful_products = product_status_row["successful"]
+        unsuccessful_products = product_status_row["unsuccessful"]
+        neutral_products = product_status_row["neutral"]
+        insufficient_products = product_status_row["insufficient"]
 
-        successful_products = sum(
-            1 for r in product_rows if r["product_status"] == "successful"
-        )
-        unsuccessful_products = sum(
-            1 for r in product_rows if r["product_status"] == "unsuccessful"
-        )
-        neutral_products = sum(
-            1 for r in product_rows if r["product_status"] == "neutral"
-        )
-        insufficient_products = sum(
-            1 for r in product_rows if r["product_status"] == "insufficient_data"
-        )
+        # ---------- Sellers (aggregated in SQL) ----------
+        seller_sub = seller_kpi_query.subquery()
 
-        # ---------- Sellers ----------
-        seller_rows = session.execute(seller_kpi_query).mappings().all()
-        total_sellers = len(seller_rows)
+        seller_status_row = session.execute(
+            _status_agg(seller_sub, seller_sub.c.seller_status)
+        ).mappings().first()
 
-        successful_sellers = sum(
-            1 for r in seller_rows if r["seller_status"] == "successful"
-        )
-        unsuccessful_sellers = sum(
-            1 for r in seller_rows if r["seller_status"] == "unsuccessful"
-        )
-        neutral_sellers = sum(
-            1 for r in seller_rows if r["seller_status"] == "neutral"
-        )
-        insufficient_sellers = sum(
-            1 for r in seller_rows if r["seller_status"] == "insufficient_data"
-        )
+        avg_health_sellers = session.execute(
+            select(func.coalesce(func.avg(seller_sub.c.seller_health_score), 0))
+        ).scalar() or 0
+
+        total_sellers = seller_status_row["total"]
+        successful_sellers = seller_status_row["successful"]
+        unsuccessful_sellers = seller_status_row["unsuccessful"]
+        neutral_sellers = seller_status_row["neutral"]
+        insufficient_sellers = seller_status_row["insufficient"]
 
         # ---------- Aggregates ----------
-        avg_health_products = (
-            sum(float(r["product_health_score"] or 0) for r in product_rows)
-            / len(product_rows)
-            if product_rows else 0
-        )
-        avg_health_sellers = (
-            sum(float(r["seller_health_score"] or 0) for r in seller_rows)
-            / len(seller_rows)
-            if seller_rows else 0
-        )
-
-        if product_rows or seller_rows:
+        if product_status_row["total"] or total_sellers:
             avg_health_score = round(
-                (avg_health_products + avg_health_sellers) / 2, 2
+                (float(avg_health_products) + float(avg_health_sellers)) / 2, 2
             )
         else:
             avg_health_score = 0

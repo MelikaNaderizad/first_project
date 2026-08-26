@@ -84,11 +84,11 @@ def get_comments(page: int = 1, page_size: int = 21):
     total_pages = max((total + page_size - 1) // page_size, 1) if total else 1
 
     return {
-        "items": items,
-        "total": total,
-        "page": page,
-        "page_size": page_size,
-        "total_pages": total_pages,
-    }
+    "comments": items,
+    "totalCount": total,
+    "page": page,
+    "limit": page_size,
+    "total_pages": total_pages,
+}
 
 

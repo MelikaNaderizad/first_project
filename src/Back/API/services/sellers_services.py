@@ -47,9 +47,7 @@ def _risk_level(fake_percent: float, low_rated_percent: float) -> str:
 
 def get_sellers(limit: Optional[int] = None):
     with Session(engine) as session:
-        query = seller_kpi_query
-        if limit:
-            query = query.limit(limit)
+        query = seller_kpi_query.limit(limit or 500)
 
         rows = session.execute(query).mappings().all()
 

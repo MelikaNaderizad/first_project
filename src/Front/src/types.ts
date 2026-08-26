@@ -1,16 +1,16 @@
 export type NavSection = 'dashboard' | 'comments' | 'sellers' | 'products' | 'chatbot';
 
-export type RecommendationStatus = 'recommended' | 'not_recommended' | 'no_idea';
+export type RecommendationStatus = 'recommended' | 'not_recommended' | 'no_idea' | 'positive' | 'negative' | string;
 
 export interface CommentItem {
-  id: string;
+  id: string | number;
   title: string;
   body: string;
   created_at: string;
   rate: number;
   recommendation_status: RecommendationStatus;
   is_buyer: boolean;
-  product_id: string;
+  product_id: string | number;
   product_title_fa?: string;
   advantages: string[];
   disadvantages: string[];
@@ -42,7 +42,8 @@ export interface SellerItem {
 export type ProductStatus = 'successful' | 'unsuccessful' | 'neutral' | 'insufficient_data';
 
 export interface ProductItem {
-  id: string;
+  id: string | number;
+  product_id?: string | number;
   title_fa: string;
   rate: number;
   rate_cnt: number;
@@ -165,4 +166,5 @@ export interface ProductsResponse {
   }>;
   products: ProductItem[];
 }
+
 

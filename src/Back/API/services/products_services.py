@@ -26,9 +26,7 @@ STATUS_RECOMMENDATION = {
 
 def get_products(limit: Optional[int] = None):
     with Session(engine) as session:
-        query = product_kpi_query
-        if limit:
-            query = query.limit(limit)
+        query = product_kpi_query.limit(limit or 500)
 
         kpi_rows = {
             row["product_id"]: row
@@ -56,24 +54,23 @@ def get_products(limit: Optional[int] = None):
             results.append({
                 "product_id": str(product.id),
                 "title_fa": product.title_fa,
-                "category_fa": product.category1 or product.sub_category or "نامشخص",
-                "seller_title": product.seller or "نامشخص",
+                "category1": product.category1 or "عمومی",
+                "sub_category": product.sub_category or "",
+                "brand": product.brand or "متفرقه",
+                "seller": product.seller or "نامشخص",
+                "seller_code": None,
+                "is_fake": bool(product.is_fake),
+                "price": product.price or 0,
+                "min_price_last_month": product.min_price_last_month or product.price or 0,
                 "raw_product_rate": round((product.rate or 0) / 20, 1),
                 "rate_cnt": product.rate_cnt or 0,
                 "positive_comments": int(kpi["positive_comments"] or 0),
                 "negative_comments": int(kpi["negative_comments"] or 0),
-                "neutral_comments": 0,
                 "bayesian_product_score": float(kpi["bayesian_product_score"] or 0),
                 "sentiment_score": float(kpi["sentiment_score"] or 0),
                 "product_health_score": float(kpi["product_health_score"] or 0),
                 "product_status": status,
-                "price_toman": product.price or 0,
-                "monthly_sales_cnt": 0,
-                "radar_metrics": [],
-                "top_pros": [],
-                "top_cons": [],
-                "recommendation": STATUS_RECOMMENDATION.get(status, ""),
-            })
+        })
 
         results.sort(key=lambda r: r["product_health_score"], reverse=True)
 
