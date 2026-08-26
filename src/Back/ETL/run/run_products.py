@@ -180,4 +180,10 @@ logger.info(
 )
 
 logger.info("=" * 60)
+try:
+    with engine.begin() as conn:
+        conn.execute(sql_text("REFRESH MATERIALIZED VIEW CONCURRENTLY product_kpi_mv;"))
+    logger.info("Materialized View محصولات با موفقیت رفرش شد.")
+except Exception:
+    logger.exception("خطا در رفرش Materialized View محصولات")
 logger.info("پردازش Products به پایان رسید.")

@@ -210,3 +210,9 @@ logger.info(
     f"رکورد Update شده: "
     f"{totals['updated']}"
 )
+try:
+    with engine.begin() as conn:
+        conn.execute(sql_text("REFRESH MATERIALIZED VIEW CONCURRENTLY seller_kpi_mv;"))
+    logger.info("Materialized View فروشندگان با موفقیت رفرش شد.")
+except Exception:
+    logger.exception("خطا در رفرش Materialized View فروشندگان")
