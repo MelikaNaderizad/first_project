@@ -93,7 +93,8 @@ def _seller_categories(session):
 
 @timed_cache(ttl_seconds=300)
 def get_sellers(
-    limit: Optional[int] = None,
+    page: int = 1,
+    page_size: int = 20,
     status: Optional[str] = None,
     category: Optional[str] = None,
     search: Optional[str] = None,
@@ -187,7 +188,20 @@ def get_sellers(
             },
         ]
 
-        limited_results = results[: (limit or 500)]
+        total_sellers = len(results)
+
+        offset = (page - 1) * page_size
+
+        paginated_results = results[
+            offset: offset + page_size
+        ]
+
+        total_pages = (
+            (total_sellers + page_size - 1)
+            // page_size
+            if total_sellers
+            else 1
+        )
 
     return {
         "metrics": {
@@ -198,5 +212,11 @@ def get_sellers(
             "avg_satisfaction_score": avg_satisfaction_score,
         },
         "performanceComparison": performance_comparison,
-        "sellers": limited_results,
+
+        "sellers": paginated_results,
+        
+        "page": page,
+        "page_size": page_size,
+        "totalCount": total_sellers,
+        "totalPages": total_pages,
     }

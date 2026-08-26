@@ -18,14 +18,18 @@ import { AlertCircle, RefreshCw } from "lucide-react";
 
 export default function App() {
   const [currentSection, setCurrentSection] = useState<NavSection>("dashboard");
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Data states
   const [overviewData, setOverviewData] = useState<OverviewData | null>(null);
+
   const [commentsData, setCommentsData] = useState<CommentsResponse | null>(
     null,
   );
+
   const [sellersData, setSellersData] = useState<SellersResponse | null>(null);
+
   const [productsData, setProductsData] = useState<ProductsResponse | null>(
     null,
   );
@@ -41,19 +45,21 @@ export default function App() {
 
       // ابتدا overview که سبک‌تره لود می‌شه
       const overviewRes = await apiClient.getOverview();
+
       setOverviewData(overviewRes);
 
-      // بقیه به‌صورت موازی ولی جدا از هم لود می‌شن تا خطای یکی مانع بقیه نشه
-      // و تایپ هرکدوم دقیقاً با ستر مربوطه match باشه
+      // بقیه به‌صورت موازی ولی جدا از هم لود می‌شن
       await Promise.all([
         apiClient
           .getComments()
           .then(setCommentsData)
           .catch((e) => console.error("Comments fetch error:", e)),
+
         apiClient
           .getSellers()
           .then(setSellersData)
           .catch((e) => console.error("Sellers fetch error:", e)),
+
         apiClient
           .getProducts()
           .then(setProductsData)
@@ -61,6 +67,7 @@ export default function App() {
       ]);
     } catch (err: any) {
       console.error("Data fetch error:", err);
+
       setError(err.message || "خطا در برقراری ارتباط با سرور تحلیل داده‌ها");
     } finally {
       setIsLoading(false);
@@ -80,7 +87,9 @@ export default function App() {
   }) => {
     try {
       setIsLoading(true);
+
       const res = await apiClient.getComments(filters);
+
       setCommentsData(res);
     } catch (err: any) {
       console.error("Comments filter error:", err);
@@ -98,7 +107,9 @@ export default function App() {
   }) => {
     try {
       setIsLoading(true);
+
       const res = await apiClient.getSellers(filters);
+
       setSellersData(res);
     } catch (err: any) {
       console.error("Sellers filter error:", err);
@@ -118,7 +129,9 @@ export default function App() {
   }) => {
     try {
       setIsLoading(true);
+
       const res = await apiClient.getProducts(filters);
+
       setProductsData(res);
     } catch (err: any) {
       console.error("Products filter error:", err);
@@ -131,14 +144,19 @@ export default function App() {
     switch (currentSection) {
       case "dashboard":
         return "نمای کلی داشبورد تحلیلی";
+
       case "comments":
         return "تحلیل عمیق نظرات و بازخوردها";
+
       case "sellers":
         return "پایش عملکرد و کیفیت فروشندگان";
+
       case "products":
         return "تحلیل کاتالوگ و رضایت محصولات";
+
       case "chatbot":
         return "دستیار هوشمند AI (به‌زودی)";
+
       default:
         return "داشبورد";
     }
@@ -152,9 +170,10 @@ export default function App() {
         onSelectSection={(section) => setCurrentSection(section)}
         isOpen={isMobileMenuOpen}
         onCloseMobile={() => setIsMobileMenuOpen(false)}
+        data={overviewData}
       />
 
-      {/* Main Content Area (offset by sidebar width on desktop) */}
+      {/* Main Content Area */}
       <div className="flex-1 flex flex-col lg:mr-64 transition-all duration-300 min-w-0">
         {/* Top Navbar */}
         <Navbar
@@ -171,10 +190,13 @@ export default function App() {
               <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mx-auto mb-4">
                 <AlertCircle size={24} />
               </div>
+
               <h3 className="text-base font-bold text-slate-800 mb-1">
                 خطا در بارگذاری داده‌ها
               </h3>
+
               <p className="text-xs text-slate-500 mb-6">{error}</p>
+
               <button
                 onClick={fetchData}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 transition-all cursor-pointer"
@@ -186,6 +208,7 @@ export default function App() {
           ) : isLoading && !overviewData ? (
             <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-4">
               <div className="w-10 h-10 border-3 border-indigo-600 border-t-transparent rounded-full animate-spin" />
+
               <p className="text-xs font-bold text-slate-500">
                 در حال دریافت و تحلیل شاخص‌های کسب‌وکار...
               </p>
