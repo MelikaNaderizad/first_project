@@ -1,24 +1,34 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { NavSection, OverviewData, CommentsResponse, SellersResponse, ProductsResponse } from './types';
-import { apiClient } from './api/client';
-import { Sidebar } from './components/layout/Sidebar';
-import { Navbar } from './components/layout/Navbar';
-import { OverviewView } from './components/dashboard/OverviewView';
-import { CommentsView } from './components/comments/CommentsView';
-import { SellersView } from './components/sellers/SellersView';
-import { ProductsView } from './components/products/ProductsView';
-import { ChatbotComingSoonView } from './components/chatbot/ChatbotComingSoonView';
-import { AlertCircle, RefreshCw } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from "react";
+import {
+  NavSection,
+  OverviewData,
+  CommentsResponse,
+  SellersResponse,
+  ProductsResponse,
+} from "./types";
+import { apiClient } from "./api/client";
+import { Sidebar } from "./components/layout/Sidebar";
+import { Navbar } from "./components/layout/Navbar";
+import { OverviewView } from "./components/dashboard/OverviewView";
+import { CommentsView } from "./components/comments/CommentsView";
+import { SellersView } from "./components/sellers/SellersView";
+import { ProductsView } from "./components/products/ProductsView";
+import { ChatbotComingSoonView } from "./components/chatbot/ChatbotComingSoonView";
+import { AlertCircle, RefreshCw } from "lucide-react";
 
 export default function App() {
-  const [currentSection, setCurrentSection] = useState<NavSection>('dashboard');
+  const [currentSection, setCurrentSection] = useState<NavSection>("dashboard");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Data states
   const [overviewData, setOverviewData] = useState<OverviewData | null>(null);
-  const [commentsData, setCommentsData] = useState<CommentsResponse | null>(null);
+  const [commentsData, setCommentsData] = useState<CommentsResponse | null>(
+    null,
+  );
   const [sellersData, setSellersData] = useState<SellersResponse | null>(null);
-  const [productsData, setProductsData] = useState<ProductsResponse | null>(null);
+  const [productsData, setProductsData] = useState<ProductsResponse | null>(
+    null,
+  );
 
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -29,20 +39,29 @@ export default function App() {
       setIsLoading(true);
       setError(null);
 
-      const [overviewRes, commentsRes, sellersRes, productsRes] = await Promise.all([
-        apiClient.getOverview(),
-        apiClient.getComments(),
-        apiClient.getSellers(),
-        apiClient.getProducts(),
-      ]);
-
+      // ابتدا overview که سبک‌تره لود می‌شه
+      const overviewRes = await apiClient.getOverview();
       setOverviewData(overviewRes);
-      setCommentsData(commentsRes);
-      setSellersData(sellersRes);
-      setProductsData(productsRes);
+
+      // بقیه به‌صورت موازی ولی جدا از هم لود می‌شن تا خطای یکی مانع بقیه نشه
+      // و تایپ هرکدوم دقیقاً با ستر مربوطه match باشه
+      await Promise.all([
+        apiClient
+          .getComments()
+          .then(setCommentsData)
+          .catch((e) => console.error("Comments fetch error:", e)),
+        apiClient
+          .getSellers()
+          .then(setSellersData)
+          .catch((e) => console.error("Sellers fetch error:", e)),
+        apiClient
+          .getProducts()
+          .then(setProductsData)
+          .catch((e) => console.error("Products fetch error:", e)),
+      ]);
     } catch (err: any) {
-      console.error('Data fetch error:', err);
-      setError(err.message || 'خطا در برقراری ارتباط با سرور تحلیل داده‌ها');
+      console.error("Data fetch error:", err);
+      setError(err.message || "خطا در برقراری ارتباط با سرور تحلیل داده‌ها");
     } finally {
       setIsLoading(false);
     }
@@ -64,7 +83,7 @@ export default function App() {
       const res = await apiClient.getComments(filters);
       setCommentsData(res);
     } catch (err: any) {
-      console.error('Comments filter error:', err);
+      console.error("Comments filter error:", err);
     } finally {
       setIsLoading(false);
     }
@@ -82,7 +101,7 @@ export default function App() {
       const res = await apiClient.getSellers(filters);
       setSellersData(res);
     } catch (err: any) {
-      console.error('Sellers filter error:', err);
+      console.error("Sellers filter error:", err);
     } finally {
       setIsLoading(false);
     }
@@ -100,7 +119,7 @@ export default function App() {
       const res = await apiClient.getProducts(filters);
       setProductsData(res);
     } catch (err: any) {
-      console.error('Products filter error:', err);
+      console.error("Products filter error:", err);
     } finally {
       setIsLoading(false);
     }
@@ -108,18 +127,18 @@ export default function App() {
 
   const getSectionTitle = () => {
     switch (currentSection) {
-      case 'dashboard':
-        return 'نمای کلی داشبورد تحلیلی';
-      case 'comments':
-        return 'تحلیل عمیق نظرات و بازخوردها';
-      case 'sellers':
-        return 'پایش عملکرد و کیفیت فروشندگان';
-      case 'products':
-        return 'تحلیل کاتالوگ و رضایت محصولات';
-      case 'chatbot':
-        return 'دستیار هوشمند AI (به‌زودی)';
+      case "dashboard":
+        return "نمای کلی داشبورد تحلیلی";
+      case "comments":
+        return "تحلیل عمیق نظرات و بازخوردها";
+      case "sellers":
+        return "پایش عملکرد و کیفیت فروشندگان";
+      case "products":
+        return "تحلیل کاتالوگ و رضایت محصولات";
+      case "chatbot":
+        return "دستیار هوشمند AI (به‌زودی)";
       default:
-        return 'داشبورد';
+        return "داشبورد";
     }
   };
 
@@ -150,7 +169,9 @@ export default function App() {
               <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mx-auto mb-4">
                 <AlertCircle size={24} />
               </div>
-              <h3 className="text-base font-bold text-slate-800 mb-1">خطا در بارگذاری داده‌ها</h3>
+              <h3 className="text-base font-bold text-slate-800 mb-1">
+                خطا در بارگذاری داده‌ها
+              </h3>
               <p className="text-xs text-slate-500 mb-6">{error}</p>
               <button
                 onClick={fetchData}
@@ -163,20 +184,22 @@ export default function App() {
           ) : isLoading && !overviewData ? (
             <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-4">
               <div className="w-10 h-10 border-3 border-indigo-600 border-t-transparent rounded-full animate-spin" />
-              <p className="text-xs font-bold text-slate-500">در حال دریافت و تحلیل شاخص‌های کسب‌وکار...</p>
+              <p className="text-xs font-bold text-slate-500">
+                در حال دریافت و تحلیل شاخص‌های کسب‌وکار...
+              </p>
             </div>
           ) : (
             <>
-              {currentSection === 'dashboard' && overviewData && (
+              {currentSection === "dashboard" && overviewData && (
                 <OverviewView
                   data={overviewData}
-                  onNavigateToComments={() => setCurrentSection('comments')}
-                  onNavigateToSellers={() => setCurrentSection('sellers')}
-                  onNavigateToProducts={() => setCurrentSection('products')}
+                  onNavigateToComments={() => setCurrentSection("comments")}
+                  onNavigateToSellers={() => setCurrentSection("sellers")}
+                  onNavigateToProducts={() => setCurrentSection("products")}
                 />
               )}
 
-              {currentSection === 'comments' && commentsData && (
+              {currentSection === "comments" && commentsData && (
                 <CommentsView
                   data={commentsData}
                   onFilterChange={handleCommentsFilter}
@@ -184,7 +207,7 @@ export default function App() {
                 />
               )}
 
-              {currentSection === 'sellers' && sellersData && (
+              {currentSection === "sellers" && sellersData && (
                 <SellersView
                   data={sellersData}
                   onFilterChange={handleSellersFilter}
@@ -192,7 +215,7 @@ export default function App() {
                 />
               )}
 
-              {currentSection === 'products' && productsData && (
+              {currentSection === "products" && productsData && (
                 <ProductsView
                   data={productsData}
                   onFilterChange={handleProductsFilter}
@@ -200,7 +223,7 @@ export default function App() {
                 />
               )}
 
-              {currentSection === 'chatbot' && <ChatbotComingSoonView />}
+              {currentSection === "chatbot" && <ChatbotComingSoonView />}
             </>
           )}
         </main>

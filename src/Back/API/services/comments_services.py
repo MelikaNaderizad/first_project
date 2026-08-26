@@ -14,6 +14,7 @@ from database.conn import engine
 from database.models import Comments, Products
 
 from queries.comments_kpi_queries import comment_kpi_query
+from services.cache import timed_cache   # <-- اضافه شد
 
 
 def _split_list_field(value):
@@ -62,6 +63,7 @@ def _serialize_comment(comment: Comments, product: Products | None):
     }
 
 
+@timed_cache(ttl_seconds=120)   # <-- اضافه شد (کمی کوتاه‌تر چون صفحه‌بندی داره)
 def get_comments(page: int = 1, page_size: int = 21):
     with Session(engine) as session:
         total = session.query(func.count(Comments.id)).scalar() or 0
@@ -90,5 +92,3 @@ def get_comments(page: int = 1, page_size: int = 21):
     "limit": page_size,
     "total_pages": total_pages,
 }
-
-

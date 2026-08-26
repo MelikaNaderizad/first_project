@@ -14,6 +14,7 @@ from database.conn import engine
 from database.models import Products
 
 from queries.products_kpi_queries import product_kpi_query
+from services.cache import timed_cache   # <-- اضافه شد
 
 
 STATUS_RECOMMENDATION = {
@@ -24,6 +25,7 @@ STATUS_RECOMMENDATION = {
 }
 
 
+@timed_cache(ttl_seconds=300)   # <-- اضافه شد
 def get_products(limit: Optional[int] = None):
     with Session(engine) as session:
         query = product_kpi_query.limit(limit or 500)
