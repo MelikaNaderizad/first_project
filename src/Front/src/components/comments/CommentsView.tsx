@@ -340,9 +340,7 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
                 <th className="py-3.5 px-6">متن نظر و نکات</th>
                 <th className="py-3.5 px-4 text-center">امتیاز</th>
                 <th className="py-3.5 px-4 text-center">وضعیت پیشنهاد</th>
-                <th className="py-3.5 px-4 text-center">خریدار</th>
                 <th className="py-3.5 px-4">فروشنده</th>
-                <th className="py-3.5 px-4 text-center">واکنش‌ها</th>
                 <th className="py-3.5 px-6 text-center">تاریخ ثبت</th>
               </tr>
             </thead>
@@ -410,18 +408,6 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
                     />
                   </td>
 
-                  {/* Is Buyer */}
-                  <td className="py-4 px-4 text-center">
-                    {item.is_buyer ? (
-                      <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#2B543B] bg-[#FFFECE] px-2 py-0.5 rounded-md border border-[#BEDDC7]">
-                        <CheckCircle2 size={12} className="text-[#3D704E]" />
-                        <span>خریدار</span>
-                      </span>
-                    ) : (
-                      <span className="text-[11px] text-[#7A6670]">کاربر</span>
-                    )}
-                  </td>
-
                   {/* Seller */}
                   <td className="py-4 px-4 text-[#5B4852] font-medium whitespace-nowrap">
                     <div className="font-bold text-[#2D2327] flex items-center gap-1">
@@ -431,20 +417,6 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
                     <span className="text-[10px] text-[#7A6670] font-mono mt-0.5 block">
                       {item.seller_code}
                     </span>
-                  </td>
-
-                  {/* Likes / Dislikes */}
-                  <td className="py-4 px-4 text-center">
-                    <div className="flex items-center justify-center gap-2 text-[11px] font-tabular">
-                      <span className="text-[#2B543B] font-bold flex items-center gap-0.5">
-                        <ThumbsUp size={11} className="text-[#3D704E]" />
-                        {toPersianDigits(item.likes)}
-                      </span>
-                      <span className="text-[#8A253A] font-bold flex items-center gap-0.5">
-                        <ThumbsDown size={11} className="text-[#B03A53]" />
-                        {toPersianDigits(item.dislikes)}
-                      </span>
-                    </div>
                   </td>
 
                   {/* Date */}
