@@ -47,8 +47,12 @@ def _apply_filters(stmt, status=None, category=None, search=None):
 
 
 def _decode_numeric_cursor(cursor: Optional[str]):
-    """کرسر را به (مقدار عددی، id محصول) دیکد می‌کند. اگر نامعتبر بود None برمی‌گرداند."""
+    """
+    کرسر را به (مقدار عددی، id محصول) دیکد می‌کند.
+    اگر نامعتبر بود None برمی‌گرداند.
+    """
     decoded = decode_cursor(cursor)
+
     if decoded is None:
         return None
 
@@ -81,104 +85,322 @@ def get_products(
 
     with Session(engine) as session:
 
-        base_stmt = (
-            select(ProductKpiView, Products)
-            .select_from(ProductKpiView)
-            .join(Products, Products.id == ProductKpiView.product_id)
-        )
-        base_stmt = _apply_filters(base_stmt, status, category, search)
+        # =========================================================
+        # Base query
+        # Products جدول اصلی است.
+        # ProductKpiView با LEFT JOIN متصل می‌شود تا محصولاتی که
+        # KPI ندارند هم از لیست حذف نشوند.
+        # =========================================================
 
-        # ---- شمارش کل ----
-        count_stmt = (
-            select(func.count())
-            .select_from(ProductKpiView)
-            .join(Products, Products.id == ProductKpiView.product_id)
+        base_stmt = (
+            select(Products, ProductKpiView)
+            .select_from(Products)
+            .outerjoin(
+                ProductKpiView,
+                Products.id == ProductKpiView.product_id,
+            )
         )
-        count_stmt = _apply_filters(count_stmt, status, category, search)
+
+        base_stmt = _apply_filters(
+            base_stmt,
+            status,
+            category,
+            search,
+        )
+
+        # =========================================================
+        # شمارش کل محصولات
+        # از خود Products می‌شماریم تا دقیقاً با Dashboard یکی باشد.
+        # =========================================================
+
+        count_stmt = select(func.count(Products.id)).select_from(Products)
+
+        if status and status != "all":
+            count_stmt = count_stmt.outerjoin(
+                ProductKpiView,
+                Products.id == ProductKpiView.product_id,
+            )
+
+        count_stmt = _apply_filters(
+            count_stmt,
+            status,
+            category,
+            search,
+        )
+
         total_products = session.execute(count_stmt).scalar() or 0
 
-        # ---- keyset (cursor) pagination ----
+        # =========================================================
+        # Cursor Pagination
+        # =========================================================
+
         decoded_cursor = _decode_numeric_cursor(cursor)
+
         if decoded_cursor is not None:
             cursor_value, cursor_id = decoded_cursor
+
+            # محصولاتی که KPI ندارند برای sort عددی مقدار NULL دارند.
+            # NULL ها را انتهای لیست قرار می‌دهیم.
             base_stmt = base_stmt.where(
                 or_(
                     sort_col < cursor_value,
-                    and_(sort_col == cursor_value, ProductKpiView.product_id < cursor_id),
+                    and_(
+                        sort_col == cursor_value,
+                        Products.id < cursor_id,
+                    ),
                 )
             )
 
+        # =========================================================
+        # دریافت محصولات
+        # =========================================================
+
         list_stmt = (
             base_stmt
-            .order_by(sort_col.desc(), ProductKpiView.product_id.desc())
+            .order_by(
+                sort_col.desc().nullslast(),
+                Products.id.desc(),
+            )
             .limit(limit + 1)
         )
 
         rows = session.execute(list_stmt).all()
 
         has_next = len(rows) > limit
+
         if has_next:
             rows = rows[:limit]
 
+        # =========================================================
+        # تبدیل خروجی
+        # =========================================================
+
         results = []
-        for kpi, product in rows:
-            results.append({
-                "id": str(product.id),
-                "product_id": str(product.id),
-                "title_fa": product.title_fa,
-                "category1": product.category1 or "عمومی",
-                "sub_category": product.sub_category or "",
-                "brand": product.brand or "متفرقه",
-                "seller": product.seller or "نامشخص",
-                "seller_code": None,
-                "is_fake": bool(product.is_fake),
-                "price": product.price or 0,
-                "min_price_last_month": product.min_price_last_month or product.price or 0,
-                "rate": round((product.rate or 0) / 20, 1),
-                "raw_product_rate": round((product.rate or 0) / 20, 1),
-                "rate_cnt": product.rate_cnt or 0,
-                "positive_comments": int(kpi.positive_comments or 0),
-                "negative_comments": int(kpi.negative_comments or 0),
-                "bayesian_product_score": float(kpi.bayesian_product_score or 0),
-                "sentiment_score": float(kpi.sentiment_score or 0),
-                "product_health_score": float(kpi.product_health_score or 0),
-                "product_status": kpi.product_status,
-            })
+
+        for product, kpi in rows:
+
+            # اگر KPI برای محصول وجود نداشته باشد،
+            # مقادیر پیش‌فرض استفاده می‌کنیم.
+            if kpi is not None:
+                positive_comments = int(kpi.positive_comments or 0)
+                negative_comments = int(kpi.negative_comments or 0)
+
+                bayesian_product_score = float(
+                    kpi.bayesian_product_score or 0
+                )
+
+                sentiment_score = float(
+                    kpi.sentiment_score or 0
+                )
+
+                product_health_score = float(
+                    kpi.product_health_score or 0
+                )
+
+                product_status = kpi.product_status
+
+            else:
+                positive_comments = 0
+                negative_comments = 0
+                bayesian_product_score = 0
+                sentiment_score = 0
+                product_health_score = 0
+                product_status = "insufficient_data"
+
+            results.append(
+                {
+                    "id": str(product.id),
+                    "product_id": str(product.id),
+
+                    "title_fa": product.title_fa,
+
+                    "category1": (
+                        product.category1
+                        if product.category1
+                        else "عمومی"
+                    ),
+
+                    "sub_category": (
+                        product.sub_category
+                        if product.sub_category
+                        else ""
+                    ),
+
+                    "brand": (
+                        product.brand
+                        if product.brand
+                        else "متفرقه"
+                    ),
+
+                    "seller": (
+                        product.seller
+                        if product.seller
+                        else "نامشخص"
+                    ),
+
+                    "seller_code": None,
+
+                    "is_fake": bool(product.is_fake),
+
+                    "price": product.price or 0,
+
+                    "min_price_last_month": (
+                        product.min_price_last_month
+                        or product.price
+                        or 0
+                    ),
+
+                    "rate": round(
+                        (product.rate or 0) / 20,
+                        1,
+                    ),
+
+                    "raw_product_rate": round(
+                        (product.rate or 0) / 20,
+                        1,
+                    ),
+
+                    "rate_cnt": product.rate_cnt or 0,
+
+                    "positive_comments": positive_comments,
+
+                    "negative_comments": negative_comments,
+
+                    "bayesian_product_score": (
+                        bayesian_product_score
+                    ),
+
+                    "sentiment_score": sentiment_score,
+
+                    "product_health_score": (
+                        product_health_score
+                    ),
+
+                    "product_status": product_status,
+                }
+            )
+
+        # =========================================================
+        # Next Cursor
+        # =========================================================
 
         next_cursor = None
-        if has_next and rows:
-            last_kpi, last_product = rows[-1]
-            last_sort_value = getattr(last_kpi, sort_col.key)
-            next_cursor = encode_cursor(last_sort_value, last_product.id)
 
-        # ---- متریک‌های تجمیعی ----
+        if has_next and rows:
+
+            last_product, last_kpi = rows[-1]
+
+            if last_kpi is not None:
+                last_sort_value = getattr(
+                    last_kpi,
+                    sort_col.key,
+                    None,
+                )
+            else:
+                last_sort_value = None
+
+            # برای محصول بدون KPI، cursor عددی قابل استفاده نیست.
+            # در این حالت pagination را متوقف می‌کنیم.
+            if last_sort_value is not None:
+                next_cursor = encode_cursor(
+                    last_sort_value,
+                    last_product.id,
+                )
+
+        # =========================================================
+        # متریک‌های تجمیعی
+        # =========================================================
+
         agg_stmt = (
             select(
-                func.count().label("total"),
+                func.count(Products.id).label("total"),
+
                 func.coalesce(
-                    func.sum(case((ProductKpiView.product_status == "successful", 1), else_=0)), 0
+                    func.sum(
+                        case(
+                            (
+                                ProductKpiView.product_status
+                                == "successful",
+                                1,
+                            ),
+                            else_=0,
+                        )
+                    ),
+                    0,
                 ).label("successful"),
+
                 func.coalesce(
-                    func.sum(case((ProductKpiView.product_status == "unsuccessful", 1), else_=0)), 0
+                    func.sum(
+                        case(
+                            (
+                                ProductKpiView.product_status
+                                == "unsuccessful",
+                                1,
+                            ),
+                            else_=0,
+                        )
+                    ),
+                    0,
                 ).label("unsuccessful"),
-                func.coalesce(func.avg(ProductKpiView.raw_product_rate), 0).label("avg_rate_raw"),
+
+                func.coalesce(
+                    func.avg(
+                        ProductKpiView.raw_product_rate
+                    ),
+                    0,
+                ).label("avg_rate_raw"),
             )
-            .select_from(ProductKpiView)
-            .join(Products, Products.id == ProductKpiView.product_id)
+            .select_from(Products)
+            .outerjoin(
+                ProductKpiView,
+                Products.id == ProductKpiView.product_id,
+            )
         )
-        agg_stmt = _apply_filters(agg_stmt, status, category, search)
-        agg = session.execute(agg_stmt).mappings().first()
 
-        successful_products = int(agg["successful"] or 0)
-        unsuccessful_products = int(agg["unsuccessful"] or 0)
-        avg_rating = round(float(agg["avg_rate_raw"] or 0) / 20, 2)
+        agg_stmt = _apply_filters(
+            agg_stmt,
+            status,
+            category,
+            search,
+        )
 
-        # ---- کالاهای فیک ----
-        fake_stmt = select(func.count()).select_from(Products).where(Products.is_fake == True)
+        agg = (
+            session.execute(agg_stmt)
+            .mappings()
+            .first()
+        )
+
+        successful_products = int(
+            agg["successful"] or 0
+        )
+
+        unsuccessful_products = int(
+            agg["unsuccessful"] or 0
+        )
+
+        avg_rating = round(
+            float(agg["avg_rate_raw"] or 0) / 20,
+            2,
+        )
+
+        # =========================================================
+        # کالاهای فیک
+        # =========================================================
+
+        fake_stmt = (
+            select(func.count())
+            .select_from(Products)
+            .where(Products.is_fake == True)
+        )
+
         if category and category != "all":
-            fake_stmt = fake_stmt.where(Products.category1 == category)
+            fake_stmt = fake_stmt.where(
+                Products.category1 == category
+            )
+
         if search:
             like = f"%{search}%"
+
             fake_stmt = fake_stmt.where(
                 or_(
                     Products.title_fa.ilike(like),
@@ -187,35 +409,85 @@ def get_products(
                     Products.sub_category.ilike(like),
                 )
             )
-        fake_products_count = session.execute(fake_stmt).scalar() or 0
 
-        # ---- تفکیک دسته‌بندی ----
+        fake_products_count = (
+            session.execute(fake_stmt).scalar() or 0
+        )
+
+        # =========================================================
+        # تفکیک دسته‌بندی
+        # =========================================================
+
         cat_stmt = (
             select(
                 Products.category1.label("name"),
-                func.count().label("total"),
+
+                func.count(Products.id).label("total"),
+
                 func.coalesce(
-                    func.sum(case((ProductKpiView.product_status == "successful", 1), else_=0)), 0
+                    func.sum(
+                        case(
+                            (
+                                ProductKpiView.product_status
+                                == "successful",
+                                1,
+                            ),
+                            else_=0,
+                        )
+                    ),
+                    0,
                 ).label("successful"),
+
                 func.coalesce(
-                    func.sum(case((ProductKpiView.product_status == "unsuccessful", 1), else_=0)), 0
+                    func.sum(
+                        case(
+                            (
+                                ProductKpiView.product_status
+                                == "unsuccessful",
+                                1,
+                            ),
+                            else_=0,
+                        )
+                    ),
+                    0,
                 ).label("unsuccessful"),
             )
-            .select_from(ProductKpiView)
-            .join(Products, Products.id == ProductKpiView.product_id)
+            .select_from(Products)
+            .outerjoin(
+                ProductKpiView,
+                Products.id == ProductKpiView.product_id,
+            )
             .where(Products.category1.isnot(None))
         )
-        cat_stmt = _apply_filters(cat_stmt, status, category, search)
-        cat_stmt = cat_stmt.group_by(Products.category1).order_by(func.count().desc()).limit(4)
+
+        cat_stmt = _apply_filters(
+            cat_stmt,
+            status,
+            category,
+            search,
+        )
+
+        cat_stmt = (
+            cat_stmt
+            .group_by(Products.category1)
+            .order_by(func.count(Products.id).desc())
+            .limit(4)
+        )
 
         category_breakdown = [
             {
                 "name": row["name"],
                 "total": int(row["total"] or 0),
-                "successful": int(row["successful"] or 0),
-                "unsuccessful": int(row["unsuccessful"] or 0),
+                "successful": int(
+                    row["successful"] or 0
+                ),
+                "unsuccessful": int(
+                    row["unsuccessful"] or 0
+                ),
             }
-            for row in session.execute(cat_stmt).mappings().all()
+            for row in session.execute(
+                cat_stmt
+            ).mappings().all()
         ]
 
     return {
@@ -224,12 +496,20 @@ def get_products(
             "successful_products": successful_products,
             "unsuccessful_products": unsuccessful_products,
             "avg_rating": avg_rating,
-            "fake_products_count": int(fake_products_count),
+            "fake_products_count": int(
+                fake_products_count
+            ),
         },
+
         "categoryBreakdown": category_breakdown,
+
         "products": results,
+
         "totalCount": int(total_products),
+
         "limit": limit,
+
         "next_cursor": next_cursor,
+
         "has_next": has_next,
     }
