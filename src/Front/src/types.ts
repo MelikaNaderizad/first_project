@@ -1,6 +1,17 @@
-export type NavSection = 'dashboard' | 'comments' | 'sellers' | 'products' | 'chatbot';
+export type NavSection =
+  | "dashboard"
+  | "comments"
+  | "sellers"
+  | "products"
+  | "chatbot";
 
-export type RecommendationStatus = 'recommended' | 'not_recommended' | 'no_idea' | 'positive' | 'negative' | string;
+export type RecommendationStatus =
+  | "recommended"
+  | "not_recommended"
+  | "no_idea"
+  | "positive"
+  | "negative"
+  | string;
 
 export interface CommentItem {
   id: string | number;
@@ -22,7 +33,11 @@ export interface CommentItem {
   category?: string;
 }
 
-export type SellerStatus = 'successful' | 'unsuccessful' | 'neutral' | 'insufficient_data';
+export type SellerStatus =
+  | "successful"
+  | "unsuccessful"
+  | "neutral"
+  | "insufficient_data";
 
 export interface SellerItem {
   seller_code: string;
@@ -39,7 +54,11 @@ export interface SellerItem {
   category?: string;
 }
 
-export type ProductStatus = 'successful' | 'unsuccessful' | 'neutral' | 'insufficient_data';
+export type ProductStatus =
+  | "successful"
+  | "unsuccessful"
+  | "neutral"
+  | "insufficient_data";
 
 export interface ProductItem {
   id: string | number;
@@ -117,17 +136,23 @@ export interface CommentsResponse {
     avg_comments_per_product: number;
     change_rate: string;
   };
+
   ratingDistribution: Array<{
     stars: string;
     count: number;
     percentage: number;
     color: string;
   }>;
+
   comments: CommentItem[];
+
   totalCount: number;
-  page: number;
+
   limit: number;
-  total_pages: number;
+
+  next_cursor: string | number | null;
+
+  has_next: boolean;
 }
 
 export interface SellersResponse {
@@ -140,17 +165,23 @@ export interface SellersResponse {
     topSeller: SellerItem;
     weakestSeller: SellerItem;
   };
+
   performanceComparison: Array<{
     metric: string;
     successful: number;
     unsuccessful: number;
     unit: string;
   }>;
+
   sellers: SellerItem[];
-  page: number;
-  page_size: number;
+
   totalCount: number;
-  totalPages: number;
+
+  limit: number;
+
+  next_cursor: string | number | null;
+
+  has_next: boolean;
 }
 
 export interface ProductsResponse {
@@ -163,17 +194,23 @@ export interface ProductsResponse {
     topProduct: ProductItem;
     weakestProduct: ProductItem;
   };
+
   categoryBreakdown: Array<{
     name: string;
     successful: number;
     unsuccessful: number;
     total: number;
   }>;
+
   products: ProductItem[];
-  page: number;
-  page_size: number;
+
   totalCount: number;
-  total_pages: number;
+
+  limit: number;
+
+  next_cursor: string | number | null;
+
+  has_next: boolean;
 }
 
 export interface ChatbotStatusResponse {

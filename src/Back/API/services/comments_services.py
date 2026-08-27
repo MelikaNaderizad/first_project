@@ -96,8 +96,8 @@ def _build_filters(sentiment=None, rating=None, category=None, search=None):
 
 @timed_cache(ttl_seconds=120)
 def get_comments(
-    page: int = 1,
-    page_size: int = 21,
+    cursor: Optional[int] = None,
+    limit: int = 20,
     sentiment: Optional[str] = None,
     rating: Optional[str] = None,
     category: Optional[str] = None,
@@ -171,28 +171,52 @@ def get_comments(
         if conditions:
             list_stmt = list_stmt.where(and_(*conditions))
 
-        offset = (page - 1) * page_size
-        list_stmt = list_stmt.order_by(Comments.id.desc()).offset(offset).limit(page_size)
+        if cursor is not None:
+            list_stmt = list_stmt.where(Comments.id < cursor)
+
+        list_stmt = (
+            list_stmt
+            .order_by(Comments.id.desc())
+            .limit(limit + 1)
+        )
+
         rows = session.execute(list_stmt).all()
+
+        has_next = len(rows) > limit
+
+        if has_next:
+            rows = rows[:limit]
+
         items = [_serialize_comment(c, p) for c, p in rows]
+
+        next_cursor = None
+
+        if has_next and rows:
+            next_cursor = rows[-1][0].id
 
     total_pages = max((total_comments + page_size - 1) // page_size, 1) if total_comments else 1
 
     return {
-        "metrics": {
-            "total_comments": total_comments,
-            "positive_comments": positive_comments,
-            "negative_comments": negative_comments,
-            "positive_rate": positive_rate,
-            "negative_rate": negative_rate,
-            "average_rating": round(avg_rating, 2),
-            "avg_comments_per_product": avg_comments_per_product,
-            "change_rate": "—",
-        },
-        "ratingDistribution": rating_distribution,
-        "comments": items,
-        "totalCount": total_comments,
-        "page": page,
-        "limit": page_size,
-        "total_pages": total_pages,
-    }
+    "metrics": {
+        "total_comments": total_comments,
+        "positive_comments": positive_comments,
+        "negative_comments": negative_comments,
+        "positive_rate": positive_rate,
+        "negative_rate": negative_rate,
+        "average_rating": round(avg_rating, 2),
+        "avg_comments_per_product": avg_comments_per_product,
+        "change_rate": "—",
+    },
+
+    "ratingDistribution": rating_distribution,
+
+    "comments": items,
+
+    "totalCount": total_comments,
+
+    "limit": limit,
+
+    "next_cursor": next_cursor,
+
+    "has_next": has_next,
+}
