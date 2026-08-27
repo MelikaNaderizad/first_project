@@ -5,13 +5,14 @@ from typing import Optional
 BACK_DIR = Path(__file__).resolve().parent.parent.parent
 sys.path.append(str(BACK_DIR))
 
-from sqlalchemy import select, func, or_, case
+from sqlalchemy import select, func, or_, and_, case
 from sqlalchemy.orm import Session
 
 from database.conn import engine
 from database.models import Products
 from database.kpi_views import ProductKpiView
 from services.cache import timed_cache
+from services.cursor import encode_cursor, decode_cursor
 
 
 SORT_COLUMNS = {
@@ -21,8 +22,10 @@ SORT_COLUMNS = {
     "health_desc": ProductKpiView.product_health_score,
 }
 
+DEFAULT_SORT = "rate_desc"
 
-def _apply_filters(stmt, status=None, category=None, search=None, needs_product_join=False):
+
+def _apply_filters(stmt, status=None, category=None, search=None):
     if status and status != "all":
         stmt = stmt.where(ProductKpiView.product_status == status)
 
@@ -43,15 +46,39 @@ def _apply_filters(stmt, status=None, category=None, search=None, needs_product_
     return stmt
 
 
+def _decode_numeric_cursor(cursor: Optional[str]):
+    """کرسر را به (مقدار عددی، id محصول) دیکد می‌کند. اگر نامعتبر بود None برمی‌گرداند."""
+    decoded = decode_cursor(cursor)
+    if decoded is None:
+        return None
+
+    raw_value = decoded.get("value")
+    raw_id = decoded.get("id")
+
+    if raw_value is None or raw_id is None:
+        return None
+
+    try:
+        cursor_value = float(raw_value)
+        cursor_id = int(raw_id)
+    except (TypeError, ValueError):
+        return None
+
+    return cursor_value, cursor_id
+
+
 @timed_cache(ttl_seconds=300)
 def get_products(
-    page: int = 1,
-    page_size: int = 50,
+    cursor: Optional[str] = None,
+    limit: int = 20,
     status: Optional[str] = None,
     category: Optional[str] = None,
     search: Optional[str] = None,
     sort: Optional[str] = None,
 ):
+    sort_key = sort if sort in SORT_COLUMNS else DEFAULT_SORT
+    sort_col = SORT_COLUMNS[sort_key]
+
     with Session(engine) as session:
 
         base_stmt = (
@@ -59,7 +86,6 @@ def get_products(
             .select_from(ProductKpiView)
             .join(Products, Products.id == ProductKpiView.product_id)
         )
-
         base_stmt = _apply_filters(base_stmt, status, category, search)
 
         # ---- شمارش کل ----
@@ -71,18 +97,28 @@ def get_products(
         count_stmt = _apply_filters(count_stmt, status, category, search)
         total_products = session.execute(count_stmt).scalar() or 0
 
-        # ---- صفحه‌ی فعلی ----
-        sort_col = SORT_COLUMNS.get(sort, ProductKpiView.raw_product_rate)
-        offset = (page - 1) * page_size
+        # ---- keyset (cursor) pagination ----
+        decoded_cursor = _decode_numeric_cursor(cursor)
+        if decoded_cursor is not None:
+            cursor_value, cursor_id = decoded_cursor
+            base_stmt = base_stmt.where(
+                or_(
+                    sort_col < cursor_value,
+                    and_(sort_col == cursor_value, ProductKpiView.product_id < cursor_id),
+                )
+            )
 
         list_stmt = (
             base_stmt
-            .order_by(sort_col.desc())
-            .offset(offset)
-            .limit(page_size)
+            .order_by(sort_col.desc(), ProductKpiView.product_id.desc())
+            .limit(limit + 1)
         )
 
         rows = session.execute(list_stmt).all()
+
+        has_next = len(rows) > limit
+        if has_next:
+            rows = rows[:limit]
 
         results = []
         for kpi, product in rows:
@@ -108,6 +144,12 @@ def get_products(
                 "product_health_score": float(kpi.product_health_score or 0),
                 "product_status": kpi.product_status,
             })
+
+        next_cursor = None
+        if has_next and rows:
+            last_kpi, last_product = rows[-1]
+            last_sort_value = getattr(last_kpi, sort_col.key)
+            next_cursor = encode_cursor(last_sort_value, last_product.id)
 
         # ---- متریک‌های تجمیعی ----
         agg_stmt = (
@@ -176,8 +218,6 @@ def get_products(
             for row in session.execute(cat_stmt).mappings().all()
         ]
 
-    total_pages = (total_products + page_size - 1) // page_size if total_products else 1
-
     return {
         "metrics": {
             "total_products": int(total_products),
@@ -188,8 +228,8 @@ def get_products(
         },
         "categoryBreakdown": category_breakdown,
         "products": results,
-        "page": page,
-        "page_size": page_size,
         "totalCount": int(total_products),
-        "total_pages": int(total_pages),
+        "limit": limit,
+        "next_cursor": next_cursor,
+        "has_next": has_next,
     }

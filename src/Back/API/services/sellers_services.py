@@ -5,13 +5,14 @@ from typing import Optional
 BACK_DIR = Path(__file__).resolve().parent.parent.parent
 sys.path.append(str(BACK_DIR))
 
-from sqlalchemy import select, func, or_
+from sqlalchemy import select, func, or_, and_
 from sqlalchemy.orm import Session
 
 from database.conn import engine
 from database.models import Comments, Products
 from database.kpi_views import SellerKpiView
 from services.cache import timed_cache
+from services.cursor import encode_cursor, decode_cursor
 
 
 STATUS_RECOMMENDATION = {
@@ -27,6 +28,8 @@ SORT_COLUMNS = {
     "comments_desc": SellerKpiView.total_comments,
     "products_desc": SellerKpiView.sold_products,
 }
+
+DEFAULT_SORT = "health_desc"
 
 
 def _grade_from_score(score: float) -> str:
@@ -97,15 +100,38 @@ def _apply_filters(stmt, category_sub, status=None, category=None, search=None):
     return stmt
 
 
+def _decode_numeric_cursor(cursor: Optional[str]):
+    """کرسر را به (مقدار عددی، seller_code) دیکد می‌کند. اگر نامعتبر بود None برمی‌گرداند."""
+    decoded = decode_cursor(cursor)
+    if decoded is None:
+        return None
+
+    raw_value = decoded.get("value")
+    raw_code = decoded.get("id")
+
+    if raw_value is None or raw_code is None:
+        return None
+
+    try:
+        cursor_value = float(raw_value)
+    except (TypeError, ValueError):
+        return None
+
+    return cursor_value, str(raw_code)
+
+
 @timed_cache(ttl_seconds=300)
 def get_sellers(
-    page: int = 1,
-    page_size: int = 20,
+    cursor: Optional[str] = None,
+    limit: int = 20,
     status: Optional[str] = None,
     category: Optional[str] = None,
     search: Optional[str] = None,
     sort: Optional[str] = None,
 ):
+    sort_key = sort if sort in SORT_COLUMNS else DEFAULT_SORT
+    sort_col = SORT_COLUMNS[sort_key]
+
     with Session(engine) as session:
         category_sub = _seller_category_subquery(session)
 
@@ -125,18 +151,28 @@ def get_sellers(
         count_stmt = _apply_filters(count_stmt, category_sub, status, category, search)
         total_sellers = session.execute(count_stmt).scalar() or 0
 
-        # ---- صفحه‌ی فعلی ----
-        sort_col = SORT_COLUMNS.get(sort, SellerKpiView.seller_health_score)
-        offset = (page - 1) * page_size
+        # ---- keyset (cursor) pagination ----
+        decoded_cursor = _decode_numeric_cursor(cursor)
+        if decoded_cursor is not None:
+            cursor_value, cursor_code = decoded_cursor
+            base_stmt = base_stmt.where(
+                or_(
+                    sort_col < cursor_value,
+                    and_(sort_col == cursor_value, SellerKpiView.seller_code < cursor_code),
+                )
+            )
 
         list_stmt = (
             base_stmt
-            .order_by(sort_col.desc())
-            .offset(offset)
-            .limit(page_size)
+            .order_by(sort_col.desc(), SellerKpiView.seller_code.desc())
+            .limit(limit + 1)
         )
 
         rows = session.execute(list_stmt).all()
+
+        has_next = len(rows) > limit
+        if has_next:
+            rows = rows[:limit]
 
         paginated_results = []
         for seller, seller_category in rows:
@@ -167,6 +203,12 @@ def get_sellers(
                 "risk_level": _risk_level(fake_percent, low_rated_percent),
                 "recommendation": STATUS_RECOMMENDATION.get(seller.seller_status, ""),
             })
+
+        next_cursor = None
+        if has_next and rows:
+            last_seller, _ = rows[-1]
+            last_sort_value = getattr(last_seller, sort_col.key)
+            next_cursor = encode_cursor(last_sort_value, last_seller.seller_code)
 
         agg_stmt = (
             select(
@@ -222,8 +264,6 @@ def get_sellers(
             },
         ]
 
-        total_pages = (total_sellers + page_size - 1) // page_size if total_sellers else 1
-
     return {
         "metrics": {
             "total_sellers": int(total_sellers),
@@ -234,8 +274,8 @@ def get_sellers(
         },
         "performanceComparison": performance_comparison,
         "sellers": paginated_results,
-        "page": page,
-        "page_size": page_size,
         "totalCount": int(total_sellers),
-        "totalPages": int(total_pages),
+        "limit": limit,
+        "next_cursor": next_cursor,
+        "has_next": has_next,
     }

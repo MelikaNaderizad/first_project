@@ -13,7 +13,7 @@ router = APIRouter(
 
 @router.get("/products")
 def products(
-    cursor: Optional[int] = Query(
+    cursor: Optional[str] = Query(
         None,
         description="Cursor آخرین محصول صفحه قبلی"
     ),

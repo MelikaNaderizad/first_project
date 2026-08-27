@@ -13,17 +13,23 @@ router = APIRouter(
 
 @router.get("/sellers")
 def sellers(
-    page: int = Query(1, ge=1),
-    page_size: int = Query(20, ge=1, le=100),
-
+    cursor: Optional[str] = Query(
+        None,
+        description="Cursor آخرین فروشنده صفحه قبلی"
+    ),
+    limit: int = Query(
+        20,
+        ge=1,
+        le=100
+    ),
     status: Optional[str] = Query(None),
     category: Optional[str] = Query(None),
     search: Optional[str] = Query(None),
     sort: Optional[str] = Query(None),
 ):
     return get_sellers(
-        page=page,
-        page_size=page_size,
+        cursor=cursor,
+        limit=limit,
         status=status,
         category=category,
         search=search,

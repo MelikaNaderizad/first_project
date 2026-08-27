@@ -194,7 +194,6 @@ def get_comments(
         if has_next and rows:
             next_cursor = rows[-1][0].id
 
-    total_pages = max((total_comments + page_size - 1) // page_size, 1) if total_comments else 1
 
     return {
     "metrics": {

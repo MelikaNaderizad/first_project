@@ -417,6 +417,7 @@ export const apiClient = {
     }
 
     const json = await res.json();
+    console.log("COMMENTS API RESPONSE:", json);
 
     /*
      * Backward compatibility:

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   MessageSquare,
   ThumbsUp,
@@ -14,31 +14,54 @@ import {
   PlusCircle,
   MinusCircle,
   Sparkles,
-} from 'lucide-react';
-import { CommentsResponse, CommentItem } from '../../types';
-import { StatusBadge } from '../common/StatusBadge';
-import { PersianRating } from '../common/PersianRating';
-import { Pagination } from '../common/Pagination';
-import { toPersianDigits, formatPersianNumber, formatPercent } from '../../utils/formatters';
+} from "lucide-react";
+import { CommentsResponse, CommentItem } from "../../types";
+import { StatusBadge } from "../common/StatusBadge";
+import { PersianRating } from "../common/PersianRating";
+import { Pagination } from "../common/Pagination";
+import {
+  toPersianDigits,
+  formatPersianNumber,
+  formatPercent,
+} from "../../utils/formatters";
 
 interface CommentsViewProps {
   data: CommentsResponse;
-  onFilterChange: (filters: { sentiment?: string; rating?: string; category?: string; search?: string; page?: number }) => void;
+  onFilterChange: (filters: {
+    sentiment?: string;
+    rating?: string;
+    category?: string;
+    search?: string;
+  }) => void;
+  onNextPage: () => void;
+  onPrevPage: () => void;
+  hasPrevPage: boolean;
   isLoading: boolean;
 }
 
 export const CommentsView: React.FC<CommentsViewProps> = ({
   data,
   onFilterChange,
+  onNextPage,
+  onPrevPage,
+  hasPrevPage,
   isLoading,
 }) => {
-  const { metrics, ratingDistribution, comments, totalCount = 0, page = 1, limit = 21, total_pages = 1 } = data;
+  const {
+    metrics,
+    ratingDistribution,
+    comments,
+    totalCount = 0,
+    limit = 20,
+    has_next,
+  } = data;
 
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedSentiment, setSelectedSentiment] = useState<string>('all');
-  const [selectedRating, setSelectedRating] = useState<string>('all');
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [selectedCommentDetail, setSelectedCommentDetail] = useState<CommentItem | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedSentiment, setSelectedSentiment] = useState<string>("all");
+  const [selectedRating, setSelectedRating] = useState<string>("all");
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [selectedCommentDetail, setSelectedCommentDetail] =
+    useState<CommentItem | null>(null);
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,7 +70,6 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
       sentiment: selectedSentiment,
       rating: selectedRating,
       category: selectedCategory,
-      page: 1,
     });
   };
 
@@ -58,7 +80,6 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
       rating: selectedRating,
       category: selectedCategory,
       search: searchQuery,
-      page: 1,
     });
   };
 
@@ -69,7 +90,6 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
       rating,
       category: selectedCategory,
       search: searchQuery,
-      page: 1,
     });
   };
 
@@ -80,17 +100,6 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
       rating: selectedRating,
       category,
       search: searchQuery,
-      page: 1,
-    });
-  };
-
-  const handlePageChange = (newPage: number) => {
-    onFilterChange({
-      sentiment: selectedSentiment,
-      rating: selectedRating,
-      category: selectedCategory,
-      search: searchQuery,
-      page: newPage,
     });
   };
 
@@ -107,7 +116,9 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
               <MessageSquare size={13} className="text-[#D88CA7]" />
               <span>پایش نظرات خریداران</span>
             </div>
-            <h1 className="text-xs font-bold text-[#7A6670]">تعداد کل کامنت‌های ثبت‌شده</h1>
+            <h1 className="text-xs font-bold text-[#7A6670]">
+              تعداد کل کامنت‌های ثبت‌شده
+            </h1>
             <div className="text-4xl lg:text-5xl font-black text-[#2D2327] tracking-tight font-tabular mt-1.5">
               {formatPersianNumber(metrics.total_comments)}
             </div>
@@ -115,7 +126,9 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
               <span className="font-bold text-[#2B543B] font-tabular bg-[#FFFECE] px-2 py-0.5 rounded-md border border-[#BEDDC7]">
                 {toPersianDigits(metrics.change_rate)}
               </span>
-              <span className="text-[#7A6670]">رشد حجم ثبت نظرات در این ماه</span>
+              <span className="text-[#7A6670]">
+                رشد حجم ثبت نظرات در این ماه
+              </span>
             </div>
           </div>
 
@@ -158,16 +171,22 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
               <div className="text-2xl font-black text-[#2D2327] font-tabular mt-1.5">
                 {toPersianDigits(metrics.average_rating)}
               </div>
-              <div className="text-[11px] text-[#7A6670] mt-1">از ۵ ستاره کیفی</div>
+              <div className="text-[11px] text-[#7A6670] mt-1">
+                از ۵ ستاره کیفی
+              </div>
             </div>
 
             {/* Avg Comments per Product */}
             <div className="bg-[#F1E7E7]/50 rounded-2xl p-4 border border-[#E69DB8]/20">
-              <div className="text-[11px] font-semibold text-[#7A6670]">میانگین نظر به کالا</div>
+              <div className="text-[11px] font-semibold text-[#7A6670]">
+                میانگین نظر به کالا
+              </div>
               <div className="text-2xl font-black text-[#8C4E65] font-tabular mt-1.5">
                 {formatPersianNumber(metrics.avg_comments_per_product)}
               </div>
-              <div className="text-[11px] text-[#7A6670] mt-1">مشارکت فعال کاربران</div>
+              <div className="text-[11px] text-[#7A6670] mt-1">
+                مشارکت فعال کاربران
+              </div>
             </div>
           </div>
         </div>
@@ -192,14 +211,17 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
             >
               <div className="flex items-center justify-between text-xs font-bold">
                 <span className="text-[#2D2327]">{item.stars}</span>
-                <span className="text-[#8C4E65] font-tabular">{formatPercent(item.percentage)}</span>
+                <span className="text-[#8C4E65] font-tabular">
+                  {formatPercent(item.percentage)}
+                </span>
               </div>
               <div className="w-full h-2 bg-white rounded-full overflow-hidden border border-[#E69DB8]/20">
                 <div
                   className="h-full rounded-full transition-all"
                   style={{
                     width: `${item.percentage}%`,
-                    backgroundColor: idx < 2 ? '#3D704E' : idx === 2 ? '#8C4E65' : '#B03A53',
+                    backgroundColor:
+                      idx < 2 ? "#3D704E" : idx === 2 ? "#8C4E65" : "#B03A53",
                   }}
                 />
               </div>
@@ -215,10 +237,16 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
           FILTER & SEARCH TOOLBAR
           ======================================================== */}
       <div className="bg-white rounded-2xl border border-[#E69DB8]/30 p-4 shadow-xs">
-        <form onSubmit={handleSearchSubmit} className="flex flex-col md:flex-row gap-3 items-center justify-between">
+        <form
+          onSubmit={handleSearchSubmit}
+          className="flex flex-col md:flex-row gap-3 items-center justify-between"
+        >
           {/* Search Box */}
           <div className="relative w-full md:w-80">
-            <Search size={16} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#7A6670]" />
+            <Search
+              size={16}
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#7A6670]"
+            />
             <input
               type="text"
               placeholder="جستجو در عنوان، متن، کالا، فروشنده یا کد..."
@@ -233,9 +261,9 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
             {/* Positive/Negative Filter */}
             <div className="flex items-center bg-[#F1E7E7]/80 p-1 rounded-xl text-xs font-medium border border-[#E69DB8]/20">
               {[
-                { id: 'all', label: 'همه نظرات' },
-                { id: 'positive', label: 'کامنت‌های مثبت' },
-                { id: 'negative', label: 'کامنت‌های منفی' },
+                { id: "all", label: "همه نظرات" },
+                { id: "positive", label: "کامنت‌های مثبت" },
+                { id: "negative", label: "کامنت‌های منفی" },
               ].map((tab) => (
                 <button
                   key={tab.id}
@@ -243,8 +271,8 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
                   onClick={() => handleSentimentChange(tab.id)}
                   className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
                     selectedSentiment === tab.id
-                      ? 'bg-white text-[#2D2327] font-bold shadow-xs border border-[#E69DB8]/30'
-                      : 'text-[#5B4852] hover:text-[#2D2327]'
+                      ? "bg-white text-[#2D2327] font-bold shadow-xs border border-[#E69DB8]/30"
+                      : "text-[#5B4852] hover:text-[#2D2327]"
                   }`}
                 >
                   {tab.label}
@@ -289,14 +317,18 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
         <div className="p-6 border-b border-[#F1E7E7] flex items-center justify-between">
           <div>
             <h3 className="text-sm font-extrabold text-[#2D2327]">
-              فهرست نظرات و بازخوردهای ثبت‌شده ({formatPersianNumber(totalCount || comments.length)} نظر)
+              فهرست نظرات و بازخوردهای ثبت‌شده (
+              {formatPersianNumber(totalCount || comments.length)} نظر)
             </h3>
             <p className="text-xs text-[#7A6670] mt-0.5">
-              نمایش داده‌های واقعی کامنت شامل وضعیت پیشنهاد، امتیاز، مزایا، معایب، فروشنده و واکنش‌ها
+              نمایش داده‌های واقعی کامنت شامل وضعیت پیشنهاد، امتیاز، مزایا،
+              معایب، فروشنده و واکنش‌ها
             </p>
           </div>
           {isLoading && (
-            <span className="text-xs text-[#E69DB8] font-bold animate-pulse">در حال بارگذاری...</span>
+            <span className="text-xs text-[#E69DB8] font-bold animate-pulse">
+              در حال بارگذاری...
+            </span>
           )}
         </div>
 
@@ -327,7 +359,10 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
                       {item.title}
                     </div>
                     <div className="text-[11px] text-[#7A6670] mt-0.5 line-clamp-1 flex items-center gap-1">
-                      <ShoppingBag size={12} className="text-[#D88CA7] shrink-0" />
+                      <ShoppingBag
+                        size={12}
+                        className="text-[#D88CA7] shrink-0"
+                      />
                       <span>{item.product_title_fa || item.product_id}</span>
                     </div>
                   </td>
@@ -337,7 +372,8 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
                     <p className="text-[#5B4852] line-clamp-2 leading-relaxed text-xs">
                       {item.body}
                     </p>
-                    {(item.advantages.length > 0 || item.disadvantages.length > 0) && (
+                    {(item.advantages.length > 0 ||
+                      item.disadvantages.length > 0) && (
                       <div className="flex flex-wrap gap-1 mt-1.5">
                         {item.advantages.slice(0, 2).map((adv, idx) => (
                           <span
@@ -368,7 +404,10 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
 
                   {/* Recommendation Status */}
                   <td className="py-4 px-4 text-center">
-                    <StatusBadge status={item.recommendation_status} size="sm" />
+                    <StatusBadge
+                      status={item.recommendation_status}
+                      size="sm"
+                    />
                   </td>
 
                   {/* Is Buyer */}
@@ -421,11 +460,12 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
         {/* Server-side Pagination */}
         <div className="px-6 pb-6">
           <Pagination
-            currentPage={page}
-            totalPages={total_pages}
+            itemCount={comments.length}
             totalCount={totalCount}
-            pageSize={limit}
-            onPageChange={handlePageChange}
+            hasNext={!!has_next}
+            hasPrev={hasPrevPage}
+            onNext={onNextPage}
+            onPrev={onPrevPage}
             isLoading={isLoading}
             itemLabel="نظر"
           />
@@ -440,24 +480,37 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
           <div className="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-[#E69DB8]/40 animate-scale-up">
             <div className="flex items-start justify-between border-b border-[#F1E7E7] pb-4 mb-4">
               <div>
-                <h3 className="text-sm font-extrabold text-[#2D2327]">{selectedCommentDetail.title}</h3>
+                <h3 className="text-sm font-extrabold text-[#2D2327]">
+                  {selectedCommentDetail.title}
+                </h3>
                 <p className="text-xs text-[#7A6670] mt-1 flex items-center gap-1">
                   <ShoppingBag size={13} className="text-[#D88CA7]" />
-                  <span>{selectedCommentDetail.product_title_fa || selectedCommentDetail.product_id}</span>
+                  <span>
+                    {selectedCommentDetail.product_title_fa ||
+                      selectedCommentDetail.product_id}
+                  </span>
                 </p>
               </div>
-              <StatusBadge status={selectedCommentDetail.recommendation_status} />
+              <StatusBadge
+                status={selectedCommentDetail.recommendation_status}
+              />
             </div>
 
             <div className="space-y-3 mb-5 text-xs">
               <div className="bg-[#F1E7E7]/40 p-3.5 rounded-2xl border border-[#E69DB8]/20">
-                <span className="text-[#7A6670] block mb-1">متن کامل دیدگاه:</span>
-                <p className="text-[#2D2327] leading-relaxed">{selectedCommentDetail.body}</p>
+                <span className="text-[#7A6670] block mb-1">
+                  متن کامل دیدگاه:
+                </span>
+                <p className="text-[#2D2327] leading-relaxed">
+                  {selectedCommentDetail.body}
+                </p>
               </div>
 
               {selectedCommentDetail.advantages.length > 0 && (
                 <div className="bg-[#FFFECE]/80 p-3 rounded-xl border border-[#BEDDC7]/60">
-                  <span className="text-[#2B543B] font-bold block mb-1">نقاط قوت و مزایا:</span>
+                  <span className="text-[#2B543B] font-bold block mb-1">
+                    نقاط قوت و مزایا:
+                  </span>
                   <ul className="list-disc list-inside space-y-0.5 text-[#2B543B]">
                     {selectedCommentDetail.advantages.map((adv, i) => (
                       <li key={i}>{adv}</li>
@@ -468,7 +521,9 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
 
               {selectedCommentDetail.disadvantages.length > 0 && (
                 <div className="bg-[#FFD0C7]/45 p-3 rounded-xl border border-[#E69DB8]/50">
-                  <span className="text-[#8A253A] font-bold block mb-1">نقاط ضعف و معایب:</span>
+                  <span className="text-[#8A253A] font-bold block mb-1">
+                    نقاط ضعف و معایب:
+                  </span>
                   <ul className="list-disc list-inside space-y-0.5 text-[#8A253A]">
                     {selectedCommentDetail.disadvantages.map((dis, i) => (
                       <li key={i}>{dis}</li>
@@ -481,7 +536,8 @@ export const CommentsView: React.FC<CommentsViewProps> = ({
                 <div className="bg-[#F1E7E7]/30 p-2.5 rounded-xl border border-[#E69DB8]/20">
                   <span className="text-[#7A6670]">فروشنده:</span>
                   <p className="font-bold text-[#2D2327] mt-0.5">
-                    {selectedCommentDetail.seller_title} ({selectedCommentDetail.seller_code})
+                    {selectedCommentDetail.seller_title} (
+                    {selectedCommentDetail.seller_code})
                   </p>
                 </div>
                 <div className="bg-[#F1E7E7]/30 p-2.5 rounded-xl border border-[#E69DB8]/20">

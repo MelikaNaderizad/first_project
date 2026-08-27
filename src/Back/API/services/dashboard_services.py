@@ -263,7 +263,7 @@ def get_dashboard_overview():
         top_seller, weakest_seller = _get_top_bottom_seller(session)
         top_product, weakest_product = _get_top_bottom_product(session)
 
-    recent_comments_res = get_comments(page=1, page_size=6)
+    recent_comments_res = get_comments(limit=6)
     recent_comments = recent_comments_res.get("comments", [])
 
     return {
