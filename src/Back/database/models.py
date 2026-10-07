@@ -37,3 +37,13 @@ class Products(Base):
     is_fake = Column(Boolean, index=True)
     min_price_last_month = Column(BigInteger)
     sub_category = Column(String)
+
+class ProductComments(Base):
+    __tablename__ = "product_comments"
+
+    id = Column(Integer, primary_key=True, autoincrement=False)
+    body = Column(String)
+    product_id = Column(Integer)
+    created_at = Column(String)
+    is_buyer = Column(Boolean)
+    title_fa = Column(String)

@@ -2,6 +2,7 @@ import sys
 import time
 import logging
 from pathlib import Path
+from sqlalchemy import text as sql_text
 
 sys.path.append(
     str(Path(__file__).resolve().parent.parent)
