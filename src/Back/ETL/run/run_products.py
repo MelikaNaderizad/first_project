@@ -11,7 +11,7 @@ sys.path.append(
 from extract.extract_product import extract_products
 from transform.clean_product import clean_chunk
 from load.load_product import load_products, build_seen_from_db
-from config import PRODUCTS_CSV
+from Back.forecast_regression.config import PRODUCTS_CSV
 from database.conn import engine, SessionLocal
 from database.models import Base
 

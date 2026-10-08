@@ -14,7 +14,7 @@ from load.load_comment import (
     load_comments,
     build_seen_from_db,
 )
-from config import COMMENTS_CSV
+from Back.forecast_regression.config import COMMENTS_CSV
 from database.conn import (
     engine,
     SessionLocal,
