@@ -41,3 +41,22 @@ class SellerKpi(models.Model):
     class Meta:
         managed = False
         db_table = "seller_kpi_mv"
+
+class ProductForecast(models.Model):
+    product = models.OneToOneField(
+        "catalog.Products",
+        db_column="product_id",
+        primary_key=True,
+        db_constraint=False,
+        on_delete=models.DO_NOTHING,
+        related_name="forecast",
+    )
+    total_comments = models.IntegerField(null=True)
+    mae = models.FloatField(null=True)
+    baseline_mae = models.FloatField(null=True)
+    computed_at = models.DateTimeField(null=True)
+    payload = models.JSONField(null=True)
+
+    class Meta:
+        managed = False
+        db_table = "product_forecasts"

@@ -1,15 +1,26 @@
 from django.http import JsonResponse
-from .models import Products
+
+from config.utils import cached_call
+
+from .services import get_products
 
 
 def products(request):
-    limit = int(request.GET.get("limit", 20))
+    p = request.GET
+    try:
+        limit = max(1, min(int(p.get("limit", 20)), 100))
+    except ValueError:
+        return JsonResponse({"detail": "limit نامعتبر"}, status=422)
 
-    rows = Products.objects.order_by("-id")[:limit].values(
-        "id", "title_fa", "brand", "category1", "price", "rate", "rate_cnt"
+    data = cached_call(
+        "products",
+        300,
+        get_products,
+        cursor=p.get("cursor"),
+        limit=limit,
+        status=p.get("status"),
+        category=p.get("category"),
+        search=p.get("search"),
+        sort=p.get("sort"),
     )
-
-    return JsonResponse({
-        "products": list(rows),
-        "limit": limit,
-    })
+    return JsonResponse(data, json_dumps_params={"ensure_ascii": False})

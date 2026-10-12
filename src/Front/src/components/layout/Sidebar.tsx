@@ -4,6 +4,7 @@ import {
   MessageSquareText,
   Users,
   ShoppingBag,
+  TrendingUp,
   Sparkles,
   ChevronLeft,
   Store,
@@ -60,6 +61,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
       id: 'products',
       label: 'محصولات',
       icon: ShoppingBag,
+    },
+    {
+      id: 'forecast',
+      label: 'پیش‌بینی',
+      icon: TrendingUp,
     },
     {
       id: 'chatbot',

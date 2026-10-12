@@ -1,0 +1,10 @@
+from pathlib import Path
+
+# این فایل: src/Back/database/paths.py
+# parents[0]=database  parents[1]=Back  parents[2]=src
+SRC_DIR = Path(__file__).resolve().parents[2]
+
+DATA_DIR = SRC_DIR / "data" / "dataset"
+
+COMMENTS_CSV = DATA_DIR / "digikala-comments.csv"
+PRODUCTS_CSV = DATA_DIR / "digikala-products.csv"

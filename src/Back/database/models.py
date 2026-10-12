@@ -1,5 +1,7 @@
 from sqlalchemy import Column, Integer, Float, Boolean, String, BigInteger, Index
 from database.conn import Base
+from sqlalchemy import DateTime, func
+from sqlalchemy.dialects.postgresql import JSONB
 
 class Comments(Base):
     __tablename__ = "comments"
@@ -47,3 +49,14 @@ class ProductComments(Base):
     created_at = Column(String)
     is_buyer = Column(Boolean)
     title_fa = Column(String)
+
+
+class ProductForecasts(Base):
+    __tablename__ = "product_forecasts"
+
+    product_id = Column(Integer, primary_key=True, autoincrement=False)
+    total_comments = Column(Integer, index=True)
+    mae = Column(Float)
+    baseline_mae = Column(Float)
+    computed_at = Column(DateTime, server_default=func.now())
+    payload = Column(JSONB)    

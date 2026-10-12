@@ -3,6 +3,7 @@ export type NavSection =
   | "comments"
   | "sellers"
   | "products"
+  | "forecast"
   | "chatbot";
 
 export type RecommendationStatus =
@@ -225,3 +226,70 @@ export interface ChatbotMessageResponse {
   response?: string;
   answer?: string;
 }
+
+export interface ForecastProductListItem {
+  id: string;
+  title_fa: string;
+  brand: string;
+  category1: string;
+  total_comments: number;
+  mae: number;
+  baseline_mae: number;
+}
+
+export interface ForecastProductsResponse {
+  products: ForecastProductListItem[];
+}
+
+export interface ForecastHistoryPoint {
+  ds: string;
+  year: number;
+  month: number;
+  y: number;
+}
+
+export interface ForecastBacktestPoint {
+  ds: string;
+  year: number;
+  month: number;
+  actual: number;
+  predicted: number;
+  lower: number;
+  upper: number;
+}
+
+export interface ForecastFuturePoint {
+  ds: string;
+  year: number;
+  month: number;
+  predicted: number;
+  lower: number;
+  upper: number;
+}
+
+export interface ForecastMetrics {
+  mae: number;
+  rmse: number;
+  baseline_mean_mae: number;
+}
+
+export interface ForecastEvent {
+  name: string;
+  coef: number;
+}
+
+export interface ProductForecastResponse {
+  product: {
+    id: string;
+    title_fa: string;
+    brand: string;
+    category1: string;
+  };
+  product_id: number | string;
+  history: ForecastHistoryPoint[];
+  backtest: ForecastBacktestPoint[];
+  forecast: ForecastFuturePoint[];
+  metrics: ForecastMetrics;
+  events: ForecastEvent[];
+}
+

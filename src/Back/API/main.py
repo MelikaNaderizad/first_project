@@ -11,6 +11,7 @@ from routers import comments
 from routers import products
 from routers import sellers
 from routers import chatbot
+from routers import forecast
 
 
 app = FastAPI(
@@ -32,6 +33,7 @@ app.include_router(comments.router)
 app.include_router(products.router)
 app.include_router(sellers.router)
 app.include_router(chatbot.router)
+app.include_router(forecast.router)
 
 
 @app.get("/")
@@ -40,3 +42,4 @@ def root():
         "status": "ok",
         "service": "digikala-dashboard-api"
     }
+

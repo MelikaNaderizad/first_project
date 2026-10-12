@@ -14,6 +14,7 @@ import { CommentsView } from "./components/comments/CommentsView";
 import { SellersView } from "./components/sellers/SellersView";
 import { ProductsView } from "./components/products/ProductsView";
 import { ChatbotComingSoonView } from "./components/chatbot/ChatbotComingSoonView";
+import { ForecastView } from "./components/forecast/ForecastView";
 import { AlertCircle, RefreshCw } from "lucide-react";
 
 type Cursor = string | number | null;
@@ -319,6 +320,8 @@ export default function App() {
         return "پایش عملکرد و کیفیت فروشندگان";
       case "products":
         return "تحلیل کاتالوگ و رضایت محصولات";
+      case "forecast":
+        return "پیش‌بینی روند نظرات محصول";
       case "chatbot":
         return "دستیار هوشمند تحلیلی AI";
       default:
@@ -420,6 +423,8 @@ export default function App() {
                   isLoading={isLoading}
                 />
               )}
+
+              {currentSection === "forecast" && <ForecastView />}
 
               {currentSection === "chatbot" && <ChatbotComingSoonView />}
             </>

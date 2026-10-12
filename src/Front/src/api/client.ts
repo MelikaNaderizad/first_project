@@ -10,6 +10,8 @@ import {
   ProductStatus,
   ChatbotStatusResponse,
   ChatbotMessageResponse,
+  ForecastProductsResponse,
+  ProductForecastResponse,
 } from "../types";
 
 /* =========================================================
@@ -941,5 +943,93 @@ export const apiClient = {
     }
 
     return await res.json();
+  },
+
+  async getForecastProducts(params: { search?: string; limit?: number } = {}): Promise<ForecastProductsResponse> {
+    const baseUrl = getBaseUrl();
+    const query = new URLSearchParams();
+    if (params.search) query.set('search', params.search);
+    if (params.limit !== undefined) query.set('limit', String(params.limit));
+    const qs = query.toString();
+    const url = `${baseUrl}/api/forecast/products${qs ? `?${qs}` : ''}`;
+
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error(`خطا در دریافت لیست محصولات پیش‌بینی (${res.status})`);
+    }
+    const json = await res.json();
+    const rawProducts = Array.isArray(json.products) ? json.products : [];
+    return {
+      products: rawProducts.map((p: any) => ({
+        id: String(p.id ?? ''),
+        title_fa: String(p.title_fa ?? ''),
+        brand: String(p.brand ?? ''),
+        category1: String(p.category1 ?? ''),
+        total_comments: Number(p.total_comments ?? 0),
+        mae: Number(p.mae ?? 0),
+        baseline_mae: Number(p.baseline_mae ?? 0),
+      })),
+    };
+  },
+
+  async getProductForecast(id: string | number): Promise<ProductForecastResponse> {
+    const baseUrl = getBaseUrl();
+    const res = await fetch(`${baseUrl}/api/forecast/products/${id}`);
+    if (res.status === 404) {
+      throw new Error('برای این محصول پیشبینی موجود نیست');
+    }
+    if (!res.ok) {
+      throw new Error(`خطا در دریافت پیش‌بینی محصول (${res.status})`);
+    }
+    const json = await res.json();
+    return {
+      product: {
+        id: String(json.product?.id ?? id),
+        title_fa: String(json.product?.title_fa ?? ''),
+        brand: String(json.product?.brand ?? ''),
+        category1: String(json.product?.category1 ?? ''),
+      },
+      product_id: json.product_id !== undefined ? json.product_id : id,
+      history: Array.isArray(json.history)
+        ? json.history.map((h: any) => ({
+            ds: String(h.ds ?? ''),
+            year: Number(h.year ?? 0),
+            month: Number(h.month ?? 0),
+            y: Number(h.y ?? 0),
+          }))
+        : [],
+      backtest: Array.isArray(json.backtest)
+        ? json.backtest.map((b: any) => ({
+            ds: String(b.ds ?? ''),
+            year: Number(b.year ?? 0),
+            month: Number(b.month ?? 0),
+            actual: Number(b.actual ?? 0),
+            predicted: Number(b.predicted ?? 0),
+            lower: Number(b.lower ?? 0),
+            upper: Number(b.upper ?? 0),
+          }))
+        : [],
+      forecast: Array.isArray(json.forecast)
+        ? json.forecast.map((f: any) => ({
+            ds: String(f.ds ?? ''),
+            year: Number(f.year ?? 0),
+            month: Number(f.month ?? 0),
+            predicted: Number(f.predicted ?? 0),
+            lower: Number(f.lower ?? 0),
+            upper: Number(f.upper ?? 0),
+          }))
+        : [],
+      metrics: {
+        mae: Number(json.metrics?.mae ?? 0),
+        rmse: Number(json.metrics?.rmse ?? 0),
+        baseline_mean_mae: Number(json.metrics?.baseline_mean_mae ?? 0),
+      },
+      events: Array.isArray(json.events)
+        ? json.events.map((e: any) => ({
+            name: String(e.name ?? ''),
+            coef: Number(e.coef ?? 0),
+          }))
+        : [],
+    };
   },
 };
